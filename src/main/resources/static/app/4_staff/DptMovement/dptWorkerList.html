@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+	作者：offline
+	时间：2017-08-27
+	描述：部门调动主页面
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../../static/4_staff/DptMovement/dptWorkerList.css" />
+		<link rel="stylesheet" href="../../../static/common/css/common.css" />
+		<script type="text/javascript" src="../../../model/angular.min.js"></script>
+		
+	</head >
+	<body ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../../PublicModules/top.html'"></div>
+		<div ng-include="'../../PublicModules/left.html'"></div>
+		
+		<span>部门调转页面</span>
+		<button type="submit" ><a href="">已调动部门员工信息查询</a></button>
+		<form class="form-inline">
+				<div class="form-group">
+					<label for="dptWorkerNumber">员工编号</label>
+					<input type="text" class="form-control" id="dptWorkerNumber" name="dptWorkerNumber">
+				</div>
+				<div class="form-group">
+					<label for="dptWorkerName">员工姓名</label>
+					<input type="text" class="form-control" id="dptWorkername" name="dptWorkername">
+				</div>
+				<div class="form-group">
+					<label for="dptName">部门名称</label>
+					<input type="text" class="form-control" id="dptName" name="dptName">
+				</div>
+				<div class="form-group">
+					<label for="dptNumber">部门编号</label>
+					<input type="number" class="form-control" id="dptNumber" name="dptNumber">
+				</div>
+				
+				<button type="submit" class="btn btn-default">查询</button>
+				<a href="addpost.html"><button type="submit" class="btn btn-default">新增</button></a>
+			</form>
+			
+			
+		<section>
+
+			<table class="table table-striped">
+				<thead>
+					<th>员工编号</th>
+					<th>员工姓名</th>
+					<th>部门名称</th>
+					<th>部门编号</th>
+					<th>操作</th>
+					
+				</thead>
+				<tbody>
+					<tr>
+						<td>001</td>
+						<td>开发</td>
+						<td>技术部</td>
+						<td>500</td>
+						<td><button type="submit" class="btn btn-default">详情</button>
+							<button type="submit" class="btn btn-warning">修改</button>
+							
+						</td>
+					</tr>
+					<tr>
+						<td>002</td>
+						<td>销售</td>
+						<td>市场部</td>
+						<td>500</td>
+						<td><button type="submit" class="btn btn-default">详情</button>
+							<button type="submit" class="btn btn-warning">修改</button>
+						</td>
+					</tr>
+					<tr>
+						<td>003</td>
+						<td>会计</td>
+						<td>人事部</td>
+						<td>500</td>
+						<td><button type="submit" class="btn btn-default">详情</button>
+							<button type="submit" class="btn btn-warning">修改</button>
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+			<div>
+				<span><a href="">首页</a></span>&nbsp;&nbsp;&nbsp;<span><select id="peges" name="peges">
+					<option value="1">1</option>
+				</select></span>&nbsp;&nbsp;&nbsp;<span><a href="">尾页</a></span>
+			</div>
+		</section>
+	
+		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		
+		<script>
+			//公共模块
+			//模型绑定
+			var app = angular.module('MyApp', []);
+			//添加控制
+			app.controller('person',function ($scope) {		
+				$scope.toggle=function  () {
+					$scope.mybq=!$scope.mybq;				
+				}
+				$scope.toggle1=function  () {
+					$scope.mybq1=!$scope.mybq1;
+				}
+				$scope.toggle2=function  () {
+					$scope.mybq2=!$scope.mybq2;
+				}
+				$scope.toggle4=function  () {
+					$scope.mybq4=!$scope.mybq4;
+				}
+			});	
+		</script>
+	</body>
+</html>

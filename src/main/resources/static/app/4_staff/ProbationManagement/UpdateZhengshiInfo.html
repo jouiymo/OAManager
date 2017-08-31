@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+	作者：offline
+	时间：2017-08-28
+	描述：已转正员工管理主页面上的“修改”页面
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../../static/4_staff/ProbationManagement/UpdateZhengshiInfo.css" />
+		<link rel="stylesheet" href="../../../static/common/css/common.css" />
+		<script type="text/javascript" src="../../../model/angular.min.js"></script>
+	</head>
+	<body ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../../PublicModules/top.html'"></div>
+		<div ng-include="'../../PublicModules/left.html'"></div>
+		
+		<span>正式员工信息修改</span>
+		<section>
+			<form>
+				<div class="form-group">
+					<label for="WorkerNumber">员工编号</label>
+					<input style="background: white;" type="text" class="form-control" value="001" 
+					id="WorkerNumber" name="WorkerNumber"	readonly />
+				</div>
+				<div class="form-group">
+					<label for="WorkerName">员工姓名</label>
+					<input style="background: white;" type="text" class="form-control" value="007" 
+					id="WorkerName" name="WorkerName"	readonly/>
+				</div>
+				<div class="form-group">
+					<label for="content">考核评语</label>
+					<input type="text" class="form-control" id="content" name="content" readonly/>
+				</div>
+				<div class="form-group">
+					<label for="result">考核结果</label>
+					<select id="result" class="form-control">
+						<option>转正</option>
+						<option>延期</option>
+						<option>不予录取</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="date">处理日期</label>
+					<input type="date" class="form-control" id="date" name="date" readonly/>
+				</div>
+				<div class="form-group">
+					<label for="remark">备注</label>
+					<input type="text" class="form-control" id="remark" name="remark" readonly/>
+				</div>
+			</form>
+			
+			<button type="submit" class="btn btn-default">保存</button>
+		</section>
+		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script>
+			//公共模块
+			//模型绑定
+			var app = angular.module('MyApp', []);
+			//添加控制
+			app.controller('person',function ($scope) {		
+				$scope.toggle=function  () {
+					$scope.mybq=!$scope.mybq;				
+				}
+				$scope.toggle1=function  () {
+					$scope.mybq1=!$scope.mybq1;
+				}
+				$scope.toggle2=function  () {
+					$scope.mybq2=!$scope.mybq2;
+				}
+				$scope.toggle4=function  () {
+					$scope.mybq4=!$scope.mybq4;
+				}
+			});	
+		</script>
+	
+	</body>
+</html>
+
+

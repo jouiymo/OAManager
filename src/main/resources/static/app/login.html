@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>登录 </title>
+		<link rel="stylesheet" href="../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<script type="text/javascript" src="../model/angular.min.js"></script>
+		<link rel="stylesheet" href="../static/login/css/login.css">
+	</head>
+	<body ng-app="myApp">
+		<section ng-controller="controll">
+				<h2 style="margin-left: 110px;">Login</h2>	
+			<form>
+				<input id="account" name="account" class="form-control" type="text" placeholder="请输入账号"><br />
+				
+				<input id="paswd" name="paswd" class="form-control" type="password" placeholder="请输入密码"><br />
+			
+				<input id="yam" name="yam" class="form-control" type="text" placeholder="请输入验证码"/><img ng-click="toyzm()"src="{{name}}"/><br />
+				
+				<input class="form-control" type="submit" value="登录" />
+			</form>
+			
+		</section>
+		
+		
+		<script type="text/javascript" src="../model/jquery-1.12.4.min.js" ></script>
+		<script type="text/javascript" src="../model/bootstrap-3.3.7-dist/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="../model/md5.js" ></script>
+		
+		
+			<script>
+			var i=1;
+			var app=angular.module('myApp',[]);
+			app.controller('controll',function($scope) {
+				$scope.name="../static/login/img/yzm1.png";	
+				$scope.toyzm=function() {
+					if(i%2==1){
+						$scope.name="../static/login/img/yzm2.png";	
+					}else{
+						$scope.name="../static/login/img/yzm3.png";	
+					}
+					i++;
+					
+				}
+			});
+			
+			$("#inputForm").submit(function() {
+			$.ajax({
+				type:"get",
+				url : "../model/GetUserType.json",
+				/*data:{
+				"account": account.value,
+				"paswd" : hex_md5(paswd.value)
+				},*/
+				dataType: "json",
+				"complete":function(XHR,TS){
+					if("success" != TS){
+						return alert("服务器么有正确响应");
+					}
+					var date = JSON.parse(XHR.responseText)
+					if (date.code == -1) {
+						alert(date.msg);
+					}else{				
+							window.location.href = "common.html";
+					}
+				}
+			});
+			return false;
+		})
+		</script>
+	</body>
+</html>

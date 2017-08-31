@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../static/5_tables/5_PersonnelReport.css" />
+		<link rel="stylesheet" href="../../static/common/css/common.css" />
+		<script type="text/javascript" src="../../model/angular.min.js"></script>
+	</head>
+	<body ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../PublicModules/top.html'"></div>
+		<div ng-include="'../PublicModules/left.html'"></div>
+		
+		<a href="">首页</a>><a href="">报表管理</a>><a href="">人事月报</a>
+		<section>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+					<th rowspan="2">部门名称</th>
+					
+					<th colspan="6">人数统计</th>
+					<th colspan="4">学历统计</th>
+					</tr>
+					<tr>
+						<td>月初人数</td><td>月末人数</td><td>本月新入职</td><td>本月离职</td><td>本月调入</td>
+						<td>本月调出</td><td>研究生</td><td>本科</td><td>大专</td><td>高中及以下</td>
+					</tr>
+				</thead>
+				
+				<tbody>
+					
+					<tr>
+						<td>部门1</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td>
+						<td>10</td><td>10</td><td>10</td><td>10</td><td>10</td>
+					</tr>
+				</tbody>
+				
+			</table>
+		</section>
+		
+		<script type="text/javascript" src="../../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+		//公共模块
+		//模型绑定
+		var app = angular.module('MyApp', []);
+		//添加控制
+		app.controller('person',function ($scope) {		
+			$scope.toggle=function  () {
+				$scope.mybq=!$scope.mybq;				
+			}
+			$scope.toggle1=function  () {
+				$scope.mybq1=!$scope.mybq1;
+			}
+			$scope.toggle2=function  () {
+				$scope.mybq2=!$scope.mybq2;
+			}
+			$scope.toggle4=function  () {
+				$scope.mybq4=!$scope.mybq4;
+			}
+		});	
+		</script>
+	</body>
+</html>

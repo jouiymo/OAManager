@@ -1,0 +1,23 @@
+section{
+	width: 1150px;
+	height: 620px;  
+	float: left;
+	 position:absolute;
+	 margin-left: 150px;
+}
+.clean{
+	width:400px;
+	height:620px;
+	float: right;
+	
+
+}
+
+.dispaly{
+	width: 800px;
+	height: 620px;
+	margin-left: 300px;
+}
+
+
+

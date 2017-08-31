@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--
+	作者：offline
+	时间：2017-08-28
+	描述：已转正员工管理主页面
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../../static/4_staff/ProbationManagement/ZhengshiManagement.css"/>
+		<link rel="stylesheet" href="../../../static/common/css/common.css" />
+		<script type="text/javascript" src="../../../model/angular.min.js"></script>
+		
+	</head>
+	<body  ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../../PublicModules/top.html'"></div>
+		<div ng-include="'../../PublicModules/left.html'"></div>
+		
+		<section>
+			<span>已转正员工管理</span>
+			<button  class="btn btn-default" id="headbutton" type="submit">
+				<a href="">试用期员工查询</a></button>
+			<form class="form-inline">
+				<div class="form-group">
+					<label for="WorkerNumber">员工编号</label>
+					<input type="number" class="form-control" id="WorkerNumber" name="WorkerNumber">
+				</div>
+				<div class="form-group">
+					<label for="WorkerName">员工姓名</label>
+					<input type="text" class="form-control" id="WorkerName" name="WorkerName"/>
+				</div>
+				<div class="form-group">
+					<label for="dptName">部门名称</label>
+					<input type="text" class="form-control" id="dptName" name="dptName"/>
+				</div>
+				<div class="form-group">
+					<label for="dptNumber">部门编号</label>
+					<input type="number" class="form-control" id="dptNumber" name="dptNumber"/>
+				</div>
+				<div class="form-group">
+					<label for="postName">岗位名称</label>
+					<input type="text" class="form-control" id="postName" name="postName"/>
+				</div>
+				
+				<div class="form-group">
+					<label for="beginDate">试用期开始日期</label>
+					<input type="date" class="form-control" id="beginDate" name="beginDate"/>
+				</div>
+				<div class="form-group">
+					<label for="endDate">试用期结束日期</label>
+					<input type="date" class="form-control" id="endDate" name="endDate"/>
+				</div>
+				<button type="submit" class="btn btn-default">查询</button>	
+			</form>
+			
+			<table class="table table-bordered">
+				<thead>
+					<th>员工编号</th>
+					<th>员工姓名</th>
+					<th>部门名称</th>
+					<th>岗位名称</th>
+					<th>部门类型</th>
+					<th>试用期状态</th>
+					<th>试用期开始日期</th>
+					<th>试用期结束日期</th>
+					<th>操作</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>001</td>
+						<td>周一</td>
+						<td>13541230002</td>
+						<td>0860002</td>
+						<td>部门</td>
+						<td>正常</td>
+						<td>2002</td>
+						<td>2002</td>
+						<td><button type="submit" class="btn btn-default">详情</button>
+							<button type="submit" class="btn btn-warning">修改</button>
+							
+						</td>
+					</tr>
+					<tr>
+						<td>001</td>
+						<td>周一</td>
+						<td>13541230003</td>
+						<td>0860003</td>
+						<td>部门</td>
+						<td>正常</td>
+						<td>2001</td>
+						<td>2002</td>
+						<td><button type="submit" class="btn btn-default">详情</button>
+							<button type="submit" class="btn btn-warning">修改</button>
+							
+						</td>
+					</tr>
+					<tr>
+						<td>001</td>
+						<td>周一</td>
+						<td>13541230001</td>
+						<td>0860001</td>
+						<td>部门</td>
+						<td>正常</td>
+						<td>2003</td>
+						<td>2002</td>
+						<td><button type="submit" class="btn btn-default">详情</button>
+							<button type="submit" class="btn btn-warning">修改</button>
+							
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+			<div>
+				<span><a href="">首页</a></span>&nbsp;&nbsp;&nbsp;<span><select id="peges" name="peges">
+					<option value="1">1</option>
+				</select></span>&nbsp;&nbsp;&nbsp;<span><a href="">尾页</a></span>
+				<button class="btn btn-warning">新增</button>
+			</div>
+			
+		</section>
+		
+		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script>
+			//公共模块
+			//模型绑定
+			var app = angular.module('MyApp', []);
+			//添加控制
+			app.controller('person',function ($scope) {		
+				$scope.toggle=function  () {
+					$scope.mybq=!$scope.mybq;				
+				}
+				$scope.toggle1=function  () {
+					$scope.mybq1=!$scope.mybq1;
+				}
+				$scope.toggle2=function  () {
+					$scope.mybq2=!$scope.mybq2;
+				}
+				$scope.toggle4=function  () {
+					$scope.mybq4=!$scope.mybq4;
+				}
+			});	
+		</script>
+	</body>
+</html>

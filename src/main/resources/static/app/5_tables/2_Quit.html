@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../static/5_tables/2_Quit.css" />
+		<link rel="stylesheet" href="../../static/common/css/common.css" />
+		<script type="text/javascript" src="../../model/angular.min.js"></script>
+	</head>
+	<body ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../PublicModules/top.html'"></div>
+		<div ng-include="'../PublicModules/left.html'"></div>
+		<a href="">首页</a>><a href="">报表管理</a>><a href="">离职员工报表</a>
+		<section>
+			<table class="table table-bordered">
+				<thead>
+					<th>序号</th>
+					<th>部门名称</th>
+					<th>岗位名称</th>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>离职日期</th>
+					<th>离职原因</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>001</td><td>市场部</td><td>市场经理</td><td>Bob</td>
+						<td>男</td><td>2017.8.21</td><td>主动辞职</td>
+					</tr>
+					<tr>
+						<td>001</td><td>市场部</td><td>市场经理</td><td>Bob</td>
+						<td>男</td><td>2017.8.21</td><td>主动辞职</td>
+					</tr>
+				</tbody>
+				
+			</table>
+		</section>
+		
+		<script type="text/javascript" src="../../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+		//公共模块
+		//模型绑定
+		var app = angular.module('MyApp', []);
+		//添加控制
+		app.controller('person',function ($scope) {		
+			$scope.toggle=function  () {
+				$scope.mybq=!$scope.mybq;				
+			}
+			$scope.toggle1=function  () {
+				$scope.mybq1=!$scope.mybq1;
+			}
+			$scope.toggle2=function  () {
+				$scope.mybq2=!$scope.mybq2;
+			}
+			$scope.toggle4=function  () {
+				$scope.mybq4=!$scope.mybq4;
+			}
+		});	
+		</script>
+	</body>
+</html>

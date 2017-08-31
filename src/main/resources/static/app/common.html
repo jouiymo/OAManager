@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>首页</title>
+		<link rel="stylesheet" href="../static/public/css/base.css" />
+		<link rel="stylesheet" href="../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../static/common/css/common.css" />
+		<script type="text/javascript" src="../model/angular.min.js"></script>
+	</head>
+
+	<body ng-app="myApp" ng-controller="person">
+
+		<header class="top">
+			<h3>人事管理系统</h3>
+			<div class="top_right">
+				<p>欢迎你:<span>Chiva</span>
+					<a href="javascript:void(0);">退出</a>
+				</p>
+			</div>
+		</header>
+
+		<aside class="left">
+			<ul>
+				<li>
+					<dl>
+						<dt> <a href="" ng-click="toggle4()">系统管理</a></dt>
+						<div ng-show="mybq4">
+						<dd>
+						<a href="">角色管理</a>
+						</dd>
+					</dl>
+				</li>
+				<li >
+					<dl>
+						<dt> <a href="" ng-click="toggle()">公司管理</a></dt>
+						<div ng-show="mybq">
+						<dd>
+							<a href="" ng-click="gwgl()">岗位管理</a>
+						</dd>
+						<dd>
+							<a href="">部门管理</a>
+						</dd>
+						</div>
+					</dl>
+				</li>
+				<li>
+					<dl><dt><a href="">人才库管理</a></dt></dl>
+				</li>
+				<li>
+					<dl>
+						<dt> <a href="" ng-click="toggle1()">员工管理</a></dt>
+						<div ng-show="mybq1">
+						<dd>
+							<a href="">员工信息中心</a>
+						</dd>
+						<dd>
+							<a href="">员工入职管理</a>
+						</dd>
+						<dd>
+							<a href="">试用期管理</a>
+						</dd>
+						<dd>
+							<a href="">部门调动管理</a>
+						</dd>
+						<dd>
+							<a href="">岗位调动管理</a>
+						</dd>
+						<dd>
+							<a href="">离职管理</a>
+						</dd>
+						</div>
+					</dl>
+					
+				</li>
+				<li>
+					<dl>
+						<dt> <a href="" ng-click="toggle2()">报表管理</a></dt>
+						<div ng-show="mybq2">
+						<dd>
+							<a href="">新聘员工报表</a>
+						</dd>
+						<dd>
+							<a href="">离职员工报表</a>
+						</dd>
+						<dd>
+							<a href="">部门调动员工报表</a>
+						</dd>
+						<dd>
+							<a href="">岗位调动员工报表</a>
+						</dd>
+						<dd>
+							<a href="">人事月报</a>
+						</dd>
+						</div>
+					</dl>
+				</li>
+
+			</ul>
+		</aside>
+		
+
+			
+		<script type="text/javascript" src="../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script>
+			//公共模块
+			//模型绑定
+			var app = angular.module('myApp', []);
+			//添加控制
+			app.controller('person',function ($scope) {
+				$scope.name="当前位置：首页";
+				$scope.toggle=function  () {
+					$scope.mybq=!$scope.mybq;
+					$scope.name="当前位置：首页->公司管理";
+					
+				}
+				$scope.toggle1=function  () {
+					$scope.mybq1=!$scope.mybq1;
+				}
+				$scope.toggle2=function  () {
+					$scope.mybq2=!$scope.mybq2;
+				}
+				$scope.toggle4=function  () {
+					$scope.mybq4=!$scope.mybq4;
+				}
+				
+			});	
+			
+			//公司管理模块	
+		</script>
+	</body>
+
+</html>

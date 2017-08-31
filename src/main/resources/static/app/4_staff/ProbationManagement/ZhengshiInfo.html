@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+	作者：offline
+	时间：2017-08-28
+	描述：已转正员工管理主页面上的“详情”页面
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../../static/4_staff/ProbationManagement/ZhengshiInfo.css" />
+		<link rel="stylesheet" href="../../../static/common/css/common.css" />
+		<script type="text/javascript" src="../../../model/angular.min.js"></script>
+		
+	</head>
+	<body ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../../PublicModules/top.html'"></div>
+		<div ng-include="'../../PublicModules/left.html'"></div>
+		<span>已转正员工详情</span>
+		
+		<section>
+		<table class="table table-bordered">
+			<tr>
+				<td>员工编号</td>
+				<td>001</td>
+			</tr>
+			<tr>
+				<td>员工姓名</td>
+				<td>007</td>
+			</tr>
+			<tr>
+				<td>考核评语</td>
+				<td>表现良好，给予转正</td>
+			</tr>
+			<tr>
+				<td>考核结果</td>
+				<td>转正</td>
+			</tr>
+			<tr>
+				<td>处理日期</td>
+				<td>2017.8.20</td>
+			</tr>
+			<tr>
+				<td>备注</td>
+				<td>表现良好，给予转正</td>
+			</tr>
+		</table>
+		<button type="submit" class="btn btn-default">返回</button>
+		</section>
+		
+		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script>
+			//公共模块
+			//模型绑定
+			var app = angular.module('MyApp', []);
+			//添加控制
+			app.controller('person',function ($scope) {		
+				$scope.toggle=function  () {
+					$scope.mybq=!$scope.mybq;				
+				}
+				$scope.toggle1=function  () {
+					$scope.mybq1=!$scope.mybq1;
+				}
+				$scope.toggle2=function  () {
+					$scope.mybq2=!$scope.mybq2;
+				}
+				$scope.toggle4=function  () {
+					$scope.mybq4=!$scope.mybq4;
+				}
+			});	
+		</script>
+	
+	</body>
+</html>

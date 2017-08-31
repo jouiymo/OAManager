@@ -1,0 +1,25 @@
+{
+    "data": {
+        "content": [{
+            "id": 1,
+            "name": "5",
+            "state": 1,
+            "type": 1,
+            "phone": 5,
+            "fax": "5",
+            "discribe": "5",
+            "supName": "5三大",
+            "startDay": 1503590400000
+        }],
+        "last": true,
+        "totalElements": 1,
+        "totalPages": 1,
+        "number": 0,
+        "size": 15,
+        "sort": null,
+        "numberOfElements": 1,
+        "first": true
+    },
+    "code": 0,
+    "msg": "查询部门列表成功"
+}

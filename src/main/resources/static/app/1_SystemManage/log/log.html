@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../../static/1_SystemManage/log/log.css" />
+		<link rel="stylesheet" href="../../../static/common/css/common.css" />
+		<script type="text/javascript" src="../../../model/angular.min.js"></script>
+		
+	</head>
+	<body ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../../PublicModules/top.html'"></div>
+		<div ng-include="'../../PublicModules/left.html'"></div>
+		
+		
+		
+		<section>
+			<h4><a>首页</a>><a>日志</a></h4>
+			<form class="form-inline">
+				<div class="form-group">
+					<label for="StartDate">开始时间</label>
+					<input type="date" class="form-control" id="StartDate" name="StartDate">
+				</div>
+				<div class="form-group">
+					<label for="EndDate">结束时间</label>
+					<input type="date" class="form-control" id="EndDate" name="EndDate">
+				</div>
+				<div class="form-group">
+					<label for="WorkerName">员工姓名</label>
+					<input type="text" class="form-control" id="WorkerName" name="WorkerName">
+				</div>
+				<div class="form-group">
+					<label for="WorkNumber">工号</label>
+					<input type="text" class="form-control" id="WorkNumber" name="WorkNumber">
+				</div>
+				<button type="submit" class="btn btn-default">查询</button>
+				
+			</form>
+			
+			<table class="table table-striped">
+				<thead>
+					<th>工号</th>
+					<th>姓名</th>
+					<th>日期</th>
+					<th>IP</th>
+					<th>操作</th>
+					
+				</thead>
+				<tbody>
+					<tr>
+						<td>001</td>
+						<td>李白</td>
+						<td>2017</td>
+						<td>192.168.22.11</td>
+						<td>入职</td>	
+					</tr>
+					<tr>
+						<td>001</td>
+						<td>杜甫</td>
+						<td>2017</td>
+						<td>192.168.22.11</td>
+						<td>入职</td>	
+					</tr>
+					<tr>
+						<td>001</td>
+						<td>杜牧</td>
+						<td>2017</td>
+						<td>192.168.22.11</td>
+						<td>入职</td>	
+					</tr>
+					
+				</tbody>
+			</table>
+			
+			<div>
+				<span><a href="">首页</a></span>&nbsp;&nbsp;&nbsp;<span><select id="peges" name="peges">
+					<option value="1">1</option>
+				</select></span>&nbsp;&nbsp;&nbsp;<span><a href="">尾页</a></span>
+			</div>
+			</section>
+		<script type="text/javascript" src="../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>	
+		<script>
+			//公共模块
+			//模型绑定
+			var app = angular.module('MyApp', []);
+			//添加控制
+			app.controller('person',function ($scope) {		
+				$scope.toggle=function  () {
+					$scope.mybq=!$scope.mybq;				
+				}
+				$scope.toggle1=function  () {
+					$scope.mybq1=!$scope.mybq1;
+				}
+				$scope.toggle2=function  () {
+					$scope.mybq2=!$scope.mybq2;
+				}
+				$scope.toggle4=function  () {
+					$scope.mybq4=!$scope.mybq4;
+				}
+			});	
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+.top {
+	background: gray;
+	height: 100px;
+}
+
+.top p {
+	margin-top: 30px;
+	color: white;
+}
+
+.top h3 {
+	float: left;
+	padding-top: 15px;
+	color: white;
+}
+
+.top .top_right {
+	float: right;
+	height: 100%;
+}
+.left{
+	float:left;
+	background: gainsboro;
+	width: 160px;
+	padding-left: 30px;
+	height: 600px;
+}
+
+

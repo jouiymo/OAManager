@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../../static/2_CompanyManage/UpdateDptInfo.css" />
+		<script type="text/javascript" src="../../../model/angular.min.js"></script>
+		<link rel="stylesheet" href="../../../static/common/css/common.css" />
+	</head>
+	<body ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../../PublicModules/top.html'"></div>
+		<div ng-include="'../../PublicModules/left.html'"></div>
+		
+		<section>
+			<form>
+				<div class="form-group">
+					<label>部门编号</label>
+					<input style="background: white;" type="text" class="form-control" value="001" readonly />
+				</div>
+				<div class="form-group">
+					<label>部门名称</label>
+					<input style="background: white;" type="text" class="form-control" value="007" />
+				</div>
+				<div class="form-group">
+					<label>部门类型</label>
+					<select id="ChangeSelect" class="form-control">
+						<option>管理</option>
+						<option>技术</option>
+						<option>营销</option>
+						<option>市场</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>部门编制</label>
+					<input style="background: white;" type="text" class="form-control" value="500" />
+				</div>
+			</form>
+			<button type="submit" class="btn btn-default">确认</button>
+		</section>
+		
+		
+		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+		//公共模块
+		//模型绑定
+		var app = angular.module('MyApp', []);
+		//添加控制
+		app.controller('person',function ($scope) {		
+			$scope.toggle=function  () {
+				$scope.mybq=!$scope.mybq;				
+			}
+			$scope.toggle1=function  () {
+				$scope.mybq1=!$scope.mybq1;
+			}
+			$scope.toggle2=function  () {
+				$scope.mybq2=!$scope.mybq2;
+			}
+			$scope.toggle4=function  () {
+				$scope.mybq4=!$scope.mybq4;
+			}
+		});	
+</script>
+	</body>
+</html>
+

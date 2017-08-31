@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../../static/4_staff/WorkInfoCenter/MoreInfoLanguage.css"/>
+		<link rel="stylesheet" href="../../../static/common/css/common.css" />
+		<script type="text/javascript" src="../../../model/angular.min.js"></script>
+	</head>
+	<body ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../../PublicModules/top.html'"></div>
+		<div ng-include="'../../PublicModules/left.html'"></div>
+		<p>外语能力</p>
+		<section>
+			<div class="form-group">
+				<label for="languages">外国语种</label>
+				<select class="form-control" id="languages">
+					<option>英语</option>
+					<option>法语</option>
+					<option>韩语</option>
+					<option>日语</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="ability">外国语种熟练程度</label>
+				<select class="form-control" id="ability">
+					<option>完全不懂</option>
+					<option>少量，不能进行业务沟通</option>
+					<option>有限的业务沟通</option>
+					<option>一般，业务沟通仍受少量限制</option>
+					<option>好， 无困难地进行谈判和讲演</option>
+					<option>流利，在商务中自如地运用</option>
+				</select>
+			</div>
+			
+			<div>
+				<button type="submit" class="btn btn-default">保存</button>
+			</div>
+		</section>
+		
+		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script>
+			//公共模块
+			//模型绑定
+			var app = angular.module('MyApp', []);
+			//添加控制
+			app.controller('person',function ($scope) {		
+				$scope.toggle=function  () {
+					$scope.mybq=!$scope.mybq;				
+				}
+				$scope.toggle1=function  () {
+					$scope.mybq1=!$scope.mybq1;
+				}
+				$scope.toggle2=function  () {
+					$scope.mybq2=!$scope.mybq2;
+				}
+				$scope.toggle4=function  () {
+					$scope.mybq4=!$scope.mybq4;
+				}
+			});	
+		</script>
+	</body>
+</html>
+

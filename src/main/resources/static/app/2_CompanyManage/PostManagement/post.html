@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<link rel="stylesheet" href="../../../static/public/css/base.css" />
+<link rel="stylesheet"
+	href="../../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+<script type="text/javascript" src="../../../model/angular.min.js"></script>
+<link rel="stylesheet" href="../../../static/common/css/common.css" />
+<link rel="stylesheet" href="../../../static/2_CompanyManage/post.css" />
+<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
+<script type="text/javascript"
+	src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="person">
+	<div ng-include="'../../PublicModules/top.html'"></div>
+	<div ng-include="'../../PublicModules/left.html'"></div>
+
+	<section class="postright">
+
+		<div class="form-inline" id="inputForm">
+			<div class="form-group">
+				<label for="id">岗位编号</label> <input type="text" class="form-control"
+					id="id" name="id">
+			</div>
+			<div class="form-group">
+				<label for="name">岗位名称</label> <input type="text"
+					class="form-control" id="fname" name="name">
+			</div>
+			<div class="form-group">
+				<label for="posttype">岗位类型</label> <input type="text"
+					class="form-control" id="posttype" name="posttype">
+			</div>
+			<button type="button" class="btn btn-default" onclick="chenke()">搜索</button>
+			<a href="addpost.html"><button type="button"
+					class="btn btn-default">新增岗位</button></a>
+		</div>
+
+		<table class="table table-striped">
+			<thead>
+				<th>岗位编号</th>
+				<th>岗位名称</th>
+				<th>岗位类型</th>
+				<th>岗位编制</th>
+				<th>操作</th>
+			</thead>
+			<tbody id="querylist">
+
+			</tbody>
+		</table>
+
+	</section>
+
+</body>
+<script type="text/javascript">
+	//公共模块
+	//模型绑定
+	var app = angular.module('MyApp', []);
+	//添加控制
+	app.controller('person', function($scope) {
+		$scope.toggle = function() {
+			$scope.mybq = !$scope.mybq;
+		}
+		$scope.toggle1 = function() {
+			$scope.mybq1 = !$scope.mybq1;
+		}
+		$scope.toggle2 = function() {
+			$scope.mybq2 = !$scope.mybq2;
+		}
+		$scope.toggle4 = function() {
+			$scope.mybq4 = !$scope.mybq4;
+		}
+	});
+	function chenke() {
+		var pType = $("#querylist");
+		pType.html("");
+		$
+				.ajax({
+					type : "get",
+					url : "http://localhost:8099/" + "findPost",
+					data : {
+						"id" : id.value,
+						"name" : name.value
+					},
+					dataType : "json",
+					"complete" : function(XHR, TS) {
+						if ("success" != TS) {
+							return alert("服务器么有正确响应");
+						}
+						var dates = JSON.parse(XHR.responseText)
+						if (dates.code == -1) {
+							alert(dates.msg);
+						} else {
+							var arr = dates.data.content;
+							for (var i = 0; i < arr.length; i++) {
+								pType
+										.append("<tr><td>"
+												+ arr[i].id
+												+ "</td><td>"
+												+ arr[i].name
+												+ "</td><td>"
+												+ arr[i].type
+												+ "</td><td>"
+												+ arr[i].organization
+												+ "</td></td><td><button type='button' class='btn btn-default'>查看 </button><button type='button' class='btn btn-default' onclick='update("
+												+ arr[i].id
+												+ ")'>修改</button><button type='button' class='btn btn-default'>删除 </button></td></tr>");
+							}
+						}
+					}
+				});
+	}
+	//修改方法
+	function update(id) {
+		localStorage.removeItem('key');
+		localStorage.setItem("key", id);
+		location.href = "updatepost.html";
+	};
+</script>
+
+
+</html>

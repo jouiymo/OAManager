@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../../static/1_SystemManage/RoleManagement/AddRole.css" />
+		<link rel="stylesheet" href="../../../static/common/css/common.css" />
+		<script type="text/javascript" src="../../../model/angular.min.js"></script>
+	</head>
+	<body ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../../PublicModules/top.html'"></div>
+		<div ng-include="'../../PublicModules/left.html'"></div>
+		
+		
+		<h4><a>首页</a>><a>角色管理</a>><a>新增用户</a></h4>
+		<section>
+			<div class="form-group">
+				<label for="Username">角色名称</label>
+				<input type="text" class="form-control" id="Username" name="Username">
+			</div>
+			<div class="form-group">
+				<label for="result">是否有效</label>
+				<select class="form-control">
+					<option>是</option>
+					<option>否</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="power">角色权限</label>
+				<select class="form-control">
+					<option>入职</option>
+					<option>信息修改</option>
+					<option>试用</option>
+					<option>调转</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-warning" type="submit">保存</button>
+			</div>
+		</section>
+		
+		<script type="text/javascript" src="../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script>
+			//公共模块
+			//模型绑定
+			var app = angular.module('MyApp', []);
+			//添加控制
+			app.controller('person',function ($scope) {		
+				$scope.toggle=function  () {
+					$scope.mybq=!$scope.mybq;				
+				}
+				$scope.toggle1=function  () {
+					$scope.mybq1=!$scope.mybq1;
+				}
+				$scope.toggle2=function  () {
+					$scope.mybq2=!$scope.mybq2;
+				}
+				$scope.toggle4=function  () {
+					$scope.mybq4=!$scope.mybq4;
+				}
+			});	
+		</script>
+	</body>
+</html>

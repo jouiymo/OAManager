@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="../../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<script type="text/javascript" src="../../../model/angular.min.js"></script>
+		<link rel="stylesheet" href="../../../static/2_CompanyManage/dpt.css" />
+		<link rel="stylesheet" href="../../../static/common/css/common.css" />
+	</head>
+
+	<body ng-app="MyApp" ng-controller="person">
+		<div ng-include="'../../PublicModules/top.html'"></div>
+		<div ng-include="'../../PublicModules/left.html'"></div>
+		
+		<section class="dptRight">
+			<form class="form-inline" id="inputForm">
+				<div class="form-group">
+					<label for="dptnum">部门编号</label>
+					<input type="text" class="form-control" id="ids" name="id">
+				</div>
+				<div class="form-group">
+					<label for="dptname">部门名称</label>
+					<input type="text" class="form-control" id="fname" name="name">
+				</div>
+				<div class="form-group">
+					<label for="dpttype">部门类型</label>
+					<select name="type" id="type" class="form-control">
+						<option value="">请选择</option>
+						<option value="">市场部</option>
+						<option value="">人事部</option>
+					</select>
+				</div>
+				<button type="submit" class="btn btn-default" >查询</button>
+				<a href="adddpt.html"><button type="button" class="btn btn-default">新增部门</button></a>
+			</form>
+
+			<table class="table table-striped">
+				<thead>
+					<th>部门编号</th>
+					<th>部门名称</th>
+					<th>电话</th>
+					<th>传真</th>
+					<th>部门类型</th>
+					<th>上级部门</th>
+					<th>成立日期</th>
+					<th>操作</th>
+				</thead>
+				<tbody id="querylist">
+					
+				</tbody>
+				
+			</table>
+			<div>
+			<span><a href="">首页</a></span>&nbsp;&nbsp;&nbsp;<span><select id="peges" name="peges">
+				<option value="1">1</option>
+			</select></span>&nbsp;&nbsp;&nbsp;<span><a href="">尾页</a></span>
+		</div>
+		</section>
+		
+		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script>
+		function fmtDate(obj){
+		    var date =  new Date(obj);
+		    var y = 1900+date.getYear();
+		    var m = "0"+(date.getMonth()+1);
+		    var d = "0"+date.getDate();
+		    return y+"-"+m.substring(m.length-2,m.length)+"-"+d.substring(d.length-2,d.length);
+		}
+			$("#inputForm").submit(function() {
+				var pType = $("#querylist");
+				pType.html("");	
+				$.ajax({
+					type: "get",
+					url: "http://localhost:8099/" + "findDept",
+					data: {
+					"name": fname.value,
+					"id": ids.value,
+					"type": type.value
+				},
+					dataType: "json",
+					"complete": function(XHR, TS) {
+						if("success" != TS) {
+							return alert("服务器么有正确响应");
+						}
+						var dates = JSON.parse(XHR.responseText)
+						if(dates.code == -1) {
+							alert(dates.msg);
+						} else {
+							var arr = dates.data.content;
+							for(var i = 0; i < arr.length; i++) {
+								pType.append("<tr><td >" + arr[i].id +
+									"</td><td>" + arr[i].name +
+									"</td><td>" + arr[i].phone +
+									"</td><td>" + arr[i].fax +
+									"</td><td>" + arr[i].type +
+									"</td><td>" + arr[i].supName +
+									"</td><td>" + fmtDate(arr[i].startDay) +
+									"</td><td><button type='button' class='btn btn-default' onclick='update(" + arr[i].id +
+									")'>修改 </button><button type='button' class='btn btn-default' onclick='delect(" + arr[i].id +
+									") '>删除</button><button type='button' class='btn btn-default' onclick='ckyg(" + arr[i].id +
+									")'>查看员工 </button></td></tr>");
+							}
+						}
+					}
+				});
+				return false;
+			});
+			//修改方法
+			function update(id) {
+				localStorage.removeItem('key');
+				localStorage.setItem("key", id);
+				location.href = "upddpt.html";		
+			};
+			//删除方法
+			function delect(id) {
+				$.ajax({
+				type:"post",
+				url : "",
+				data:{
+				"id": id
+				},
+				dataType: "json",
+				"complete":function(XHR,TS){
+					if("success" != TS){
+						return alert("服务器么有正确响应");
+					}
+					var date = JSON.parse(XHR.responseText)
+					if (date.code == -1) {
+						alert(date.msg);
+					}else{
+						
+					}
+				}
+			});
+			};
+		
+			function ckyg(id) {
+				localStorage.removeItem('key');
+				localStorage.setItem("key", id);
+			};
+			
+			//公共模块
+			//模型绑定
+			var app = angular.module('MyApp', []);
+			//添加控制
+			app.controller('person',function ($scope) {		
+				$scope.toggle=function  () {
+					$scope.mybq=!$scope.mybq;				
+				}
+				$scope.toggle1=function  () {
+					$scope.mybq1=!$scope.mybq1;
+				}
+				$scope.toggle2=function  () {
+					$scope.mybq2=!$scope.mybq2;
+				}
+				$scope.toggle4=function  () {
+					$scope.mybq4=!$scope.mybq4;
+				}
+			});	
+		</script>
+	</body>
+
+</html>
