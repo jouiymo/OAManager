@@ -1,5 +1,7 @@
 package com.neusoft.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,7 +16,7 @@ public class Role {
 	@GeneratedValue
 	private Integer id;
 	private String name;
-	private Integer[] PrivilegeId;// 权限id
+	private List<Integer> PrivilegeId;// 权限id
 	private Integer state;// 是否有效
 
 	public Integer getId() {
@@ -33,11 +35,11 @@ public class Role {
 		this.name = name;
 	}
 
-	public Integer[] getPrivilegeId() {
+	public List<Integer> getPrivilegeId() {
 		return PrivilegeId;
 	}
 
-	public void setPrivilegeId(Integer[] privilegeId) {
+	public void setPrivilegeId(List<Integer> privilegeId) {
 		PrivilegeId = privilegeId;
 	}
 

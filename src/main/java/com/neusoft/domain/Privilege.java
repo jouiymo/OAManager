@@ -1,5 +1,7 @@
 package com.neusoft.domain;
 
+import java.util.List;
+
 import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +17,8 @@ public class Privilege {
 	@GeneratedValue
 	private Integer id;
 	private String name;
-	private Integer state;
+	
+	private List<String> path;
 
 	public Integer getId() {
 		return id;
@@ -33,12 +36,14 @@ public class Privilege {
 		this.name = name;
 	}
 
-	public Integer getState() {
-		return state;
+	public List<String> getPath() {
+		return path;
 	}
 
-	public void setState(Integer state) {
-		this.state = state;
+	public void setPath(List<String> path) {
+		this.path = path;
 	}
+
+	
 
 }

@@ -1,6 +1,7 @@
 package com.neusoft.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ public class User {
 	private Integer id;
 	private Integer eid;
 	private String ename;
-	private Integer[] rid;// 角色id
+	private Integer rid;// 角色id
 	private String name;// 用户姓名//账号
 	private String password;// 密码
 	private Date regDay;// 注册时间
@@ -48,11 +49,11 @@ public class User {
 		this.ename = ename;
 	}
 
-	public Integer[] getRid() {
+	public Integer getRid() {
 		return rid;
 	}
 
-	public void setRid(Integer[] rid) {
+	public void setRid(Integer rid) {
 		this.rid = rid;
 	}
 

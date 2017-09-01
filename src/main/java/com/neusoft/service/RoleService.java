@@ -23,4 +23,7 @@ public interface RoleService {
 
 	// 查询角色列表
 	public List<Role> findAll() throws MyException;
+
+	// 通过角色Id查询角色
+	public Role findByRoleId(Integer roleId) throws MyException;
 }

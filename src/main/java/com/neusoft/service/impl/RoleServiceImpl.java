@@ -54,4 +54,10 @@ public class RoleServiceImpl implements RoleService {
 		
 	}
 
+	@Override
+	public Role findByRoleId(Integer roleId) throws MyException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
