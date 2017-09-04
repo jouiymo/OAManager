@@ -1,4 +1,4 @@
-package com.neusoft.checkuser;
+package com.neusoft.other;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,13 +32,7 @@ import com.neusoft.util.ResJsonUtil;
 @Aspect
 @Component
 public class ControllerAOP {
-	@Autowired
-	public static HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-			.getRequest();
-	public static org.springframework.session.Session session3;
-	public static HttpSession session2 = request.getSession();
-	@Autowired
-	public static Session session;
+
 	@Autowired
 	private RoleService rs;
 	@Autowired
@@ -50,18 +44,28 @@ public class ControllerAOP {
 
 	@Before("aceptMethod()")
 	public ResJson doCheckLogin() throws MyException {
+
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+				.getRequest();
+
+		HttpSession session = request.getSession();
 		// 用户没有登录，前台接收此错误请直接跳转到登录界面
-		if (session2 == null) {
+		if (session == null) {
 			return ResJsonUtil.error(99, "用户未登录");
 		}
+
+		String username = (String) session.getAttribute("username");
 		// 用户登录出错，前台接收此错误请直接跳转到登录界面
-		String username = (String) session2.getAttribute("username");
 		if (username == null || username == "") {
 			return ResJsonUtil.error(98, "用户登录失败");
 		}
 
-		Integer roleId = (Integer) session2.getAttribute("rid");
-		String path = (String) session2.getAttribute("path");
+		Integer roleId = (Integer) session.getAttribute("rid");
+		String path = (String) session.getAttribute("path");
+		// 用户的登录信息没有保存在session，前台接收此错误请跳转到登录界面
+		if (null == path || "" == path) {
+			return ResJsonUtil.error(97, "获取用户信息失败");
+		}
 		Role role = new Role();
 		role.setId(roleId);
 		Role frole = rs.findByRoleId(roleId);
@@ -70,13 +74,24 @@ public class ControllerAOP {
 		for (int i = 0; i < pId.size(); i++) {
 			privileges.add(ps.findByPId(pId.get(i)));
 		}
+
+		// 用户没有权限访问，前台接收此错误请直接跳转到无权访问页面
 		if (privileges.size() == 0) {
 			return ResJsonUtil.error(97, "该用户无权访问");
 
 		}
-
+		Boolean flag = false;
 		for (int i = 0; i < privileges.size(); i++) {
-			privileges.get(i).getPath();
+			for (int j = 0; j < privileges.get(i).getPath().size(); j++) {
+				if (path == privileges.get(i).getPath().get(j)) {
+					flag = true;
+				}
+			}
+
+		}
+		if (flag == false) {
+			// 用户没有权限访问，前台接收此错误请直接跳转到无权访问页面
+			return ResJsonUtil.error(97, "该用户无权访问");
 		}
 
 		return null;

@@ -60,11 +60,10 @@
 		</dependency>
 
 		<!-- Spring Session支持 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session</artifactId>
-			<version>1.3.0.RELEASE</version>
-		</dependency>
+		</dependency> -->
 
 
 	</dependencies>

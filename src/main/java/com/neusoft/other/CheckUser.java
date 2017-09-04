@@ -1,4 +1,4 @@
-package com.neusoft.checkuser;
+package com.neusoft.other;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,13 +21,14 @@ public class CheckUser {
 
 	@Autowired
 	private UserService us;
-	public static HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-			.getRequest();
+	
+	
 	
 	//用户登录并保存登录状态到session
 	@GetMapping(value = "/login")
 	public ResJson<User> login(@ModelAttribute User user) throws MyException {
-
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+				.getRequest();
 		User user2 = us.login(user);
 		HttpSession session = request.getSession();
 		session.setAttribute("username", user2.getName());
