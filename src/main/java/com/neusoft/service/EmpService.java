@@ -17,7 +17,6 @@ import com.neusoft.exception.MyException;
  *
  */
 public interface EmpService {
-	
 
 	// 新增员工信息
 	public EmployeeInfo add(EmployeeInfo employee) throws MyException;
@@ -32,10 +31,10 @@ public interface EmpService {
 	public List<EmployeeInfo> findEmpByEmpName(String userName) throws MyException;
 
 	// 通过部门名称查询员工列表
-	public Page<EmployeeInfo> findEmpByDeptName(String deptName,Pageable pageable) throws MyException;
+	public Page<EmployeeInfo> findEmpByDeptName(String deptName, Pageable pageable) throws MyException;
 
 	// 通过岗位名称查询员工列表
-	public Page<EmployeeInfo> findEmpByPostName(String postName,Pageable pageable) throws MyException;
+	public Page<EmployeeInfo> findEmpByPostName(String postName, Pageable pageable) throws MyException;
 
 	// 通过员工部门调转方式查询员工列表
 	public List<EmployeeInfo> findEmpByDeptType(Integer deptType) throws MyException;
@@ -53,7 +52,7 @@ public interface EmpService {
 	public List<EmployeeInfo> findEmpByPostId(Integer postId) throws MyException;
 
 	// 通过部门编号查询员工列表
-	public Page<EmployeeInfo> findEmpByDeptId(Integer deptId,Pageable pageable) throws MyException;
+	public Page<EmployeeInfo> findEmpByDeptId(Integer deptId, Pageable pageable) throws MyException;
 
 	// 通过部门调转的开始日期到结束日期查询员工列表
 	public List<EmployeeInfo> findEmpByDeptTransDay(Date beginDay, Date finalDay) throws MyException;

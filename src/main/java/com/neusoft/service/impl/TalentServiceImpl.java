@@ -64,4 +64,9 @@ public class TalentServiceImpl implements TalentService {
 		return page;
 	}
 
+	@Override
+	public void del(TalentInfo talentInfo) throws MyException {
+		// TODO Auto-generated method stub
+	}
+
 }

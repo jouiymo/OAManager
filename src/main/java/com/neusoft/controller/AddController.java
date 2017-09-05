@@ -24,6 +24,7 @@ import com.neusoft.domain.ProbationInformation;
 import com.neusoft.domain.Quit;
 import com.neusoft.domain.ResJson;
 import com.neusoft.domain.Role;
+import com.neusoft.domain.TalentInfo;
 import com.neusoft.domain.User;
 import com.neusoft.exception.MyException;
 import com.neusoft.service.*;
@@ -64,7 +65,23 @@ public class AddController {
 	private PostTransInfoService ptis;
 	@Autowired
 	private ProbaInfoService pis;
+	@Autowired
+	private TalentService ts;
+	
+	// 人才库信息录入
+		@PostMapping(value = "/addTalent")
+	public ResJson<TalentInfo> addTalent(@Valid @ModelAttribute TalentInfo talentInfo, BindingResult bResult)
+				throws MyException {
 
+			if (bResult.hasErrors()) {
+
+				 throw new MyException(10, "参数不正确");
+			}
+
+			ts.add(talentInfo);
+			return ResJsonUtil.success("添加人才库信息成功");
+
+		}
 	// 员工基本信息录入
 	@PostMapping(value = "/addEmp")
 	public ResJson<EmployeeInfo> addEmp(@Valid @ModelAttribute EmployeeInfo emp, BindingResult bResult)

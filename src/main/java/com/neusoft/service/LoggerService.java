@@ -1,5 +1,7 @@
 package com.neusoft.service;
 
+import com.neusoft.domain.MyLogger;
+
 /**
  * 日志service
  * 
@@ -7,5 +9,7 @@ package com.neusoft.service;
  *
  */
 public interface LoggerService {
-
+	
+	public MyLogger find();
+	
 }

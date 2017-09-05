@@ -22,6 +22,7 @@ import com.neusoft.domain.ProbationInformation;
 import com.neusoft.domain.Quit;
 import com.neusoft.domain.ResJson;
 import com.neusoft.domain.Role;
+import com.neusoft.domain.TalentInfo;
 import com.neusoft.domain.User;
 import com.neusoft.exception.MyException;
 import com.neusoft.service.*;
@@ -60,7 +61,21 @@ public class AlterController {
 	private PostTransInfoService ptis;
 	@Autowired
 	private ProbaInfoService pis;
+	@Autowired
+	private TalentService ts;
+	
+	
+	// 人才库信息修改
+	@PostMapping(value = "/alterTalent")
+	public ResJson<TalentInfo> alterTalent(@Valid @ModelAttribute TalentInfo talentInfo, BindingResult bResult)
+			throws MyException {
+		if (bResult.hasErrors()) {
+			throw new MyException(10, "参数不正确");
+		}
+		ts.alter(talentInfo);
+		return ResJsonUtil.success("修改人才库信息成功");
 
+	}
 	// 员工基本信息修改
 	@PostMapping(value = "/alterEmp")
 	public ResJson<EmployeeInfo> alterEmp(@Valid @ModelAttribute EmployeeInfo emp, BindingResult bResult)

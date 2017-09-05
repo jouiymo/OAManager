@@ -21,10 +21,8 @@ public class CheckUser {
 
 	@Autowired
 	private UserService us;
-	
-	
-	
-	//用户登录并保存登录状态到session
+
+	// 用户登录并保存登录状态到session
 	@GetMapping(value = "/login")
 	public ResJson<User> login(@ModelAttribute User user) throws MyException {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
@@ -37,6 +35,28 @@ public class CheckUser {
 
 		return ResJsonUtil.success(user2, "登录成功");
 
+	}
+	
+	//退出登录并清除session
+	@GetMapping(value = "/logout")
+	public ResJson<User> logout() {
+		
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+				.getRequest();
+		
+		HttpSession session = request.getSession();
+		
+		if (session==null) {
+			return ResJsonUtil.success(null, "用户未登录");
+		}else {
+			session.removeAttribute("username");
+			session.removeAttribute("rid");
+			session.removeAttribute("path");
+			return ResJsonUtil.success(null, "退出登录成功");
+		}
+		
+		
+		
 	}
 
 }

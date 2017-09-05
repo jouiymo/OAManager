@@ -19,8 +19,10 @@ import com.neusoft.domain.Exam;
 import com.neusoft.domain.FamilyInfo;
 import com.neusoft.domain.ForeignLanguages;
 import com.neusoft.domain.Post;
+import com.neusoft.domain.Privilege;
 import com.neusoft.domain.ResJson;
 import com.neusoft.domain.Role;
+import com.neusoft.domain.TalentInfo;
 import com.neusoft.domain.User;
 import com.neusoft.exception.MyException;
 import com.neusoft.service.DeptService;
@@ -29,7 +31,9 @@ import com.neusoft.service.EmpFamilyInfoService;
 import com.neusoft.service.EmpLanguagesInfoService;
 import com.neusoft.service.EmpService;
 import com.neusoft.service.PostService;
+import com.neusoft.service.PrivilegeService;
 import com.neusoft.service.RoleService;
+import com.neusoft.service.TalentService;
 import com.neusoft.service.UserService;
 import com.neusoft.util.ResJsonUtil;
 
@@ -58,6 +62,31 @@ public class FindController {
 	private EmpFamilyInfoService efif;
 	@Autowired
 	private EmpLanguagesInfoService elif;
+	@Autowired
+	private TalentService ts;
+	@Autowired
+	private PrivilegeService prs;
+
+	// 查询权限表
+	@GetMapping(value = "/findPrivilege")
+	public ResJson<Privilege> findPrivilege() throws MyException {
+
+		List<Privilege> list = prs.findAll();
+		return ResJsonUtil.success(list, "查询权限表成功");
+
+	}
+
+	// 通过构建不完整的人才库信息查询人才库列表
+	@GetMapping(value = "/findTalent")
+	public ResJson<TalentInfo> findTalent(@ModelAttribute TalentInfo talentInfo,
+			@RequestParam(value = "page", defaultValue = "0") Integer page,
+			@RequestParam(value = "size", defaultValue = "15") Integer size) throws MyException {
+
+		Pageable pageable = new PageRequest(page, size);
+		Page<TalentInfo> pages = ts.findTalentInfoByTalentInfo(talentInfo, pageable);
+		return ResJsonUtil.success(pages, "查询人才库列表成功");
+
+	}
 
 	// 通过构建不完整的用户查询用户列表
 	@GetMapping(value = "/findUser")

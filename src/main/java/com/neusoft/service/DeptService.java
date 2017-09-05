@@ -16,7 +16,7 @@ import com.neusoft.exception.MyException;
  */
 public interface DeptService {
 	// 新增部门
-	public Dept add(Dept dept) throws MyException ;
+	public Dept add(Dept dept) throws MyException;
 
 	// 修改部门
 	public Dept alter(Dept dept) throws MyException;
@@ -25,7 +25,7 @@ public interface DeptService {
 	public Dept del(Dept dept) throws MyException;
 
 	// 通过部门编号查询部门列表
-	public List<Dept> findDeptByDeptId(Integer id) throws MyException ;
+	public List<Dept> findDeptByDeptId(Integer id) throws MyException;
 
 	// 通过部门名称查询部门列表
 	public List<Dept> findDeptByDeptName(String name) throws MyException;
@@ -34,6 +34,6 @@ public interface DeptService {
 	public List<Dept> findDeptByDeptType(Integer type) throws MyException;
 
 	// 通过构建不完整的部门查询部门列表
-	public Page<Dept> findDeptByDept(Dept dept,Pageable pageable) throws MyException;
+	public Page<Dept> findDeptByDept(Dept dept, Pageable pageable) throws MyException;
 
 }

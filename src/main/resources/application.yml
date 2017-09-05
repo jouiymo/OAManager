@@ -12,3 +12,5 @@ spring:
     show-sql: true
 server:
   port: 8099
+logging:
+  config: classpath:logback-boot.xml

@@ -22,6 +22,9 @@ public interface TalentService {
 	// 修改人才信息
 	public TalentInfo alter(TalentInfo talentInfo) throws MyException;
 
+	// 删除人才信息
+	public void del(TalentInfo talentInfo) throws MyException;
+
 	// 通过姓名查询人才信息列表
 	public List<TalentInfo> findTalentInfoByName(String name) throws MyException;
 
