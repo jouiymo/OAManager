@@ -11,6 +11,7 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ServerProperties.Session;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -31,6 +32,7 @@ import com.neusoft.util.ResJsonUtil;
  */
 @Aspect
 @Component
+@Order(1)
 public class ControllerAOP {
 
 	@Autowired
@@ -39,10 +41,10 @@ public class ControllerAOP {
 	private PrivilegeService ps;
 
 	@Pointcut("execution(* com.neusoft.controller.*.**(..))")
-	public void aceptMethod() {
+	public void contronllerPc() {
 	}
 
-	@Before("aceptMethod()")
+	@Before("contronllerPc()")
 	public ResJson doCheckLogin() throws MyException {
 
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
@@ -97,6 +99,5 @@ public class ControllerAOP {
 		return null;
 
 	}
-	
-	
+
 }

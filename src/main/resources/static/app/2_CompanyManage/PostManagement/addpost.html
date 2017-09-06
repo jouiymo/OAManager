@@ -42,7 +42,7 @@
 				<div id="postBlanks" class="form-group">
 					<label for="postnum" class="col-sm-2 control-label">岗位编制</label>
 					<div class="col-sm-3">
-						<input type="number" class="form-control" id="Organization" name=Organization>
+						<input type="number" class="form-control" id="organization" name="organization">
 					</div>
 				</div>
 				<div id="postBlanks" class="form-group">
@@ -85,7 +85,7 @@
 			data: {
 				"name": names.value,
 				"type": type.value,
-				"Organization": Organization.value
+				"organization": organization.value
 			},
 			dataType: "json",
 			"complete":function(XHR,TS){

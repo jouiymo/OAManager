@@ -1,6 +1,6 @@
 function AjaxUtil () {
-	this.BASE = "http://localhost:8099/";
-	this.MODEL = "get";
+	this.BASE = "http://localhost:8090/My12306Forrest/";
+	this.MODEL = "post";
 	this.sendRequest =function  (opt) {
 		$.ajax({
 			type:this.MODEL,

@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-	作者：offline
-	时间：2017-08-26
-	描述：“修改”页面
--->
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -12,7 +7,7 @@
 		<title></title>
 		<link rel="stylesheet" href="../../static/public/css/base.css" />
 		<link rel="stylesheet" href="../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../../static/3_TalentPool/css/NewTalent.css" />
+		<link rel="stylesheet" href="../../static/3_TalentPool/css/UpdateEnterInfo.css" />
 		<link rel="stylesheet" href="../../static/common/css/common.css" />
 		<script type="text/javascript" src="../../model/angular.min.js"></script>
 		
@@ -21,20 +16,16 @@
 		<div ng-include="'../PublicModules/top.html'"></div>
 		<div ng-include="'../PublicModules/left.html'"></div>
 		
-		<h4><a href="">首页</a>><a href="">人才库管理</a>><a href="">人才库入职</a></h4>
+		<h4><a href="">首页</a>><a href="">人才库管理</a>><a href="">修改</a></h4>
 		<section>
 			<form>
 				<div class="form-group">
-					<label for="workerId">员工号</label>
-					<input type="text" class="form-control" id="workerId" name="workerId"/>
-				</div>
-				<div class="form-group">
 					<label for="name">姓名</label>
-					<input type="text" class="form-control" id="name" name="name"/>
+					<input type="text" class="form-control" id="name" name="name" value="001"/>
 				</div>
 				<div class="form-group">
 					<label for="gender">性别</label>
-					<select class="form-control" id="gender">
+					<select class="form-control">
 						<option>男</option>
 						<option>女</option>
 						<option>保密</option>
@@ -42,11 +33,19 @@
 				</div>
 				<div class="form-group">
 					<label for="birthday">出生日期</label>
-					<input type="date" class="form-control" id="birthday" name="birthday"/>
+					<input type="date" class="form-control" id="birthday" name="birthday" value="2017.8.23"/>
 				</div>
 				<div class="form-group">
 					<label for="idcard">身份证号</label>
-					<input type="number" class="form-control" id="idcard" name="idcard"/>
+					<input type="number" class="form-control" id="idcard" name="idcard" value="132456"/>
+				</div>
+				<div class="form-group">
+					<label for="tel">联系电话</label>
+					<input type="number" class="form-control" id="tel" name="tel" value="13540004560"/>
+				</div>
+				<div class="form-group">
+					<label for="email">电子邮件</label>
+					<input type="email" class="form-control" id="email" name="email" value="132456789@qq.com"/>
 				</div>
 				<div class="form-group">
 					<label for="dpt">部门</label>
@@ -61,121 +60,34 @@
 					<input type="date" class="form-control" id="beginDate" name="beginDate"/>
 				</div>
 				<div class="form-group">
-					<label for="startDate">参加工作日期</label>
-					<input type="date" class="form-control" id="startDate" name="startDate"/>
-				</div>
-				<div class="form-group">
-					<label for="useType">用工形式</label>
-					<select class="form-control" id="useType">
+					<label for="">用工形式</label>
+					<select class="form-control">
 						<option>正式员工</option>
 						<option>临时员工</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="come">人员来源</label>
-					<select class="form-control" id="come">
+					<label for="comeform">人员来源</label>
+					<select class="form-control" id="worktype">
 						<option>校园招聘</option>
 						<option>社会招聘</option>
 						<option>其他</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="identity">政治面貌</label>
-					<select class="form-control" id="identity">
-						<option>党员</option>
-						<option>预备党员</option>
-						<option>团员</option>
-						<option>其他</option>
-					</select>
+					<label for="school">毕业院校</label>
+					<input type="text" class="form-control" id="school" name="school" value="北京大学"/>
 				</div>
 				<div class="form-group">
-					<label for="nation">民族</label>
-					<input type="text" class="form-control" id="nation" name="nation"/>
+					<label for="WorkInfo">职业生涯信息</label>
+					<textarea type="text" class="form-control" id="WorkInfo" name="WorkInfo"></textarea>
 				</div>
 				
-				<div class="form-group">
-					<label for="tel">联系电话</label>
-					<input type="number" class="form-control" id="tel" name="tel"/>
-				</div>
-				<div class="form-group">
-					<label for="email">电子邮件</label>
-					<input type="email" class="form-control" id="email" name="email"/>
-				</div>
-				<div class="form-group">
-					<label for="height">身高</label>
-					<input type="text" class="form-control" id="height" name="height"/>
-				</div>
-				<div class="form-group">
-					<label for="blood">血型</label>
-					<select class="form-control" id="blood">
-						<option>A型</option>
-						<option>B型</option>
-						<option>AB型</option>
-						<option>O型</option>
-						<option>其他血型</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="marriage">婚姻状况</label>
-					<select class="form-control" id="marriage">
-						<option>未婚</option>
-						<option>已婚</option>
-						<option>离婚</option>
-						<option>丧偶</option>
-						<option>其他</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="nativePlace">籍贯</label>
-					<input type="text" class="form-control" id="nativePlace" name="nativePlace"/>
-				</div>
-				<div class="form-group">
-					<label for="birthPlace">出生地</label>
-					<input type="text" class="form-control" id="birthPlace" name="birthPlace"/>
-				</div>
-				<div class="form-group">
-					<label for="housePlace">户口所在地</label>
-					<input type="text" class="form-control" id="housePlace" name="housePlace"/>
-				</div>
-				<div class="form-group">
-					<label for="experience">最高学历</label>
-					<select class="form-control" id="experience">
-						<option>高中及以下</option>
-						<option>大专</option>
-						<option>本科</option>
-						<option>研究生</option>
-						
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="position">最高学位</label>
-					<select class="form-control" id="position">
-						<option>无学位</option>
-						<option>学士</option>
-						<option>双学士</option>
-						<option>硕士</option>
-						<option>博士</option>
-						<option>硕士后</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="school">毕业院校</label>
-					<input type="text" class="form-control" id="school" name="school"/>
-				</div>
-				<div class="form-group">
-					<label for="major">所属专业</label>
-					<input type="text" class="form-control" id="major" name="major"/>
-				</div>
-				<div class="form-group">
-					<label for="graduated">毕业日期</label>
-					<input type="date" class="form-control" id="graduated" name="graduated"/>
-				</div>
 			</form>
-			
 			<div>
-				<button type="submit" class="btn btn-default">保存</button>
-				<button type="submit" class="btn btn-default">重置</button>
-			</div>
+			<button type="submit" class="btn btn-default">保存</button>
+			<button type="submit" class="btn btn-default">重置</button>
+		</div>
 		</section>
 		
 		
@@ -200,11 +112,7 @@
 				$scope.mybq4=!$scope.mybq4;
 			}
 		});	
-			
-		</script>
-	
 	</body>
 	
 </html>
-
 

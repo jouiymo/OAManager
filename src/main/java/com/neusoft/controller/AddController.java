@@ -1,5 +1,7 @@
 package com.neusoft.controller;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -77,22 +79,27 @@ public class AddController {
 
 				 throw new MyException(10, "参数不正确");
 			}
-
+			
 			ts.add(talentInfo);
 			return ResJsonUtil.success("添加人才库信息成功");
 
 		}
 	// 员工基本信息录入
 	@PostMapping(value = "/addEmp")
-	public ResJson<EmployeeInfo> addEmp(@Valid @ModelAttribute EmployeeInfo emp, BindingResult bResult)
+	public ResJson addEmp(@Valid @ModelAttribute EmployeeInfo emp, BindingResult bResult)
 			throws MyException {
 
 		if (bResult.hasErrors()) {
 
 			 throw new MyException(10, "参数不正确");
 		}
-
+		
 		es.add(emp);
+		//如果试用期状态不等于5（即有试用期的情况）必须添加试用期开始和结束时间
+		if (5!=emp.getProbationState()&&(emp.getProbationstart()==null||emp.getProbationend()==null)) {
+			return new ResJson(null,90,"员工有试用期，请添加试用期信息"); 
+		}
+		
 		return ResJsonUtil.success("添加新员工成功");
 
 	}

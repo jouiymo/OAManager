@@ -8,6 +8,7 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
+import org.springframework.stereotype.Service;
 
 import com.neusoft.domain.Dept;
 import com.neusoft.domain.TalentInfo;
@@ -15,6 +16,7 @@ import com.neusoft.exception.MyException;
 import com.neusoft.repository.TalentInfoRepository;
 import com.neusoft.service.TalentService;
 
+@Service
 public class TalentServiceImpl implements TalentService {
 	@Autowired
 	TalentInfoRepository talentInfoRepository;

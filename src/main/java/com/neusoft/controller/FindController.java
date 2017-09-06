@@ -18,6 +18,7 @@ import com.neusoft.domain.EmployeeInfo;
 import com.neusoft.domain.Exam;
 import com.neusoft.domain.FamilyInfo;
 import com.neusoft.domain.ForeignLanguages;
+import com.neusoft.domain.MyLogger;
 import com.neusoft.domain.Post;
 import com.neusoft.domain.Privilege;
 import com.neusoft.domain.ResJson;
@@ -30,6 +31,7 @@ import com.neusoft.service.EmpCareerInfoService;
 import com.neusoft.service.EmpFamilyInfoService;
 import com.neusoft.service.EmpLanguagesInfoService;
 import com.neusoft.service.EmpService;
+import com.neusoft.service.LoggerService;
 import com.neusoft.service.PostService;
 import com.neusoft.service.PrivilegeService;
 import com.neusoft.service.RoleService;
@@ -66,6 +68,8 @@ public class FindController {
 	private TalentService ts;
 	@Autowired
 	private PrivilegeService prs;
+	@Autowired
+	private LoggerService ls;
 
 	// 查询权限表
 	@GetMapping(value = "/findPrivilege")
@@ -223,6 +227,18 @@ public class FindController {
 
 		List<ForeignLanguages> list = elif.find(empId);
 		return ResJsonUtil.success(list, "查询员工外语能力信息成功");
+
+	}
+
+	// 日志查询
+	@GetMapping(value = "/findMylogger")
+	public ResJson<MyLogger> findMylogger(@ModelAttribute MyLogger myLogger,
+			@RequestParam(value = "page", defaultValue = "1") Integer page,
+			@RequestParam(value = "size", defaultValue = "15") Integer size) throws MyException {
+		Pageable pageable = new PageRequest(page, size);
+		Page<MyLogger> pages = ls.findByLog(myLogger, pageable);
+
+		return ResJsonUtil.success(pages, "查询日志列表成功");
 
 	}
 }

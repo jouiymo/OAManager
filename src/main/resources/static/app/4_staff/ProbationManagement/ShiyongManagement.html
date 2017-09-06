@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-	作者：offline
-	时间：2017-08-28
-	描述：试用期员工管理主页面
--->
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -27,28 +22,24 @@
 				<a href="">已转正员工查询</a></button>
 			<form class="form-inline">
 				<div class="form-group">
-					<label for="WorkerNumber">员工编号</label>
-					<input type="number" class="form-control" id="WorkerNumber" name="WorkerNumber">
+					<label for="dptnum">员工编号</label>
+					<input type="text" class="form-control" id="dptnum" >
 				</div>
 				<div class="form-group">
-					<label for="WorkerName">员工姓名</label>
-					<input type="text" class="form-control" id="WorkerName" name="WorkerName"/>
+					<label for="dptname">员工姓名</label>
+					<input type="text" class="form-control" id="dptname"/>
 				</div>
 				<div class="form-group">
-					<label for="dptName">部门名称</label>
-					<input type="text" class="form-control" id="dptName" name="dptName"/>
+					<label for="dpttype">部门名称</label>
+					<input type="text" class="form-control" id="dpttype"/>
 				</div>
 				<div class="form-group">
-					<label for="postName">岗位名称</label>
-					<input type="text" class="form-control" id="postName" name="postName"/>
+					<label for="posttype">岗位名称</label>
+					<input type="text" class="form-control" id="posttype"/>
 				</div>
 				<div class="form-group">
 					<label for="probationType">试用期状态</label>
-					<select class="form-control" id="probationType">
-						<option value="">正常</option>
-						<option value="">延期</option>
-						<option value="">不录用</option>
-					</select>
+					<input type="text" class="form-control" id="probationType"/>
 				</div>
 				<div class="form-group">
 					<label for="beginDate">试用期开始日期</label>
@@ -59,7 +50,7 @@
 					<input type="date" class="form-control" id="endDate"/>
 				</div>
 				<button type="submit" class="btn btn-default">查询</button>
-				<button type="submit" class="btn btn-warning">新增</button>
+				<button class="btn btn-warning">新增</button>
 			</form>
 			
 			<table class="table table-bordered">

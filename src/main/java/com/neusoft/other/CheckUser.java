@@ -30,6 +30,8 @@ public class CheckUser {
 		User user2 = us.login(user);
 		HttpSession session = request.getSession();
 		session.setAttribute("username", user2.getName());
+		session.setAttribute("empName", user2.getEname());
+		session.setAttribute("empId", user2.getEid());
 		session.setAttribute("rid", user2.getRid());
 		session.setAttribute("path", request.getServletPath());
 

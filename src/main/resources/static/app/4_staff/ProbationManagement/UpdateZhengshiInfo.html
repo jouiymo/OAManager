@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-	作者：offline
-	时间：2017-08-28
-	描述：已转正员工管理主页面上的“修改”页面
--->
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -24,34 +19,32 @@
 		<section>
 			<form>
 				<div class="form-group">
-					<label for="WorkerNumber">员工编号</label>
-					<input style="background: white;" type="text" class="form-control" value="001" 
-					id="WorkerNumber" name="WorkerNumber"	readonly />
+					<label>员工编号</label>
+					<input style="background: white;" type="text" class="form-control" value="001" readonly />
 				</div>
 				<div class="form-group">
-					<label for="WorkerName">员工姓名</label>
-					<input style="background: white;" type="text" class="form-control" value="007" 
-					id="WorkerName" name="WorkerName"	readonly/>
+					<label>员工姓名</label>
+					<input style="background: white;" type="text" class="form-control" value="007" readonly/>
 				</div>
 				<div class="form-group">
-					<label for="content">考核评语</label>
-					<input type="text" class="form-control" id="content" name="content" readonly/>
+					<label>考核评语</label>
+					<input type="text" class="form-control" readonly/>
 				</div>
 				<div class="form-group">
-					<label for="result">考核结果</label>
-					<select id="result" class="form-control">
+					<label>考核结果</label>
+					<select id="ChangeSelect" class="form-control">
 						<option>转正</option>
 						<option>延期</option>
 						<option>不予录取</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<label for="date">处理日期</label>
-					<input type="date" class="form-control" id="date" name="date" readonly/>
+					<label>处理日期</label>
+					<input type="date" class="form-control" readonly/>
 				</div>
 				<div class="form-group">
-					<label for="remark">备注</label>
-					<input type="text" class="form-control" id="remark" name="remark" readonly/>
+					<label>备注</label>
+					<input type="text" class="form-control" readonly/>
 				</div>
 			</form>
 			

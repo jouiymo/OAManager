@@ -79,31 +79,6 @@
 			$scope.mybq4=!$scope.mybq4;
 		}
 	});	
-	function chenked(){
-		 $.ajax({
-			type: "post",
-			url: "http://localhost:8099/" + "alterPost",
-			data: {
-				"id": ids.value,
-				"name": names.value,
-				"type": type.value,
-				"organization": organization.value
-			},
-			dataType: "json",
-			"complete":function(XHR,TS){
-				if("success" != TS){
-					return alert("服务器么有正确响应");
-				}
-				var date = JSON.parse(XHR.responseText)
-				if (date.code == -1) {
-					alert(date.msg);
-				}else{
-					alert(date.msg);
-					window.location.href = "post.html";
-				}
-			}
-		})   
-	};
 	$(function () {
 		var id = localStorage.getItem("key");
 		$.ajax({
@@ -137,7 +112,32 @@
 		})
 		
 	});
+	function chenked(){
 	
+		 /* $.ajax({
+			type: "post",
+			url: "http://localhost:8099/" + "alterPost",
+			data: {
+				"id" ids.value,
+				"name": names.value,
+				"type": type.value,
+				"organization": organization.value
+			},
+			dataType: "json",
+			"complete":function(XHR,TS){
+				if("success" != TS){
+					return alert("服务器么有正确响应");
+				}
+				var date = JSON.parse(XHR.responseText)
+				if (date.code == -1) {
+					alert(date.msg);
+				}else{
+					alert(date.msg);
+					window.location.href = "post.html";
+				}
+			}
+		})  */
+	}
 	
 	</script>
 </html>

@@ -18,26 +18,26 @@
 		
 		<section>
 			<h4>员工信息中心</h4>
-			<div class="form-inline">
+			<form class="form-inline">
 				<div class="form-group">
 					<label for="worknum">员工编号</label>
-					<input type="text" class="form-control" id="id" name="id"/>
+					<input type="text" class="form-control" id="worknum"/>
 				</div>
 				<div class="form-group">
 					<label for="workname">员工姓名</label>
-					<input type="text" class="form-control" id="fname" name="name"/>
+					<input type="text" class="form-control" id="workname"/>
 				</div>
 				<div class="form-group">
 					<label for="dptname">部门名称</label>
-					<input type="text" class="form-control" id="deptName" name="deptName"/>
+					<input type="text" class="form-control" id="dptname"/>
 				</div>
-				<button type="button" class="btn btn-warning" onclick="checked()">查询</button>
-			</div>
+				<button type="submit" class="btn btn-warning">查询</button>
+			</form>
 			
-			<table id="querylist" class="table table-bordered">
+			<table class="table table-bordered">
 				<thead>
+					<th>员工姓名</th>
 					<th>员工编号</th>
-					<th>员工姓名</th>		
 					<th>部门名称</th>
 					<th>操作</th>
 				</thead>
@@ -82,41 +82,6 @@
 					$scope.mybq4=!$scope.mybq4;
 				}
 			});	
-			function checked () {
-					var pType = $("#querylist");
-					pType.html("");	
-				$.ajax({
-					type: "get",
-					url: "http://localhost:8099/" + "findForSimple",
-					data: {
-					"name": fname.value,
-					"id": id.value,
-					"deptName": deptName.value
-				},
-					dataType: "json",
-					"complete": function(XHR, TS) {
-						if("success" != TS) {
-							return alert("服务器么有正确响应");
-						}
-						var dates = JSON.parse(XHR.responseText);
-						if(dates.code == -1) {
-							alert(dates.msg);
-						} else {
-							var arr = dates.data;
-							for(var i = 0; i < arr.length; i++) {
-								pType.append("<tr><td >" + arr[i].id +
-									"</td><td>" + arr[i].name +
-									"</td><td>" + arr[i].deptName +
-									"</td><td><button type='button' class='btn btn-default' onclick='ckyg(" + arr[i].id +
-									")'>查看其它信息 </button></td></tr>");
-							}
-						}
-					}
-				});
-			}
-			function ckyg (id) {
-				
-			}
 		</script>
 	</body>
 </html>

@@ -62,6 +62,7 @@ public class EmployeeInfo {
 	private String Major;// 所学专业
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date graduation;// 毕业日期
+	private Integer probationState;//试用期状态 正常=1，延期=2，不录用=3，没有试用期=5
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date probationstart;// 试用期开始日期
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -298,6 +299,14 @@ public class EmployeeInfo {
 
 	public void setState(Integer state) {
 		this.state = state;
+	}
+
+	public Integer getProbationState() {
+		return probationState;
+	}
+
+	public void setProbationState(Integer probationState) {
+		this.probationState = probationState;
 	}
 
 }
