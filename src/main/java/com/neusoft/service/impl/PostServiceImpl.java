@@ -78,14 +78,14 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public Page<Post> findPostByPost(Post post, Pageable pageable) throws MyException {
 		post.setState(1);
-		ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
+		/*ExampleMatcher matcher = ExampleMatcher.matching() //构建对象
 	    		  .withStringMatcher(StringMatcher.CONTAINING) //改变默认字符串匹配方式：模糊查询
 	    		  .withIgnoreCase(true); //改变默认大小写忽略方式：忽略大小写
-	              /*  .withMatcher("address"(此处写相应对象的属性), GenericPropertyMatchers.startsWith()) //地址采用“开始匹配”的方式查询
-	                .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉*/
-		Example<Post> ex = Example.of(post,matcher);
+	                .withMatcher("address"(此处写相应对象的属性), GenericPropertyMatchers.startsWith()) //地址采用“开始匹配”的方式查询
+	                .withIgnorePaths("focus");  //忽略属性：是否关注。因为是基本类型，需要忽略掉
+		Example<Post> ex = Example.of(post,matcher);*/
 		try {
-			return postRepository.findAll(ex, pageable);
+			return postRepository.findByAuto(post, pageable);
 		} catch (Exception e) {
 			throw new MyException(62, "查询岗位列表失败");
 		}

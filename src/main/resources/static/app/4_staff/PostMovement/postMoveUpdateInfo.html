@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+	作者：offline
+	时间：2017-08-27
+	描述：岗位调转主页面上的“修改”页面
+-->
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -19,36 +24,41 @@
 		<section>
 			<form>
 				<div class="form-group">
-					<label>员工编号</label>
-					<input style="background: white;" type="text" class="form-control" value="001" readonly />
+					<label for="workerNumber">员工编号</label>
+					<input style="background: white;" type="number" class="form-control" value="001" 
+					id="workerNumber" name="workerNumber"	readonly />
 				</div>
 				<div class="form-group">
-					<label>员工姓名</label>
-					<input style="background: white;" type="text" class="form-control" value="007" readonly/>
+					<label for="workerName">员工姓名</label>
+					<input style="background: white;" type="text" class="form-control" value="007" 
+					id="workerName" name="workerName"	readonly/>
 				</div>
 				<div class="form-group">
-					<label>调转后的岗位</label>
-					<input style="background: white;" type="text" class="form-control" value="后勤部" readonly/>
+					<label for="post">调转后的岗位</label>
+					<input style="background: white;" type="text" class="form-control" value="后勤部" 
+					id="post" name="post"	readonly/>
 				</div>
 				<div class="form-group">
-					<label>调转原因</label>
-					<input style="background: white;" type="text" class="form-control" value="主动请求调转" readonly/>
+					<label for="reason">调转原因</label>
+					<input style="background: white;" type="text" class="form-control" value="主动请求调转" 
+					id="reason" name="reason"	readonly/>
 				</div>
 				<div class="form-group">
-					<label>调转类型</label>
-					<select id="ChangeSelect" class="form-control">
+					<label for="MoveType">调转类型</label>
+					<select id="MoveType" class="form-control" >
 						<option>升职</option>
 						<option>降职</option>
 						<option>数据错误</option>
 					</select>
 				</div>
 				<div class="form-group">
-					<label>调动日期</label>
-					<input style="background: white;" type="date" class="form-control" readonly/>
+					<label for="MoveDate">调动日期</label>
+					<input style="background: white;" type="date" class="form-control" 
+					id="MoveDate" name="MoveDate"	readonly/>
 				</div>
 				<div class="form-group">
-					<label>备注</label>
-					<input type="text" class="form-control" />
+					<label for="remark">备注</label>
+					<input type="text" class="form-control" id="remark" name="remark"/>
 				</div>
 			</form>
 			

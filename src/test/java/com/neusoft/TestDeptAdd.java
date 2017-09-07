@@ -77,7 +77,7 @@ public class TestDeptAdd {
 		Dept dept = new Dept();
 		dept.setName("sss");
 		dept.setType(111);
-		dept.setDate(sdf.parse(sdf.format(new Date())));
+		dept.setStartDay(sdf.parse(sdf.format(new Date())));
 		dept.setPhone(15551);
 		deptRepository.save(dept);
 	}

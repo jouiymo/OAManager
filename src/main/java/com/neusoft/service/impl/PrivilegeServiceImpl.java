@@ -2,24 +2,26 @@ package com.neusoft.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.neusoft.domain.Privilege;
+import com.neusoft.repository.PrivilegeRepository;
 import com.neusoft.service.PrivilegeService;
-
 @Service
 public class PrivilegeServiceImpl implements PrivilegeService {
-
+	@Autowired
+	PrivilegeRepository privilegeRepository;
 	@Override
 	public List<Privilege> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return privilegeRepository.findAll();
 	}
 
 	@Override
 	public Privilege findByPId(Integer privilegeId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return privilegeRepository.findOne(privilegeId);
 	}
 
 }

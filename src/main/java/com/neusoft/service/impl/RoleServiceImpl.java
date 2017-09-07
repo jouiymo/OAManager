@@ -14,9 +14,9 @@ public class RoleServiceImpl implements RoleService {
 	@Autowired
 	RoleRepository roleRepository;
 	@Override
-	public Role add(Role role) throws MyException {
+	public Role add(Role user) throws MyException {
 		try {
-			return roleRepository.save(role);
+			return roleRepository.save(user);
 		} catch (Exception e) {
 			throw new MyException(22, "添加新角色失败");
 		}
@@ -24,9 +24,9 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public Role alter(Role role) throws MyException {
+	public Role alter(Role user) throws MyException {
 		try {
-			return roleRepository.save(role);
+			return roleRepository.save(user);
 		} catch (Exception e) {
 			throw new MyException(42, "修改角色失败");
 		}
@@ -34,10 +34,10 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public Role del(Role role) throws MyException {
-		role.setState(-1);
+	public Role del(Role user) throws MyException {
+		user.setState(-1);
 		try {
-			return roleRepository.save(role);
+			return roleRepository.save(user);
 		} catch (Exception e) {
 			throw new MyException(54, "删除角色失败");
 		}
@@ -56,8 +56,12 @@ public class RoleServiceImpl implements RoleService {
 
 	@Override
 	public Role findByRoleId(Integer roleId) throws MyException {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return roleRepository.findOne(roleId);
+		} catch (Exception e) {
+			throw new MyException(82, "查询角色失败");
+		}
+		
 	}
 
 }

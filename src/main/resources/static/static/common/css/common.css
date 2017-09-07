@@ -1,29 +1,118 @@
-.top {
-	background: gray;
-	height: 100px;
-}
-
-.top p {
-	margin-top: 30px;
-	color: white;
-}
-
-.top h3 {
-	float: left;
-	padding-top: 15px;
-	color: white;
-}
-
-.top .top_right {
-	float: right;
-	height: 100%;
+*{ 
+	margin:0;
+	padding: 0;
 }
 .left{
-	float:left;
-	background: gainsboro;
-	width: 160px;
-	padding-left: 30px;
-	height: 600px;
+	float: left;
+	color: white;
+	background:#31405D;
+	margin-right: 100px;
+	width:200px; 
+	height:759px; 
+		
+}
+.hendes{
+	
+	height: 50px;
+	width: 200px;
+	text-align: center;
 }
 
+.log{
+	padding-top: 12px;
+	width: 200px;
+	height: 100px;
+	margin-left: 70px;
+}
+.toph{
+	background:#394967;
+}
+.asdone{
+	
+	width: 200px;
+	line-height: 40px;
+	cursor: pointer; 
+	
+}
+.title{
+	color: white;
+	display: block;
+	margin-left: 44px;
+	font-size: 14px;
+	
+}
 
+.TalentPool{
+	color: white;
+	font-size: 14px;
+	line-height: 40px;
+	cursor: pointer; 
+	
+}
+.asdtow1{
+	display: none;
+	
+}
+.asdtow1 ul li{
+	line-height:30px; 
+	text-align:center;
+}
+.asdtow1 ul li a{
+	text-decoration: none;
+	color: white;
+}
+.asdtow2{
+	display: none;
+	
+}
+.asdtow2 ul li{
+	line-height:30px; 
+	text-align:center;
+}
+.asdtow2 ul li a{
+	text-decoration: none;
+	color: white;
+}
+.asdtow3{
+	display: none;
+	
+}
+.asdtow3 ul li{
+	line-height:30px; 
+	text-align:center;
+}
+.asdtow3 ul li a{
+	text-decoration: none;
+	color: white;
+}
+.asdtow4{
+	display: none;
+	
+}
+.asdtow4 ul li{
+	line-height:30px; 
+	text-align:center;
+}
+.asdtow4 ul li a{
+	text-decoration: none;
+	color: white;
+}
+.test{
+	height: 50px;
+	background: #5192BB;
+}
+.out{
+	position: relative;
+	float: right;
+	color: white;
+	margin-right: 30px;
+	top: -23px;
+}
+.out a{
+	margin-left:10px;
+	position: relative;
+	top: -2px;
+	color: white;
+	text-decoration: none;
+	cursor:pointer;
+}

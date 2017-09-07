@@ -43,9 +43,14 @@ public class EmpServiceImpl implements EmpService {
 
 	@Override
 	// 同理此处在查询部分编号时返回具有相同数字的员工编号的列表，未解决
-	public List<EmployeeInfo> findEmpByEmpId(Integer empid) {
-		// empRepository.findOne(empid)
-		return null;
+	public Page<EmployeeInfo> findEmpByEmpId(Integer empid,Pageable pageable) throws MyException {
+		EmployeeInfo employeeInfo = new EmployeeInfo();
+		employeeInfo.setId(empid);
+		try {
+			 return empRepository.findByAuto(employeeInfo, pageable);
+		} catch (Exception e) {
+			throw new MyException(68, "通用员工列表查询失败");
+		}
 	}
 
 	@Override
@@ -60,8 +65,10 @@ public class EmpServiceImpl implements EmpService {
 
 	@Override
 	public Page<EmployeeInfo> findEmpByDeptName(String deptName,Pageable pageable) throws MyException {
+		EmployeeInfo employeeInfo = new EmployeeInfo();
+		employeeInfo.setDeptName(deptName);
 		try {
-		 return empRepository.findByDeptNameContainingAndState(deptName, 1, pageable);
+		 return empRepository.findByAuto(employeeInfo, pageable);
 		} catch (Exception e) {
 			throw new MyException(68, "通用员工列表查询失败");
 		}
@@ -72,8 +79,11 @@ public class EmpServiceImpl implements EmpService {
 
 	@Override
 	public Page<EmployeeInfo> findEmpByPostName(String postName,Pageable pageable) throws MyException {
+		EmployeeInfo employeeInfo = new EmployeeInfo();
+		employeeInfo.setPostName(postName);
+		employeeInfo.setState(1);
 		try {
-			return empRepository.findByPostNameContainingAndState(postName, 1, pageable);
+			return empRepository.findByAuto(employeeInfo, pageable);
 			} catch (Exception e) {
 				throw new MyException(68, "通用员工列表查询失败");
 			}
@@ -152,13 +162,13 @@ public class EmpServiceImpl implements EmpService {
 		EntityManager em = eFactory.createEntityManager();
 		String sql = "select e.name en,e.id ei,d.name dn from Employee_Info e left join dept d on e.dept_name=d.name  ";
 		sql += " where e.state=1 ";
-		if (null != exam.getUserName()) {
+		if (null != exam.getUserName() && exam.getUserName().length()!=0 ) {
 			sql += " and e.name='" + exam.getUserName() + "'";
 		}
 		if (null != exam.getEmpid()) {
 			sql += " and e.id=" + exam.getEmpid();
 		}
-		if (null != exam.getDeptName()) {
+		if (null != exam.getDeptName() && exam.getDeptName().length()!=0) {
 			sql += " and d.name='" + exam.getDeptName() + "'";
 		}
 		sql += " LIMIT " + (page - 1) * size + "," + size;
@@ -267,13 +277,13 @@ public class EmpServiceImpl implements EmpService {
 		if (null != exam.getDfinDay() && null != exam.getDbegDay()) {
 			sql += " and ds.switchday between '" + exam.getDbegDay() + "' and '" + exam.getDfinDay() + "'";
 		}
-		if (null != exam.getUserName()) {
+		if (null != exam.getUserName() && exam.getUserName().length()!=0) {
 			sql += "and e.name='" + exam.getUserName() + "'";
 		}
 		if (null != exam.getEmpid()) {
 			sql += " and e.id=" + exam.getEmpid();
 		}
-		if (null != exam.getDeptType()) {
+		if (null != exam.getDeptType() ) {
 			sql += " and ds.type=" + exam.getDeptType();
 		}
 		sql += " LIMIT " + (page - 1) * size + "," + size;
@@ -308,7 +318,7 @@ public class EmpServiceImpl implements EmpService {
 		if (null != exam.getPfinDay() && null != exam.getPbegDay()) {
 			sql += " and p.switchday between '" + exam.getPfinDay() + "' and '" + exam.getPbegDay() + "'";
 		}
-		if (null != exam.getUserName()) {
+		if (null != exam.getUserName() && exam.getUserName().length()!=0) {
 			sql += "and e.name='" + exam.getUserName() + "'";
 		}
 		if (null != exam.getEmpid()) {
@@ -350,7 +360,7 @@ public class EmpServiceImpl implements EmpService {
 		if (null != exam.getFinDay() && null != exam.getBegDay()) {
 			sql += " and q.quitday between '" + exam.getFinDay() + "' and " + exam.getBegDay() + "'";
 		}
-		if (null != exam.getUserName()) {
+		if (null != exam.getUserName() && exam.getUserName().length()!=0) {
 			sql += "and e.name='" + exam.getUserName() + "'";
 		}
 		if (null != exam.getEmpid()) {
@@ -359,10 +369,10 @@ public class EmpServiceImpl implements EmpService {
 		if (null != exam.getQuitType()) {
 			sql += " and q.type=" + exam.getQuitType();
 		}
-		if (null != exam.getDeptName()) {
+		if (null != exam.getDeptName() && exam.getDeptName().length()!=0) {
 			sql += " and d.name='" + exam.getDeptName() + "'";
 		}
-		if (null != exam.getPostName()) {
+		if (null != exam.getPostName() && exam.getPostName().length()!=0) {
 			sql += " and p.name='" + exam.getPostName() + "'";
 		}
 		sql += " LIMIT " + (page - 1) * size + "," + size;
@@ -396,13 +406,13 @@ public class EmpServiceImpl implements EmpService {
 		if (null != exam.getPifinDay() && null != exam.getPibegDay()) {
 			sql += " and pi.process between '" + exam.getPifinDay() + "' and '" + exam.getPibegDay() + "'";
 		}
-		if (null != exam.getUserName()) {
+		if (null != exam.getUserName() && exam.getUserName().length()!=0) {
 			sql += " and e.name='" + exam.getUserName() + "'";
 		}
 		if (null != exam.getEmpid()) {
 			sql += " and e.id=" + exam.getEmpid();
 		}
-		if (null != exam.getDeptName()) {
+		if (null != exam.getDeptName() && exam.getDeptName().length()!=0) {
 			sql += " and d.name='" + exam.getDeptName() + "'";
 		}
 		if (null != exam.getDeptId()) {
@@ -440,16 +450,16 @@ public class EmpServiceImpl implements EmpService {
 			sql += " and e.probationstart >= '" + exam.getBeginDay() + "' and e.probationend<= '" + exam.getFinalDay()
 					+ "'";
 		}
-		if (null != exam.getUserName()) {
+		if (null != exam.getUserName() && exam.getUserName().length()!=0) {
 			sql += " and e.name='" + exam.getUserName() + "'";
 		}
 		if (null != exam.getEmpid()) {
 			sql += " and e.id=" + exam.getEmpid();
 		}
-		if (null != exam.getDeptName()) {
+		if (null != exam.getDeptName() && exam.getDeptName().length()!=0) {
 			sql += " and d.name='" + exam.getDeptName() + "'";
 		}
-		if (null != exam.getPostName()) {
+		if (null != exam.getPostName() && exam.getPostName().length()!=0) {
 			sql += " and p.name=" + exam.getPostName();
 		}
 		if (null != exam.getResult()) {

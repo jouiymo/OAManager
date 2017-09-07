@@ -12,15 +12,11 @@
 		<script type="text/javascript" src="../../../model/angular.min.js"></script>
 		
 	</head>
-	<body ng-app="MyApp" ng-controller="person">
-		<div ng-include="'../../PublicModules/top.html'"></div>
+	<body ng-app="" >
 		<div ng-include="'../../PublicModules/left.html'"></div>
-		
-		
-		
 		<section>
 			<h4><a>首页</a>><a>日志</a></h4>
-			<form class="form-inline">
+			<div class="form-inline">
 				<div class="form-group">
 					<label for="StartDate">开始时间</label>
 					<input type="date" class="form-control" id="StartDate" name="StartDate">
@@ -37,11 +33,8 @@
 					<label for="WorkNumber">工号</label>
 					<input type="text" class="form-control" id="WorkNumber" name="WorkNumber">
 				</div>
-				<button type="submit" class="btn btn-default">查询</button>
-				
-			</form>
-			
-			<table class="table table-striped">
+				<button type="button" class="btn btn-default">查询</button>
+				<table class="table table-striped">
 				<thead>
 					<th>工号</th>
 					<th>姓名</th>
@@ -74,35 +67,35 @@
 					</tr>
 					
 				</tbody>
-			</table>
-			
+			</table>			
 			<div>
 				<span><a href="">首页</a></span>&nbsp;&nbsp;&nbsp;<span><select id="peges" name="peges">
 					<option value="1">1</option>
 				</select></span>&nbsp;&nbsp;&nbsp;<span><a href="">尾页</a></span>
 			</div>
-			</section>
-		<script type="text/javascript" src="../model/jquery-1.12.4.min.js"></script>
+			</div>
+			
+		</section>
+		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>	
 		<script>
-			//公共模块
-			//模型绑定
-			var app = angular.module('MyApp', []);
-			//添加控制
-			app.controller('person',function ($scope) {		
-				$scope.toggle=function  () {
-					$scope.mybq=!$scope.mybq;				
+			function topg(lis) {
+				if(lis == 1){
+				$(".asdtow1").slideToggle("fast")
+				.siblings(".asdtow1").slideUp("fast")
+				}else if (lis == 2) {
+				$(".asdtow2").slideToggle("fast")
+				.siblings(".asdtow2").slideUp("fast")
+				}else if(lis == 3){
+				$(".asdtow3").slideToggle("fast")
+				.siblings(".asdtow3").slideUp("fast")	
+				}else if(lis == 4){
+				$(".asdtow4").slideToggle("fast")
+				.siblings(".asdtow4").slideUp("fast")
+				}else{
+					location.href = "dpt.html";
 				}
-				$scope.toggle1=function  () {
-					$scope.mybq1=!$scope.mybq1;
-				}
-				$scope.toggle2=function  () {
-					$scope.mybq2=!$scope.mybq2;
-				}
-				$scope.toggle4=function  () {
-					$scope.mybq4=!$scope.mybq4;
-				}
-			});	
+			}
 		</script>
 	</body>
 </html>

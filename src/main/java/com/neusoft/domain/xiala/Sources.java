@@ -6,7 +6,7 @@ import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotBlank;
 /**
- * 来源
+ * 人员来源
  * @author msi
  *
  */

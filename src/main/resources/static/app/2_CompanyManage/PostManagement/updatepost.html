@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,15 +12,14 @@
 		<link rel="stylesheet" href="../../../static/common/css/common.css" />
 		<script type="text/javascript" src="../../../model/angular.min.js"></script>
 	</head>
-	<body ng-app="MyApp" ng-controller="person">
-		<div ng-include="'../../PublicModules/top.html'"></div>
+
+	<body ng-app="">
 		<div ng-include="'../../PublicModules/left.html'"></div>
-		
+
 		<section class="addpost">
 			<style>
-				.form-group{
+				.form-group {
 					height: 34px;
-					
 				}
 			</style>
 			<div id="bossBlanks" class="form-horizontal">
@@ -30,16 +30,16 @@
 						<input type="text" class="form-control" id="names" name="name">
 					</div>
 				</div>
-				
+
 				<div id="postBlanks" class="form-group">
 					<label for="posttype" class="col-sm-2 control-label">岗位类型</label>
-					<div class="col-sm-3" >
+					<div class="col-sm-3">
 						<select name="type" id="type" class="form-control">
 							<option value="1">请选择</option>
 						</select>
 					</div>
 				</div>
-				
+
 				<div id="postBlanks" class="form-group">
 					<label for="postnum" class="col-sm-2 control-label">岗位编制</label>
 					<div class="col-sm-3">
@@ -49,95 +49,92 @@
 				<div id="postBlanks" class="form-group">
 					<span class="col-sm-2"></span>
 					<div class="col-sm-3">
-						<button type="text" class="btn btn-warning form-control" onclick="chenked()"
-							style="text-align: center;">确认</button>
+						<button type="text" class="btn btn-warning form-control" onclick="chenked()" style="text-align: center;">确认</button>
 					</div>
 				</div>
-				
+
 			</div>
-			
+
 		</section>
 	</body>
 	<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
 	<script type="text/javascript" src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 	<script>
-	//公共模块
-	//模型绑定
-	var app = angular.module('MyApp', []);
-	//添加控制
-	app.controller('person',function ($scope) {		
-		$scope.toggle=function  () {
-			$scope.mybq=!$scope.mybq;				
-		}
-		$scope.toggle1=function  () {
-			$scope.mybq1=!$scope.mybq1;
-		}
-		$scope.toggle2=function  () {
-			$scope.mybq2=!$scope.mybq2;
-		}
-		$scope.toggle4=function  () {
-			$scope.mybq4=!$scope.mybq4;
-		}
-	});	
-	$(function () {
-		var id = localStorage.getItem("key");
-		$.ajax({
-			type: "get",
-			url: "http://localhost:8099/" + "findPost",
-			data: {
-				"id":id	
-			},
-			dataType: "json",
-			"complete": function(XHR, TS) {
-				if("success" != TS) {
-					return alert("服务器么有正确响应");
-				}
-				var dates = JSON.parse(XHR.responseText)
-				if(dates.code == -1) {
-					alert(dates.msg);
-				} else {
-					var arr = dates.data.content;
-					
-					for(var i = 0; i < arr.length; i++) {
-						 	ids.value = arr[i].id;
-						 	names.value = arr[i].name;
-						 	organization.value = arr[i].organization;
-							type.value = arr[i].type;			
-						
+		function chenked() {
+			$.ajax({
+				type: "post",
+				url: "http://localhost:8099/" + "alterPost",
+				data: {
+					"id": ids.value,
+					"name": names.value,
+					"type": type.value,
+					"organization": organization.value
+				},
+				dataType: "json",
+				"complete": function(XHR, TS) {
+					if("success" != TS) {
+						return alert("服务器么有正确响应");
 					}
-					
-					
+					var date = JSON.parse(XHR.responseText)
+					if(date.code == -1) {
+						alert(date.msg);
+					} else {
+						alert(date.msg);
+						window.location.href = "post.html";
+					}
 				}
+			})
+		};
+		$(function() {
+			var id = localStorage.getItem("key");
+			$.ajax({
+				type: "get",
+				url: "http://localhost:8099/" + "findPost",
+				data: {
+					"id": id
+				},
+				dataType: "json",
+				"complete": function(XHR, TS) {
+					if("success" != TS) {
+						return alert("服务器么有正确响应");
+					}
+					var dates = JSON.parse(XHR.responseText)
+					if(dates.code == -1) {
+						alert(dates.msg);
+					} else {
+						var arr = dates.data.content;
+
+						for(var i = 0; i < arr.length; i++) {
+							ids.value = arr[i].id;
+							names.value = arr[i].name;
+							organization.value = arr[i].organization;
+							type.value = arr[i].type;
+
+						}
+
+					}
+				}
+			})
+
+		});
+
+		function topg(lis) {
+			if(lis == 1) {
+				$(".asdtow1").slideToggle("fast")
+					.siblings(".asdtow1").slideUp("fast")
+			} else if(lis == 2) {
+				$(".asdtow2").slideToggle("fast")
+					.siblings(".asdtow2").slideUp("fast")
+			} else if(lis == 3) {
+				$(".asdtow3").slideToggle("fast")
+					.siblings(".asdtow3").slideUp("fast")
+			} else if(lis == 4) {
+				$(".asdtow4").slideToggle("fast")
+					.siblings(".asdtow4").slideUp("fast")
+			} else {
+				location.href = "dpt.html";
 			}
-		})
-		
-	});
-	function chenked(){
-	
-		 /* $.ajax({
-			type: "post",
-			url: "http://localhost:8099/" + "alterPost",
-			data: {
-				"id" ids.value,
-				"name": names.value,
-				"type": type.value,
-				"organization": organization.value
-			},
-			dataType: "json",
-			"complete":function(XHR,TS){
-				if("success" != TS){
-					return alert("服务器么有正确响应");
-				}
-				var date = JSON.parse(XHR.responseText)
-				if (date.code == -1) {
-					alert(date.msg);
-				}else{
-					alert(date.msg);
-					window.location.href = "post.html";
-				}
-			}
-		})  */
-	}
-	
+		}
 	</script>
+
 </html>

@@ -2,11 +2,10 @@ package com.neusoft.repository;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.neusoft.domain.Dept;
 
-public interface DeptRepository extends JpaRepository<Dept, Integer> {
+public interface DeptRepository extends BaseJpaRepository<Dept, Integer>{
 
 	public List<Dept> findByNameContainingAndState(String name,Integer states);
 

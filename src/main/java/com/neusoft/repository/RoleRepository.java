@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.neusoft.domain.Role;
 
-public interface RoleRepository extends JpaRepository<Role, Integer> {
+public interface RoleRepository extends BaseJpaRepository<Role, Integer> {
 
 	List<Role> findByState(int i);
 

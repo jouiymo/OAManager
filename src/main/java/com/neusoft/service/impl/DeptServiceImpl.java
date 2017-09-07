@@ -116,18 +116,18 @@ public class DeptServiceImpl implements DeptService {
 	@Override
 	public Page<Dept> findDeptByDept(Dept dept, Pageable pageable) throws MyException {
 		dept.setState(1);
-		ExampleMatcher matcher = ExampleMatcher.matching() // 构建对象
+	/*	ExampleMatcher matcher = ExampleMatcher.matching() // 构建对象
 				.withStringMatcher(StringMatcher.CONTAINING) // 改变默认字符串匹配方式：模糊查询
 				.withIgnoreCase(true);
 		// 改变默认大小写忽略方式：忽略大小写
-		/*
+		
 		 * .withMatcher("address"(此处写相应对象的属性),
 		 * GenericPropertyMatchers.startsWith()) //地址采用“开始匹配”的方式查询
 		 * .withIgnorePaths("focus"); //忽略属性：是否关注。因为是基本类型，需要忽略掉
-		 */ Example<Dept> ex = Example.of(dept, matcher);
-		Page<Dept> page = deptRepository.findAll(ex, pageable);
+		  Example<Dept> ex = Example.of(dept, matcher);*/
+		Page<Dept> page = deptRepository.findByAuto(dept, pageable);
 	
-		if (null == page) {
+		if (null == page.getContent()) {
 			throw new MyException(61, "查询部门列表失败");
 		}
 		return page;

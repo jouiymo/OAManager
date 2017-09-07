@@ -15,8 +15,7 @@
 <script type="text/javascript"
 	src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
-<body ng-app="MyApp" ng-controller="person">
-	<div ng-include="'../../PublicModules/top.html'"></div>
+<body ng-app="" >
 	<div ng-include="'../../PublicModules/left.html'"></div>
 
 	<section class="postright">
@@ -29,10 +28,6 @@
 			<div class="form-group">
 				<label for="name">岗位名称</label> <input type="text"
 					class="form-control" id="fname" name="name">
-			</div>
-			<div class="form-group">
-				<label for="posttype">岗位类型</label> <input type="text"
-					class="form-control" id="posttype" name="posttype">
 			</div>
 			<button type="button" class="btn btn-default" onclick="chenke()">搜索</button>
 			<a href="addpost.html"><button type="button"
@@ -56,34 +51,16 @@
 
 </body>
 <script type="text/javascript">
-	//公共模块
-	//模型绑定
-	var app = angular.module('MyApp', []);
-	//添加控制
-	app.controller('person', function($scope) {
-		$scope.toggle = function() {
-			$scope.mybq = !$scope.mybq;
-		}
-		$scope.toggle1 = function() {
-			$scope.mybq1 = !$scope.mybq1;
-		}
-		$scope.toggle2 = function() {
-			$scope.mybq2 = !$scope.mybq2;
-		}
-		$scope.toggle4 = function() {
-			$scope.mybq4 = !$scope.mybq4;
-		}
-	});
+	
 	function chenke() {
 		var pType = $("#querylist");
 		pType.html("");
-		$
-				.ajax({
+		$.ajax({
 					type : "get",
 					url : "http://localhost:8099/" + "findPost",
 					data : {
 						"id" : id.value,
-						"name" : name.value
+						"name" : fname.value
 					},
 					dataType : "json",
 					"complete" : function(XHR, TS) {
@@ -119,6 +96,24 @@
 		localStorage.setItem("key", id);
 		location.href = "updatepost.html";
 	};
+	
+	function topg(lis) {
+				if(lis == 1){
+				$(".asdtow1").slideToggle("fast")
+				.siblings(".asdtow1").slideUp("fast")
+				}else if (lis == 2) {
+				$(".asdtow2").slideToggle("fast")
+				.siblings(".asdtow2").slideUp("fast")
+				}else if(lis == 3){
+				$(".asdtow3").slideToggle("fast")
+				.siblings(".asdtow3").slideUp("fast")	
+				}else if(lis == 4){
+				$(".asdtow4").slideToggle("fast")
+				.siblings(".asdtow4").slideUp("fast")
+				}else{
+					location.href = "dpt.html";
+				}
+			}
 </script>
 
 

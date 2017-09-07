@@ -1,0 +1,59 @@
+INSERT INTO `bltype` (`id`, `name`) VALUES (1, 'A型');
+INSERT INTO `bltype` (`id`, `name`) VALUES (2, 'B型');
+INSERT INTO `bltype` (`id`, `name`) VALUES (3, 'AB型');
+INSERT INTO `bltype` (`id`, `name`) VALUES (4, 'O型');
+INSERT INTO `bltype` (`id`, `name`) VALUES (5, '其它类型');
+
+
+INSERT INTO `degreeorm` (`id`, `name`) VALUES (1, '无学位');
+INSERT INTO `degreeorm` (`id`, `name`) VALUES (2, '学士');
+INSERT INTO `degreeorm` (`id`, `name`) VALUES (3, '双学士');
+INSERT INTO `degreeorm` (`id`, `name`) VALUES (4, '硕士');
+INSERT INTO `degreeorm` (`id`, `name`) VALUES (5, '博士');
+INSERT INTO `degreeorm` (`id`, `name`) VALUES (6, '硕士');
+
+INSERT INTO `dept` (`id`, `discribe`, `fax`, `name`, `phone`, `start_day`, `state`, `sup_name`, `type`) VALUES (1, '阿斯蒂芬', '6456464', '技术部', 49484896, '2017-09-01 00:00:00', 1, '问问', 1);
+INSERT INTO `dept` (`id`, `discribe`, `fax`, `name`, `phone`, `start_day`, `state`, `sup_name`, `type`) VALUES (2, '4545', '9999999', '人事部', 84448948, '2017-09-02 00:00:00', 1, '第三方', 1);
+
+INSERT INTO `education` (`id`, `name`) VALUES (1, '高中及以下');
+INSERT INTO `education` (`id`, `name`) VALUES (2, '大专');
+INSERT INTO `education` (`id`, `name`) VALUES (3, '本科');
+INSERT INTO `education` (`id`, `name`) VALUES (4, '研究生');
+
+INSERT INTO `emform` (`id`, `name`) VALUES (1, '正式员工');
+INSERT INTO `emform` (`id`, `name`) VALUES (2, '临时员工');
+
+INSERT INTO `employee_info` (`id`, `emform`, `major`, `marital`, `university`, `attend_day`, `birth`, `birthplace`, `bltype`, `cardnumber`, `degree`, `dept_name`, `education`, `email`, `entry_day`, `gender`, `graduation`, `height`, `name`, `nation`, `origin`, `phone`, `political`, `post_name`, `probationend`, `probationstart`, `registeredpla`, `sources`, `state`) VALUES (1, 1, '东方钢铁行业他有', 5, '传达', '2015-06-13 00:00:00', '2001-06-09 00:00:00', '童言童语', 1, '5569841966235921545645', 3, '技术部', 2, '4564654@qq.com', '2017-09-07 00:00:00', 1, '2017-09-01 00:00:00', 180, '周八斤', 1, NULL, 456464646, 1, 'java开发', '2017-11-23 00:00:00', '2017-09-05 00:00:00', '是对方同意的初稿发给', 1, 1);
+
+INSERT INTO `marital` (`id`, `name`) VALUES (1, '未婚');
+INSERT INTO `marital` (`id`, `name`) VALUES (2, '已婚');
+INSERT INTO `marital` (`id`, `name`) VALUES (3, '离婚');
+INSERT INTO `marital` (`id`, `name`) VALUES (4, '丧偶');
+
+INSERT INTO `nation` (`id`, `name`) VALUES (1, '汉族');
+INSERT INTO `nation` (`id`, `name`) VALUES (2, '满族');
+INSERT INTO `nation` (`id`, `name`) VALUES (3, '回族');
+INSERT INTO `nation` (`id`, `name`) VALUES (4, '维吾尔族');
+
+INSERT INTO `political` (`id`, `name`) VALUES (1, '党员');
+INSERT INTO `political` (`id`, `name`) VALUES (2, '预备党员');
+INSERT INTO `political` (`id`, `name`) VALUES (3, '团员');
+INSERT INTO `political` (`id`, `name`) VALUES (4, '其它');
+
+INSERT INTO `post` (`id`, `organization`, `name`, `state`, `type`) VALUES (1, 20, 'hr', 1, 1);
+INSERT INTO `post` (`id`, `organization`, `name`, `state`, `type`) VALUES (2, 20, 'java开发', 1, 1);
+INSERT INTO `post` (`id`, `organization`, `name`, `state`, `type`) VALUES (3, 5, '风格', 1, 1);
+INSERT INTO `post` (`id`, `organization`, `name`, `state`, `type`) VALUES (4, 10, '发', 1, 2);
+
+INSERT INTO `post_type` (`id`, `name`) VALUES (1, '技术');
+INSERT INTO `post_type` (`id`, `name`) VALUES (2, '营销');
+INSERT INTO `post_type` (`id`, `name`) VALUES (3, '管理');
+
+INSERT INTO `sources` (`id`, `name`) VALUES (1, '校园招聘');
+INSERT INTO `sources` (`id`, `name`) VALUES (2, '社会招聘');
+INSERT INTO `sources` (`id`, `name`) VALUES (3, '其它');
+
+INSERT INTO `talent_info` (`id`, `major`, `marital`, `university`, `birth`, `birthplace`, `bltype`, `cardnumber`, `degree`, `education`, `email`, `gender`, `graduation`, `height`, `name`, `nation`, `origin`, `phone`, `political`, `registeredpla`, `attend_day`, `sources`) VALUES (2, 'edrg', 2, 'drgt', '2017-08-30 00:00:00', 'sfdh', 2, '45454545', 1, 2, 'sdfdsf@qq.com', 1, '2016-12-31 00:00:00', 180, '易水寒1', 2, '巍峨3', 26546654, 1, 'dfrg', '2017-12-31 00:00:00', 1);
+
+
+

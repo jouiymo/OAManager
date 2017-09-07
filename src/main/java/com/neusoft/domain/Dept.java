@@ -91,12 +91,12 @@ public class Dept {
 		this.discribe = discribe;
 	}
 
-	public Date getDate() {
+	public Date getStartDay() {
 		return startDay;
 	}
 
-	public void setDate(Date date) {
-		this.startDay = date;
+	public void setStartDay(Date startDay) {
+		this.startDay = startDay;
 	}
 
 	public String getSupName() {

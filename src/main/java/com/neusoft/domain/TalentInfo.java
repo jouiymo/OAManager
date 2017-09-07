@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -35,6 +36,8 @@ public class TalentInfo {
 	private Integer nation;// 民族
 	private String origin;// 籍贯
 	private Integer phone;// 联系电话
+	@NotNull(message = "人员来源不能为空")
+	private Integer sources;// 人员来源
 	@Email(message = "请输入正确的邮箱")
 	private String email;
 	private Integer height;
@@ -48,6 +51,8 @@ public class TalentInfo {
 	private String Major;// 所学专业
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date graduation;// 毕业日期
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date attendDay;
 
 	public Integer getId() {
 		return id;
@@ -208,5 +213,22 @@ public class TalentInfo {
 	public void setGraduation(Date graduation) {
 		this.graduation = graduation;
 	}
+
+	public Date getAttendDay() {
+		return attendDay;
+	}
+
+	public void setAttendDay(Date attendDay) {
+		this.attendDay = attendDay;
+	}
+
+	public Integer getSources() {
+		return sources;
+	}
+
+	public void setSources(Integer sources) {
+		this.sources = sources;
+	}
+	
 
 }

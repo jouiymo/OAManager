@@ -6,12 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.neusoft.domain.TalentInfo;
 
-public interface TalentInfoRepository extends JpaRepository<TalentInfo, Integer> {
+public interface TalentInfoRepository extends BaseJpaRepository<TalentInfo, Integer> {
 
 	List<TalentInfo> findByNameContaining(String name);
 
 	List<TalentInfo> findByGender(Integer gender);
 
-	List<TalentInfo> findById(Integer idNo);
+	List<TalentInfo> findByCardnumber(String idNo);
 
 }

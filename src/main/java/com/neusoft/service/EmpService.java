@@ -25,7 +25,7 @@ public interface EmpService {
 	public EmployeeInfo alter(EmployeeInfo employee) throws MyException;
 
 	// 通过员工编号查询员工列表
-	public List<EmployeeInfo> findEmpByEmpId(Integer empid) throws MyException;
+	public Page<EmployeeInfo> findEmpByEmpId(Integer empid, Pageable pageable) throws MyException;
 
 	// 通过员工姓名查询员工列表
 	public List<EmployeeInfo> findEmpByEmpName(String userName) throws MyException;

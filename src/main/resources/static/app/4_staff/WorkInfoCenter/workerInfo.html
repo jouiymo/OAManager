@@ -12,47 +12,46 @@
 		<script type="text/javascript" src="../../../model/angular.min.js"></script>
 		
 	</head>
-	<body ng-app="MyApp" ng-controller="person">
-		<div ng-include="'../../PublicModules/top.html'"></div>
+	<body ng-app="" >
 		<div ng-include="'../../PublicModules/left.html'"></div>
 		
 		<section>
 			<h4>员工信息中心</h4>
-			<form class="form-inline">
+			<div class="form-inline">
 				<div class="form-group">
 					<label for="worknum">员工编号</label>
-					<input type="text" class="form-control" id="worknum"/>
+					<input type="text" class="form-control" id="empid" name="empid"/>
 				</div>
 				<div class="form-group">
 					<label for="workname">员工姓名</label>
-					<input type="text" class="form-control" id="workname"/>
+					<input type="text" class="form-control" id="userName" name="userName"/>
 				</div>
 				<div class="form-group">
 					<label for="dptname">部门名称</label>
-					<input type="text" class="form-control" id="dptname"/>
+					<input type="text" class="form-control" id="deptName" name="deptName"/>
 				</div>
-				<button type="submit" class="btn btn-warning">查询</button>
-			</form>
+				<button type="button" class="btn btn-warning" onclick="checked()">查询</button>
+			</div>
 			
-			<table class="table table-bordered">
+			<table  class="table table-bordered">
 				<thead>
-					<th>员工姓名</th>
 					<th>员工编号</th>
+					<th>员工姓名</th>		
 					<th>部门名称</th>
 					<th>操作</th>
 				</thead>
-				<tbody>
+				<tbody id="querylist">
 					<tr>
-						<td>001</td><td>张一</td><td>财务部</td>
-						<td><a href="">查看其它信息</a></td>
+						<td></td><td></td><td></td>
+						<td><a href="MoreInfo.html">更多信息</a></td>	
 					</tr>
 					<tr>
-						<td>002</td><td>张二</td><td>财务部</td>
-						<td><a href="">查看其它信息</a></td>
+						<td></td><td></td><td></td>
+						<td><a href="MoreInfo.html">更多信息</a></td>
 					</tr>
 					<tr>
-						<td>003</td><td>张三</td><td>财务部</td>
-						<td><a href="">查看其它信息</a></td>
+						<td></td><td></td><td></td>
+						<td><a href="MoreInfo.html">更多信息</a></td>
 					</tr>
 				</tbody>
 				
@@ -64,24 +63,62 @@
 		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="../../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script>
-			//公共模块
-			//模型绑定
-			var app = angular.module('MyApp', []);
-			//添加控制
-			app.controller('person',function ($scope) {		
-				$scope.toggle=function  () {
-					$scope.mybq=!$scope.mybq;				
-				}
-				$scope.toggle1=function  () {
-					$scope.mybq1=!$scope.mybq1;
-				}
-				$scope.toggle2=function  () {
-					$scope.mybq2=!$scope.mybq2;
-				}
-				$scope.toggle4=function  () {
-					$scope.mybq4=!$scope.mybq4;
-				}
-			});	
+			
+			function checked () {
+					var pType = $("#querylist");
+					pType.html("");	
+				$.ajax({
+					type: "get",
+					url: "http://localhost:8099/" + "findForSimple",
+					data: {
+					"empid": empid.value,
+					"userName": userName.value,
+					"deptName": deptName.value
+				},
+					dataType: "json",
+					"complete": function(XHR, TS) {
+						if("success" != TS) {
+							return alert("服务器么有正确响应");
+						}
+						var dates = JSON.parse(XHR.responseText);
+						if(dates.code == -1) {
+							alert(dates.msg);
+						} else {
+							var arr = dates.data;
+							for(var i = 0; i < arr.length; i++) {
+								pType.append("<tr><td >" + arr[i].empid +
+									"</td><td>" + arr[i].userName +
+									"</td><td>" + arr[i].deptName +
+									"</td><td><button type='button' class='btn btn-default' onclick='ckyg(" + arr[i].empid +
+									")'>查看其它信息 </button></td></tr>");
+							}
+						}
+					}
+				});
+			}
+			function ckyg (id) {
+				alert(id);
+				localStorage.removeItem('key');
+				localStorage.setItem("key", id);
+				location.href = "MoreInfo.html";		
+			}
+			function topg(lis) {
+			if(lis == 1) {
+				$(".asdtow1").slideToggle("fast")
+					.siblings(".asdtow1").slideUp("fast")
+			} else if(lis == 2) {
+				$(".asdtow2").slideToggle("fast")
+					.siblings(".asdtow2").slideUp("fast")
+			} else if(lis == 3) {
+				$(".asdtow3").slideToggle("fast")
+					.siblings(".asdtow3").slideUp("fast")
+			} else if(lis == 4) {
+				$(".asdtow4").slideToggle("fast")
+					.siblings(".asdtow4").slideUp("fast")
+			} else {
+				location.href = "dpt.html";
+			}
+		}
 		</script>
 	</body>
 </html>

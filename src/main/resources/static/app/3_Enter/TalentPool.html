@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,85 +8,45 @@
 		<title></title>
 		<link rel="stylesheet" href="../../static/public/css/base.css" />
 		<link rel="stylesheet" href="../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="../../static/3_TalentPool/css/TalentPool.css"/>
+		<link rel="stylesheet" href="../../static/3_TalentPool/css/TalentPool.css" />
 		<link rel="stylesheet" href="../../static/common/css/common.css" />
 		<script type="text/javascript" src="../../model/angular.min.js"></script>
-		
+
 	</head>
-		
-	<body ng-app="MyApp" ng-controller="person">
-		<div ng-include="'../PublicModules/top.html'"></div>
-		<div ng-include="'../PublicModules/left.html'"></div>
-		
+
+	<body ng-app="" >
+		<div ng-include="'../PublicModules/left1.html'"></div>
+
 		<section>
-			<h4><a>首页</a>><a>人才库管理</a>><a>人才库入职</a></h4>
-			<form class="form-inline">
-				<div class="form-group">
-					<label for="number">员工号</label>
-					<input type="number" class="form-control" id="number"/>
-				</div>
+			<h4><a>首页</a>><a>人才库管理</a>><a>人才库登记</a></h4>
+			<div class="form-group form-inline">
 				<div class="form-group">
 					<label for="name">姓名</label>
-					<input type="text" class="form-control" id="name"/>
+					<input type="text" class="form-control" id="fname" name="name" />
 				</div>
 				<div class="form-group">
-					<label for="idcard">身份证号</label>
-					<input type="number" class="form-control" id="idcard"/>
+					<label for="cardnumber">身份证号</label>
+					<input type="number" class="form-control" id="cardnumber" name="cardnumber" />
 				</div>
-				<button type="submit" class="btn btn-default">查询</button>
-				<button type="submit" class="btn btn-default">新建员工</button>
-			</form>
-			
-			<table class="table table-bordered">
-				<thead>
-					<th>姓名</th>
-					<th>性别</th>
-					<th>联系电话</th>
-					<th>毕业院校</th>
-					<th>身份证号</th>
-					<th>操作</th>
-				</thead>
-				<tbody>
-					<tr>
-						<td>王</td>
-						<td>男</td>
-						<td>123456</td>
-						<td>北京大学</td>
-						<td>0001</td>
-						<td>
-							<button type="submit" class="btn btn-default">入职</button>
-							<button type="submit" class="btn btn-warning">修改</button>
-							<button type="submit" class="btn btn-danger">删除</button>
-						</td>
-					</tr>
-					<tr>
-						
-						<td>王</td>
-						<td>男</td>
-						<td>123456</td>
-						<td>北京大学</td>
-						<td>0001</td>
-						<td>
-							<button type="submit" class="btn btn-default">入职</button>
-							<button type="submit" class="btn btn-warning">修改</button>
-							<button type="submit" class="btn btn-danger">删除</button>
-						</td>
-					</tr>
-					<tr>
+				<button type="button" onclick="chenke()" class="btn btn-default">查询</button>
+				<a href="AddTalenPool.html"><button type="button" class="btn btn-default">新增</button></a>
+			</div>
+			<div class="form-group">
+				<table class="table table-bordered">
+					<thead>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>身份证号</th>
+						<th>毕业院校</th>
+						<th>专业</th>
+						<th>联系电话</th>
+						<th>操作</th>
+					</thead>
+					<tbody id="querylist">
+					</tbody>
+				</table>
+			</div>
 
-						<td>王</td>
-						<td>男</td>
-						<td>123456</td>
-						<td>北京大学</td>
-						<td>0001</td>
-						<td>
-							<button type="submit" class="btn btn-default">入职</button>
-							<button type="submit" class="btn btn-warning">修改</button>
-							<button type="submit" class="btn btn-danger">删除</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
 			<!--<div>
 				<span><a href="">首页</a></span><span><a href="">上一页</a></span>
 				<span>1</span><span><a href="">下一页</a></span>
@@ -97,29 +58,114 @@
 			</div>
 
 		</section>
-		
+
 		<script type="text/javascript" src="../../model/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
-		//公共模块
-		//模型绑定
-		var app = angular.module('MyApp', []);
-		//添加控制
-		app.controller('person',function ($scope) {		
-			$scope.toggle=function  () {
-				$scope.mybq=!$scope.mybq;				
-			}
-			$scope.toggle1=function  () {
-				$scope.mybq1=!$scope.mybq1;
-			}
-			$scope.toggle2=function  () {
-				$scope.mybq2=!$scope.mybq2;
-			}
-			$scope.toggle4=function  () {
-				$scope.mybq4=!$scope.mybq4;
-			}
-		});	
 			
+
+			function chenke() {
+				var pType = $("#querylist");
+				pType.html("");
+				$.ajax({
+					type: "get",
+					url: "http://localhost:8099/" + "findTalent",
+					data: {
+						"name": fname.value,
+						"cardnumber": cardnumber.value
+					},
+					dataType: "json",
+					"complete": function(XHR, TS) {
+						if("success" != TS) {
+							return alert("服务器么有正确响应");
+						}
+						var dates = JSON.parse(XHR.responseText);
+						if(dates.code == -1) {
+							alert(dates.msg);
+						} else {
+							var arr = dates.data.content;
+							var genders = "";
+							for(var i = 0; i < arr.length; i++) {
+								if(arr[i].gender == 1) {
+									genders = "男";
+								} else if(arr[i].gender == 2) {
+									genders = "女";
+								}
+								pType.append("<tr><td >" + arr[i].name +
+									"</td><td>" + genders +
+									"</td><td>" + arr[i].cardnumber +
+									"</td><td>" + arr[i].university +
+									"</td><td>" + arr[i].major +
+									"</td><td>" + arr[i].phone +
+									"</td><td><button type='button' class='btn btn-default'  onclick='chaxx(" + arr[i].id +
+									")'>详细</button><button type='button' class='btn btn-default' onclick='entry(" + arr[i].id +
+									")'>入职 </button><button type='button' class='btn btn-default' onclick='updat(" + arr[i].id +
+									")'>修改</button><button type='button' class='btn btn-default' onclick='delect(" + arr[i].id +
+									")'>删除 </button></td></tr>");
+							}
+						}
+					}
+				});
+			};
+			//详细信息
+			function chaxx (id) {
+				localStorage.removeItem('key');
+				localStorage.setItem("key", id);
+				location.href = "DetaiTalenPool.html";	
+			}
+			//人才库入职
+			function entry (id) {
+				localStorage.removeItem('key');
+				localStorage.setItem("key", id);
+				location.href = "RcNewTalent.html";	
+			}
+			//修改
+			function updat (id) {
+				localStorage.removeItem('key');
+				localStorage.setItem("key", id);
+				location.href = "UpdateEnterInfo.html";	
+			}
+			//删除
+			function delect (id) {
+				$.ajax({
+					type: "get",
+					url: "http://localhost:8099/" + "findTalent",
+					data: {
+						"id": id			
+					},
+					dataType: "json",
+					"complete": function(XHR, TS) {
+						if("success" != TS) {
+							return alert("服务器么有正确响应");
+						}
+						var dates = JSON.parse(XHR.responseText);
+						if(dates.code == -1) {
+							alert(dates.msg);
+						} else {
+							alert(dates.msg);
+						}
+					}
+				});
+			}
+			
+			function topg(lis) {
+			if(lis == 1) {
+				$(".asdtow1").slideToggle("fast")
+					.siblings(".asdtow1").slideUp("fast")
+			} else if(lis == 2) {
+				$(".asdtow2").slideToggle("fast")
+					.siblings(".asdtow2").slideUp("fast")
+			} else if(lis == 3) {
+				$(".asdtow3").slideToggle("fast")
+					.siblings(".asdtow3").slideUp("fast")
+			} else if(lis == 4) {
+				$(".asdtow4").slideToggle("fast")
+					.siblings(".asdtow4").slideUp("fast")
+			} else {
+				location.href = "dpt.html";
+			}
+		}
 		</script>
 	</body>
+
 </html>

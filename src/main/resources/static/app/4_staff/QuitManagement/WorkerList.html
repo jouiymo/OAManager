@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+	作者：offline
+	时间：2017-08-28
+	描述：员工主页面
+-->
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -17,28 +22,28 @@
 		<div ng-include="'../../PublicModules/left.html'"></div>
 		
 		<span>员工页面</span>
-		<button type="submit" ><a href="">已离职员工信息查询</a></button>
-		<form class="form-inline">
+		<button type="button" ><a href="quitWorkerList.html">已离职员工信息查询</a></button>
+		<div class="form-inline">
 				<div class="form-group">
-					<label for="dptWorkerNumber">员工编号</label>
-					<input type="text" class="form-control" id="dptWorkerNumber" >
+					<label for="WorkerNumber">员工编号</label>
+					<input type="number" class="form-control" id="WorkerNumber" name="WorkerNumber" >
 				</div>
 				<div class="form-group">
-					<label for="dptWorkerName">员工姓名</label>
-					<input type="text" class="form-control" id="dptWorkername" >
+					<label for="WorkerName">员工姓名</label>
+					<input type="text" class="form-control" id="WorkerName" name="WorkerName" >
 				</div>
 				<div class="form-group">
 					<label for="dptName">部门名称</label>
-					<input type="text" class="form-control" id="dptName" >
+					<input type="text" class="form-control" id="dptName" name="dptName">
 				</div>
 				<div class="form-group">
 					<label for="dptNumber">部门编号</label>
-					<input type="text" class="form-control" id="dptNumber" >
+					<input type="number" class="form-control" id="dptNumber" name="dptNumber">
 				</div>
 				
 				<button type="submit" class="btn btn-default">查询</button>
-				<button type="submit" class="btn btn-default"><a href="addpost.html">新增</a></button>
-			</form>
+				<a href="newQuitWorker.html"><button type="submit" class="btn btn-default">新增</button></a>
+			</div>
 			
 			
 		<section>
@@ -58,8 +63,8 @@
 						<td>开发</td>
 						<td>技术部</td>
 						<td>500</td>
-						<td><button type="submit" class="btn btn-default">详情</button>
-							<button type="submit" class="btn btn-warning">修改</button>
+						<td><a href="WorkerInfo.html"><button type="submit" class="btn btn-default">详情</button></a>
+							<a href="WorkerUpdateInfo.html"><button type="submit" class="btn btn-warning">修改</button></a>
 							
 						</td>
 					</tr>
@@ -68,8 +73,8 @@
 						<td>销售</td>
 						<td>市场部</td>
 						<td>500</td>
-						<td><button type="submit" class="btn btn-default">详情</button>
-							<button type="submit" class="btn btn-warning">修改</button>
+						<td><a href="WorkerInfo.html"><button type="submit" class="btn btn-default">详情</button></a>
+							<a href="WorkerUpdateInfo.html"><button type="submit" class="btn btn-warning">修改</button></a>
 						</td>
 					</tr>
 					<tr>
@@ -77,8 +82,8 @@
 						<td>会计</td>
 						<td>人事部</td>
 						<td>500</td>
-						<td><button type="submit" class="btn btn-default">详情</button>
-							<button type="submit" class="btn btn-warning">修改</button>
+						<td><a href="WorkerInfo.html"><button type="submit" class="btn btn-default">详情</button></a>
+							<a href="WorkerUpdateInfo.html"><button type="submit" class="btn btn-warning">修改</button></a>
 						</td>
 					</tr>
 					

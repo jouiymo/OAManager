@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+	作者：offline
+	时间：2017-08-28
+	描述：已转正员工管理主页面
+-->
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -17,40 +22,43 @@
 		<div ng-include="'../../PublicModules/left.html'"></div>
 		
 		<section>
-			<span>正式员工管理</span>
+			<span>已转正员工管理</span>
 			<button  class="btn btn-default" id="headbutton" type="submit">
-				<a href="">试用期员工查询</a></button>
-			<form class="form-inline">
+				<a href="ShiyongManagement.html">试用期员工查询</a></button>
+			<div class="form-inline">
 				<div class="form-group">
-					<label for="dptnum">员工编号</label>
-					<input type="text" class="form-control" id="dptnum" >
+					<label for="WorkerNumber">员工编号</label>
+					<input type="number" class="form-control" id="WorkerNumber" name="WorkerNumber">
 				</div>
 				<div class="form-group">
-					<label for="dptname">员工姓名</label>
-					<input type="text" class="form-control" id="dptname"/>
+					<label for="WorkerName">员工姓名</label>
+					<input type="text" class="form-control" id="WorkerName" name="WorkerName"/>
 				</div>
 				<div class="form-group">
-					<label for="dpttype">部门名称</label>
-					<input type="text" class="form-control" id="dpttype"/>
+					<label for="dptName">部门名称</label>
+					<input type="text" class="form-control" id="dptName" name="dptName"/>
 				</div>
 				<div class="form-group">
-					<label for="posttype">岗位名称</label>
-					<input type="text" class="form-control" id="posttype"/>
+					<label for="dptNumber">部门编号</label>
+					<input type="number" class="form-control" id="dptNumber" name="dptNumber"/>
 				</div>
 				<div class="form-group">
-					<label for="probationType">试用期状态</label>
-					<input type="text" class="form-control" id="probationType"/>
+					<label for="postName">岗位名称</label>
+					<input type="text" class="form-control" id="postName" name="postName"/>
 				</div>
+				
 				<div class="form-group">
 					<label for="beginDate">试用期开始日期</label>
-					<input type="date" class="form-control" id="beginDate"/>
+					<input type="date" class="form-control" id="beginDate" name="beginDate"/>
 				</div>
 				<div class="form-group">
 					<label for="endDate">试用期结束日期</label>
-					<input type="date" class="form-control" id="endDate"/>
+					<input type="date" class="form-control" id="endDate" name="endDate"/>
 				</div>
-				<button type="submit" class="btn btn-default">查询</button>	
-			</form>
+				<button type="submit" class="btn btn-default">查询</button>
+				<a href="newZhengshiWorker.html"><button class="btn btn-warning">新增</button></a>
+			</div>
+			
 			
 			<table class="table table-bordered">
 				<thead>
@@ -74,8 +82,8 @@
 						<td>正常</td>
 						<td>2002</td>
 						<td>2002</td>
-						<td><button type="submit" class="btn btn-default">详情</button>
-							<button type="submit" class="btn btn-warning">修改</button>
+						<td><a href="ZhengshiInfo.html"><button type="submit" class="btn btn-default">详情</button></a>
+							<a href="UpdateZhengshiInfo.html"><button type="submit" class="btn btn-warning">修改</button></a>
 							
 						</td>
 					</tr>
@@ -88,8 +96,8 @@
 						<td>正常</td>
 						<td>2001</td>
 						<td>2002</td>
-						<td><button type="submit" class="btn btn-default">详情</button>
-							<button type="submit" class="btn btn-warning">修改</button>
+						<td><a href="ZhengshiInfo.html"><button type="submit" class="btn btn-default">详情</button></a>
+							<a href="UpdateZhengshiInfo.html"><button type="submit" class="btn btn-warning">修改</button></a>
 							
 						</td>
 					</tr>
@@ -102,8 +110,8 @@
 						<td>正常</td>
 						<td>2003</td>
 						<td>2002</td>
-						<td><button type="submit" class="btn btn-default">详情</button>
-							<button type="submit" class="btn btn-warning">修改</button>
+						<td><a href="ZhengshiInfo.html"><button type="submit" class="btn btn-default">详情</button></a>
+							<a href="UpdateZhengshiInfo.html"><button type="submit" class="btn btn-warning">修改</button></a>
 							
 						</td>
 					</tr>
@@ -114,7 +122,7 @@
 				<span><a href="">首页</a></span>&nbsp;&nbsp;&nbsp;<span><select id="peges" name="peges">
 					<option value="1">1</option>
 				</select></span>&nbsp;&nbsp;&nbsp;<span><a href="">尾页</a></span>
-				<button class="btn btn-warning">新增</button>
+				
 			</div>
 			
 		</section>

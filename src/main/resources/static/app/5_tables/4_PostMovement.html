@@ -13,9 +13,8 @@
 		<link rel="stylesheet" href="../../static/common/css/common.css" />
 		<script type="text/javascript" src="../../model/angular.min.js"></script>
 	</head>
-	<body ng-app="MyApp" ng-controller="person">
-		<div ng-include="'../PublicModules/top.html'"></div>
-		<div ng-include="'../PublicModules/left.html'"></div>
+	<body ng-app="" >
+		<div ng-include="'../PublicModules/left1.html'"></div>
 		<a href="">首页</a>><a href="">报表管理</a>><a href="">岗位调动员工报表</a>
 		<section>
 			<table class="table table-bordered">
@@ -46,24 +45,23 @@
 		<script type="text/javascript" src="../../model/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
-		//公共模块
-		//模型绑定
-		var app = angular.module('MyApp', []);
-		//添加控制
-		app.controller('person',function ($scope) {		
-			$scope.toggle=function  () {
-				$scope.mybq=!$scope.mybq;				
+		function topg(lis) {
+			if(lis == 1) {
+				$(".asdtow1").slideToggle("fast")
+					.siblings(".asdtow1").slideUp("fast")
+			} else if(lis == 2) {
+				$(".asdtow2").slideToggle("fast")
+					.siblings(".asdtow2").slideUp("fast")
+			} else if(lis == 3) {
+				$(".asdtow3").slideToggle("fast")
+					.siblings(".asdtow3").slideUp("fast")
+			} else if(lis == 4) {
+				$(".asdtow4").slideToggle("fast")
+					.siblings(".asdtow4").slideUp("fast")
+			} else {
+				location.href = "dpt.html";
 			}
-			$scope.toggle1=function  () {
-				$scope.mybq1=!$scope.mybq1;
-			}
-			$scope.toggle2=function  () {
-				$scope.mybq2=!$scope.mybq2;
-			}
-			$scope.toggle4=function  () {
-				$scope.mybq4=!$scope.mybq4;
-			}
-		});	
+		}
 		</script>
 	</body>
 </html>

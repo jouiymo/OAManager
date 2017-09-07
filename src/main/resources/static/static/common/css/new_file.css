@@ -1,0 +1,82 @@
+*{ 
+	margin:0;
+	padding: 0;
+}
+.left{
+	float: left;
+	color: white;
+	background:#31405D;
+	margin-right: 100px;
+	width:200px; 
+	height:100%; 
+		
+}
+.div0{
+	
+	height: 50px;
+	width: 200px;
+	text-align: center;
+}
+
+.log{
+	padding-top: 12px;
+	width: 200px;
+	height: 100px;
+	margin-left: 70px;
+}
+.div1{
+	background:#394967;
+}
+.div2{
+	
+	width: 200px;
+	line-height: 40px;
+	cursor: pointer; 
+	
+}
+.title{
+	color: white;
+	display: block;
+	margin-left: 44px;
+	font-size: 14px;
+	
+}
+
+.TalentPool{
+	color: white;
+	font-size: 14px;
+	line-height: 40px;
+	cursor: pointer; 
+	
+}
+.div3{
+	display: none;
+	
+}
+.div3 ul li{
+	line-height:30px; 
+	text-align:center;
+}
+.div3 ul li a{
+	text-decoration: none;
+	color: white;
+}
+.test{
+	height: 50px;
+	background: #5192BB;
+}
+.out{
+	position: relative;
+	float: right;
+	color: white;
+	margin-right: 30px;
+	top: -23px;
+}
+.out a{
+	margin-left:10px;
+	position: relative;
+	top: -2px;
+	color: white;
+	text-decoration: none;
+	cursor:pointer;
+}

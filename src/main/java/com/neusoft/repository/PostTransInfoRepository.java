@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.neusoft.domain.PostSwitch;
 
-public interface PostTransInfoRepository extends JpaRepository<PostSwitch, Integer> {
+public interface PostTransInfoRepository extends BaseJpaRepository<PostSwitch, Integer> {
 
 	PostSwitch findByEid(Integer empId);
 

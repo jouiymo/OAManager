@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>首页</title>
+		<link rel="stylesheet" href="../../static/public/css/base.css" />
+		<link rel="stylesheet" href="../../model/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../../static/common/css/new_file.css" />
+		<script type="text/javascript" src="../../model/angular.min.js"></script>
+	</head>
+
+	<body style="background-color: #F2F2F2;">
+		
+		
+		<aside class="left">
+			<div class="div0"><p style="font-size: 19px;padding-top: 10px;">人事管理系统</p></div>
+			<div class="div1">
+				<div class="log">
+				<img src="../../static/common/img/head.jpg" class="img-rounded" />
+				<p style="position: relative;margin-left: 8px;margin-top: 5px;">管理员</p>
+				</div>
+			</div>
+			<div class="div2">
+				<span class="title">
+				<div style="margin-right: 10px;margin-top:30px;" class="glyphicon glyphicon-edit" aria-hidden="true"></div>
+				系统管理
+				</span>	
+			</div>
+			<div class="div3">
+				<ul>
+					<li ><a href="##">用户管理</a></li>
+      				<li><a href="##">角色管理</a></li>
+      				<li><a href="##">日志</a></li>
+				</ul>
+  			</div>	
+			<div class="div2">
+				<span class="title">
+				<div style="margin-right: 10px;margin-top:15px;" class="glyphicon glyphicon-briefcase" aria-hidden="true"></div>
+				公司管理
+				</span>
+			</div>
+			<div class="div3">
+				<ul>
+					<li><a href="##">岗位管理</a></li>
+      				<li><a href="##">部门管理</a></li>
+				</ul>
+			</div>
+			
+			<div class="TalentPool">
+				<span style="margin-left: 44px;">
+				<div style="margin-right: 9px;margin-top:15px;" class="glyphicon glyphicon-link" aria-hidden="true"></div>
+				人才库管理
+				</span>
+			</div>
+			
+			<div class="div2">
+				<span class="title">
+				<div style="margin-right: 10px;margin-top:15px;" class="glyphicon glyphicon-user" aria-hidden="true"></div>
+				员工管理
+				</span>
+			</div>
+			<div class="div3">
+				<ul>
+					<li><a href="##">员工信息中心</a></li>
+      				<li><a href="##">员工入职管理</a></li>
+      				<li><a href="##">试用期管理</a></li>
+      				<li><a href="##">部门调动管理</a></li>
+      				<li><a href="##">岗位调动管理</a></li>
+      				<li><a href="##">离职管理</a></li>
+				</ul>
+			</div>
+			<div class="div2">
+				<span class="title">
+				<div style="margin-right: 10px;margin-top:15px;" class="glyphicon glyphicon-tasks" aria-hidden="true"></div>
+				报表管理
+				</span>
+			</div>
+			<div class="div3">
+				<ul>
+					<li><a href="##">新聘员工报表</a></li>
+      				<li><a href="##">离职员工报表</a></li>
+      				<li><a href="##">部门调动员工报表</a></li>
+      				<li><a href="##">岗位调动员工报表</a></li>
+      				<li><a href="##">人事月报</a></li>
+				</ul>
+			</div>	
+		</aside>
+		
+		<div class="test">	
+	 	<div class="input-group" style="width: 200px;padding-top: 6px;">
+      		<input style="background: #97BED6;" type="text" class="form-control" id="" name="" />
+      		<span class="input-group-btn">
+        		<button style="background: #97BED6;" class="btn btn-default" type="button">
+        		<span class="glyphicon glyphicon-search" style="color: white;"></span></button>
+     		</span>	
+   	 </div>
+		<div class="out">
+			<span class="glyphicon glyphicon-off"></span>
+			<a href="#"><span class="TuiChu">退出</span></a>
+		</div>
+		
+		
+		<script type="text/javascript" src="../../model/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$(".div2").click(function(){ 
+			$(this).next("div").slideToggle("fast")
+			.siblings(".div3").slideUp("fast")
+			});
+			
+	});
+</script>
+	</body>
+
+</html>
+
