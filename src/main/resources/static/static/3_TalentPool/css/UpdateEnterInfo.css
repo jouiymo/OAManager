@@ -1,5 +1,10 @@
-section{
+.top_tag {
+	float: left;
+	position: relative;
+	z-index: 5;
+}
+
+section {
 	margin-left: 500px;
-	width:450px;
-	
+	width: 450px;
 }

@@ -15,26 +15,33 @@
 	<body ng-app="" >
 		<div ng-include="'../../PublicModules/left.html'"></div>
 		<section>
-			<h4><a>首页</a>><a>日志</a></h4>
-			<div class="form-inline">
-				<div class="form-group">
+			<h4><a>系统管理</a><span class="arrow">➤</span><a>日志</a></h4>
+			<div class="form-inline form-group">
+				<div class="form-group" style="margin-right: 100px;">
 					<label for="StartDate">开始时间</label>
 					<input type="date" class="form-control" id="StartDate" name="StartDate">
 				</div>
-				<div class="form-group">
+				<div class="form-group" style="margin-right: 100px;">
 					<label for="EndDate">结束时间</label>
 					<input type="date" class="form-control" id="EndDate" name="EndDate">
 				</div>
-				<div class="form-group">
+				<div class="form-group" style="margin-right: 100px;">
 					<label for="WorkerName">员工姓名</label>
 					<input type="text" class="form-control" id="WorkerName" name="WorkerName">
 				</div>
+			</div>
+			<div class="form-inline form-group">
+				
 				<div class="form-group">
-					<label for="WorkNumber">工号</label>
-					<input type="text" class="form-control" id="WorkNumber" name="WorkNumber">
+					<label for="WorkNumber" style="margin-left: 28px;">工号</label>
+					<input style="width:164.54px;" type="text" class="form-control" id="WorkNumber" name="WorkNumber">		
 				</div>
-				<button type="button" class="btn btn-default">查询</button>
-				<table class="table table-striped">
+				<div class="form-group" style="margin-left: 790px;">
+					<button style="width: 100px;"  type="button" class="btn btn-default">查询</button>
+				</div>
+			</div>
+				
+			<table class="table table-striped">
 				<thead>
 					<th>工号</th>
 					<th>姓名</th>
@@ -93,7 +100,7 @@
 				$(".asdtow4").slideToggle("fast")
 				.siblings(".asdtow4").slideUp("fast")
 				}else{
-					location.href = "dpt.html";
+					location.href = "/app/3_Enter/TalentPool.html";
 				}
 			}
 		</script>

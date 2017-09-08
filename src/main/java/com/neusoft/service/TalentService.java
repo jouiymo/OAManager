@@ -32,7 +32,7 @@ public interface TalentService {
 	public List<TalentInfo> findTalentInfoByGender(Integer gender) throws MyException;
 
 	// 通过身份证号码查询人才信息列表
-	public List<TalentInfo> findTalentInfoByIdNo(String IdNo) throws MyException;
+	public TalentInfo findTalentInfoByIdNo(String IdNo) throws MyException;
 
 	// 通过构建不完整的人才信息查询人才信息列表(查询条件为姓名，性别，身份证号码)
 	public Page<TalentInfo> findTalentInfoByTalentInfo(TalentInfo talentInfo, Pageable pageable) throws MyException;

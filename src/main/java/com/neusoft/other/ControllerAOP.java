@@ -30,9 +30,9 @@ import com.neusoft.util.ResJsonUtil;
  * @author sky
  *
  */
-@Aspect
-@Component
-@Order(1)
+//@Aspect
+//@Component
+//@Order(1)
 public class ControllerAOP {
 
 	@Autowired

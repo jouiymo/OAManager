@@ -15,6 +15,9 @@
 
 	<body ng-app=""  >
 		<div ng-include="'../../PublicModules/left.html'"></div>
+		<h4 style="text-align: left;width: 800px;height: 40px;">
+		<a href="">公司管理 </a><span class="arrow">➤</span><a href="">部门管理</a><span class="arrow">➤</span><a href="">部门信息修改</a>
+		</h4>
 		<section>
 			<div id="inputForm">
 				<input id="ids" hidden></output>
@@ -33,7 +36,8 @@
 				<div class="form-group">
 					<label for="type">部门类型</label>
 					<select class="form-control" name="type" id="type">
-						<option value="1">请选择</option>
+						<option value="1">部门</option>
+						<option value="2">公司</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -144,7 +148,7 @@
 				$(".asdtow4").slideToggle("fast")
 				.siblings(".asdtow4").slideUp("fast")
 				}else{
-					location.href = "dpt.html";
+					location.href = "/app/3_Enter/TalentPool.html";
 				}
 			}	
 		

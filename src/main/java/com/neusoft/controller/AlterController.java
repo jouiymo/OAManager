@@ -214,7 +214,7 @@ public class AlterController {
 
 	// 删除部门
 	@PostMapping(value = "/delDept")
-	public ResJson<EmployeeInfo> delDept(@ModelAttribute Dept dept) throws MyException {
+	public ResJson<Dept> delDept(@ModelAttribute Dept dept) throws MyException {
 
 		ds.del(dept);
 		return ResJsonUtil.success("删除部门成功");
@@ -223,9 +223,10 @@ public class AlterController {
 
 	// 删除岗位
 	@PostMapping(value = "/delPost")
-	public ResJson<EmployeeInfo> delPost(@ModelAttribute Dept dept) throws MyException {
-
-		ds.del(dept);
+	public ResJson<Post> delPost(@ModelAttribute Post post) throws MyException {
+		post = ps.findPostByPost(post, null).getContent().iterator().next();
+		
+		ps.del(post);
 		return ResJsonUtil.success("删除岗位成功");
 
 	}
@@ -241,7 +242,7 @@ public class AlterController {
 
 	// 删除角色
 	@PostMapping(value = "/delRole")
-	public ResJson<User> delRole(@ModelAttribute Role role) throws MyException {
+	public ResJson<Role> delRole(@ModelAttribute Role role) throws MyException {
 
 		rs.del(role);
 		return ResJsonUtil.success("删除角色成功");

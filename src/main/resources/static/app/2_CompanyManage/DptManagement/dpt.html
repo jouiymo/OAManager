@@ -16,7 +16,7 @@
 	<body ng-app="" >
 		<div ng-include="'../../PublicModules/left.html'"></div>
 		<h4 style="text-align: left;width: 800px;">
-		<a href="">公司管理></a><a href="">部门管理</a>><a href="">部门新增</a>
+		<a href="">公司管理 </a><span class="arrow">➤</span><a href="">部门管理</a>
 	</h4>
 		<section class="dptRight">
 			<div class="form-inline" id="inputForm">
@@ -30,16 +30,15 @@
 				</div>
 				<div class="form-group">
 					<label for="dpttype">部门类型</label>
-					<select name="type" id="type" class="form-control">
-						<option value="">请选择</option>
-						<option value="">市场部</option>
-						<option value="">人事部</option>
+					<select name="type" id="types" class="form-control">
+						<option value="1">部门</option>
+						<option value="2">公司</option>
 					</select>
 				</div>
-				<button type="button" class="btn btn-default" onclick="chende()" >查询</button>
+				<button type="button" class="btn btn-default " onclick="chende()" >查询</button>
 				<a href="adddpt.html"><button type="button" class="btn btn-default">新增部门</button></a>
 			</div>
-
+			<br /><br />
 			<table class="table table-striped">
 				<thead>
 					<th>部门编号</th>
@@ -52,7 +51,30 @@
 					<th>操作</th>
 				</thead>
 				<tbody id="querylist">
-					
+					<tr>
+						<td>1</td>
+						<td>技术一部</td>
+						<td>1115158489</td>
+						<td>445 65656</td>
+						<td>技术部</td>
+						<td></td>
+						<td>2017-08-01</td>
+						<td><button type='button' class='btn btn-default'>修改</button>
+							<button type='button' class='btn btn-default'>删除</button>
+							<button type='button' class='btn btn-default'>查看员工</button>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>技术二部</td>
+						<td>1115158489</td>
+						<td>445 65656</td>
+						<td>技术部</td>
+						<td></td>
+						<td>2017-08-01</td>
+						<td><button type='button' class='btn btn-default'>修改</button>
+							<button type='button' class='btn btn-default'>删除</button>
+							<button type='button' class='btn btn-default'>查看员工</button>
+					</tr>
 				</tbody>
 				
 			</table>
@@ -82,7 +104,7 @@
 				data: {
 				"name": fname.value,
 				"id": ids.value,
-				"type": type.value
+				"type": types.value
 			},
 				dataType: "json",
 				"complete": function(XHR, TS) {
@@ -99,9 +121,9 @@
 								"</td><td>" + arr[i].name +
 								"</td><td>" + arr[i].phone +
 								"</td><td>" + arr[i].fax +
-								"</td><td>" + arr[i].type +
+								"</td><td>" +type(arr[i].type) +
 								"</td><td>" + arr[i].supName +
-								"</td><td>" + fmtDate(arr[i].date) +
+								"</td><td>" + fmtDate(arr[i].startDay) +
 								"</td><td><button type='button' class='btn btn-default' onclick='update(" + arr[i].id +
 								")'>修改 </button><button type='button' class='btn btn-default' onclick='delect(" + arr[i].id +
 								") '>删除</button><button type='button' class='btn btn-default' onclick='ckyg(" + arr[i].id +
@@ -111,6 +133,15 @@
 				}
 			})
 		};
+			function type(typi){
+				var typn ="";
+				if(typi == 1 ){
+					typn="部门"
+				}else if(typi == 2){
+					var typn ="公司";
+				}
+				return typn;
+			}
 			
 			//修改方法
 			function update(id) {
@@ -160,7 +191,7 @@
 				$(".asdtow4").slideToggle("fast")
 				.siblings(".asdtow4").slideUp("fast")
 				}else{
-					location.href = "dpt.html";
+					location.href = "/app/3_Enter/TalentPool.html";
 				}
 			}
 		</script>

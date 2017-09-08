@@ -16,14 +16,18 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.neusoft.domain.Dept;
+import com.neusoft.domain.EmployeeInfo;
 import com.neusoft.exception.MyException;
 import com.neusoft.repository.DeptRepository;
+import com.neusoft.repository.EmpInfoRepository;
 import com.neusoft.service.DeptService;
 
 @Service
 public class DeptServiceImpl implements DeptService {
 	@Autowired
 	private DeptRepository deptRepository;
+	@Autowired
+	EmpInfoRepository empInfoRepository;
 
 	@Autowired
 	EntityManagerFactory eFactory;
@@ -43,7 +47,7 @@ public class DeptServiceImpl implements DeptService {
 
 	// ------------------------------------------------------------------------------
 	@Override
-	public List<Dept> findDeptByDeptId(Integer id) throws MyException {
+	public Dept findDeptByDeptId(Integer id) throws MyException {
 		try {
 			return deptRepository.findByIdAndState(id, 1);
 		} catch (Exception e) {
@@ -104,6 +108,11 @@ public class DeptServiceImpl implements DeptService {
 	@Transactional
 	// 删除部门的时候判断部门下员工是否存在由controller调用empservice查询
 	public Dept del(Dept dept) throws MyException {
+		dept = deptRepository.findOne(dept.getId());
+		List<EmployeeInfo> list = empInfoRepository.findByDeptName(dept.getName());
+		if(list.size()>0){
+			throw new MyException(51, "删除部门失败");
+		}
 		dept.setState(-1);
 		try {
 			return deptRepository.save(dept);

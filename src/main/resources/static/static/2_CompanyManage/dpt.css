@@ -1,4 +1,9 @@
 .dptRight{
 	padding: 8px;
-	margin-left: 180px;
+	margin-left: 260px;
 }
+#inputForm div{
+	margin-right: 30px;
+	margin-left: 5px;
+}
+

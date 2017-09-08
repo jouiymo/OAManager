@@ -1,5 +1,16 @@
+.top_tag {
+	float: left;
+	position: relative;
+	z-index: 5;
+}
 section{
-	margin-left: 180px;
+	margin-top: 90px;
+	margin-left: 250px;
+	width: 1050px;
+	height: 620px;
+	float: left;
+	position: absolute;
+	z-index: 3;
 }
 
 

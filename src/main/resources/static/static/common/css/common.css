@@ -2,11 +2,14 @@
 	margin:0;
 	padding: 0;
 }
+.arrow{
+	color: deepskyblue;
+}
 .left{
 	float: left;
 	color: white;
 	background:#31405D;
-	margin-right: 100px;
+	margin-right: 20px;
 	width:200px; 
 	height:759px; 
 		

@@ -13,7 +13,7 @@ public interface DeptRepository extends BaseJpaRepository<Dept, Integer>{
 
 	public List<Dept> findByTypeAndState(Integer type,Integer state);
 
-	public List<Dept> findByIdAndState(Integer id,Integer state);
+	public Dept findByIdAndState(Integer id,Integer state);
 
 	
 }

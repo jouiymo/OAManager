@@ -14,11 +14,25 @@
 		<script type="text/javascript" src="../../model/angular.min.js"></script>
 	</head>
 	<body ng-app="">
-		<div ng-include="'../PublicModules/left1.html'"></div>
 		
-		<a href="">首页</a>><a href="">报表管理</a>><a href="">人事月报</a>
+		<div ng-include="'../PublicModules/left1.html'"></div>
+		<h4>
+			<a href="">报表管理</a><span class="arrow">➤</span><a href="">人事月报</a>
+		</h4>
 		<section>
-			<table class="table table-bordered">
+			<div class="form-inline" id="inputForm">
+				<div class="form-group" style="margin: 0px 100px 0px 10px;">
+					<label for="dptnum">调动日期从</label>
+					<input type="date" class="form-control" id="ids" name="id">
+				</div>
+				<div class="form-group" style="margin: 0px 300px 0px 0px;">
+					<label for="dptname">到</label>
+					<input type="date" class="form-control" id="fname" name="name">
+				</div>
+				<button type="button" class="btn btn-default " onclick="chende()" >查询</button>
+			</div>
+			<br />
+			<table class="table table-striped table-bordered">
 				<thead>
 					<tr>
 					<th rowspan="2">部门名称</th>
@@ -60,7 +74,7 @@
 				$(".asdtow4").slideToggle("fast")
 					.siblings(".asdtow4").slideUp("fast")
 			} else {
-				location.href = "dpt.html";
+				location.href = "/app/3_Enter/TalentPool.html";
 			}
 		}
 		</script>

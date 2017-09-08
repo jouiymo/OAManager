@@ -15,7 +15,7 @@
 	<body ng-app="" >
 		<div ng-include="'../../PublicModules/left.html'"></div>
 		
-		<h4><a>首页</a>><a>角色管理</a>><a>角色修改</a></h4>
+		<h4><a>角色管理</a><span class="arrow">➤</span><a>角色修改</a></h4>
 		<section>
 			<form>
 				<div class="form-group">
@@ -39,7 +39,6 @@
 				</div>
 			</form>
 			<button type="submit" class="btn btn-default">保存</button>
-			<button type="submit" class="btn btn-default">关闭</button>
 		</section>
 		
 		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
@@ -59,7 +58,7 @@
 				$(".asdtow4").slideToggle("fast")
 				.siblings(".asdtow4").slideUp("fast")
 				}else{
-					location.href = "dpt.html";
+					location.href = "/app/3_Enter/TalentPool.html";
 				}
 			}
 		</script>

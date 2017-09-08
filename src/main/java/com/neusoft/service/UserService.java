@@ -27,7 +27,7 @@ public interface UserService {
 	public User del(User user) throws MyException;
 
 	// 通过用户的员工编号查询用户列表
-	public List<User> findUserByEmpId(Integer empId) throws MyException;
+	public User findUserByEmpId(Integer empId) throws MyException;
 
 	// 通过用户的员工姓名查询用户列表
 	public List<User> findUserByEmpName(String empName) throws MyException;

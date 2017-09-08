@@ -69,37 +69,40 @@ public class AddController {
 	private ProbaInfoService pis;
 	@Autowired
 	private TalentService ts;
-	
+
 	// 人才库信息录入
-		@PostMapping(value = "/addTalent")
+	@PostMapping(value = "/addTalent")
 	public ResJson<TalentInfo> addTalent(@Valid @ModelAttribute TalentInfo talentInfo, BindingResult bResult)
-				throws MyException {
-
-			if (bResult.hasErrors()) {
-
-				 throw new MyException(10, "参数不正确");
-			}
-			
-			ts.add(talentInfo);
-			return ResJsonUtil.success("添加人才库信息成功");
-
-		}
-	// 员工基本信息录入
-	@PostMapping(value = "/addEmp")
-	public ResJson addEmp(@Valid @ModelAttribute EmployeeInfo emp, BindingResult bResult)
 			throws MyException {
 
 		if (bResult.hasErrors()) {
 
-			 throw new MyException(10, "参数不正确");
+			throw new MyException(10, "参数不正确");
 		}
-		
+
+		ts.add(talentInfo);
+		return ResJsonUtil.success("添加人才库信息成功");
+
+	}
+
+	// 员工基本信息录入
+	@PostMapping(value = "/addEmp")
+	public ResJson addEmp(@Valid @ModelAttribute EmployeeInfo emp, BindingResult bResult) throws MyException {
+
+		if (bResult.hasErrors()) {
+
+			throw new MyException(10, "参数不正确");
+		}
+		// 如果试用期状态不等于5（即有试用期的情况）必须添加试用期开始和结束时间
+
+		if (1 != emp.getEmform() && (emp.getProbationstart() == null || emp.getProbationend() == null)) {
+
+			return new ResJson(null, 90, "员工有试用期，请添加试用期信息");
+		} else {
+			emp.setProbationState(5);
+		}
 		es.add(emp);
-		//如果试用期状态不等于5（即有试用期的情况）必须添加试用期开始和结束时间
-		if (5!=emp.getProbationState()&&(emp.getProbationstart()==null||emp.getProbationend()==null)) {
-			return new ResJson(null,90,"员工有试用期，请添加试用期信息"); 
-		}
-		
+
 		return ResJsonUtil.success("添加新员工成功");
 
 	}
@@ -175,6 +178,7 @@ public class AddController {
 			throw new MyException(10, "参数不正确");
 		}
 		ptis.add(postSwitch);
+
 		return ResJsonUtil.success("员工岗位调转信息录入成功");
 
 	}

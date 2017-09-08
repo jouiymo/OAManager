@@ -1,4 +1,14 @@
 section{
 	margin-left:160px;
+	position: absolute;
+	width: 1200px;
+	height: 800px;
+	margin: 0px 0px 0px 240px;
 	
+}
+#inputForm div{
+	margin-left: 15px;
+}
+#inputForm button{
+	margin-left: 15px;
 }

@@ -60,17 +60,35 @@ public class XiaLaController {
 		List<Bltype> list = bltypeRepository.findAll();
 		return ResJsonUtil.success(list, "查询血型列表成功");
 	}
+	@GetMapping(value = "/findbl1")
+	public ResJson<Bltype> findBl1(@RequestParam(value="bid") Integer id
+			) throws MyException {
+		Bltype bltype= bltypeRepository.findOne(id);
+		return ResJsonUtil.success(bltype, "查询血型列表成功");
+	}
 
 	@GetMapping(value = "/findde")
 	public ResJson<Degreeorm> findDe() throws MyException {
 		List<Degreeorm> list = degreeormRepository.findAll();
 		return ResJsonUtil.success(list, "查询最高学位列表成功");
 	}
+	@GetMapping(value = "/findde1")
+	public ResJson<Degreeorm> findDe1(@RequestParam(value="did") Integer id) throws MyException {
+		
+		Degreeorm degreeorm= degreeormRepository.findOne(id);
+		return ResJsonUtil.success(degreeorm, "查询最高学位列表成功");
+	}
+
 
 	@GetMapping(value = "/finded")
 	public ResJson<Education> findEd() throws MyException {
 		List<Education> list = educationRepository.findAll();
 		return ResJsonUtil.success(list, "查询最高学历列表成功");
+	}
+	@GetMapping(value = "/finded1")
+	public ResJson<Education> findEd1(@RequestParam(value="eid") Integer id) throws MyException {
+	Education education = educationRepository.findOne(id);
+		return ResJsonUtil.success(education, "查询最高学历列表成功");
 	}
 
 	@GetMapping(value = "/findem")
@@ -78,10 +96,20 @@ public class XiaLaController {
 		List<Emform> list = emformRepository.findAll();
 		return ResJsonUtil.success(list, "查询用工形式列表成功");
 	}
+	@GetMapping(value = "/findem1")
+	public ResJson<Emform> findEm1(@RequestParam(value="emid") Integer id) throws MyException {
+		Emform emform = emformRepository.findOne(id);
+		return ResJsonUtil.success(emform, "查询用工形式列表成功");
+	}
 
 	@GetMapping(value = "/findma")
 	public ResJson<Marital> findMa() throws MyException {
 		List<Marital> list = maritalRepository.findAll();
+		return ResJsonUtil.success(list, "查询婚况列表成功");
+	}
+	@GetMapping(value = "/findma1")
+	public ResJson<Marital> findMa1(@RequestParam(value="mid") Integer id) throws MyException {
+		Marital list = maritalRepository.findOne(id);
 		return ResJsonUtil.success(list, "查询婚况列表成功");
 	}
 
@@ -90,10 +118,20 @@ public class XiaLaController {
 		List<Nation> list = nationRepository.findAll();
 		return ResJsonUtil.success(list, "查询民族列表成功");
 	}
+	@GetMapping(value = "/findna1")
+	public ResJson<Education> findNa1(@RequestParam(value="edid") Integer id) throws MyException {
+		Nation list = nationRepository.findOne(id);
+		return ResJsonUtil.success(list, "查询民族列表成功");
+	}
 
 	@GetMapping(value = "/findpoli")
 	public ResJson<Political> findPoli() throws MyException {
 		List<Political> list = politicalRepository.findAll();
+		return ResJsonUtil.success(list, "查询政治面貌列表成功");
+	}
+	@GetMapping(value = "/findpoli1")
+	public ResJson<Political> findPoli1(@RequestParam(value="pid") Integer id) throws MyException {
+		Political list = politicalRepository.findOne(id);
 		return ResJsonUtil.success(list, "查询政治面貌列表成功");
 	}
 
@@ -102,10 +140,20 @@ public class XiaLaController {
 		List<PostType> list = postTypeRepository.findAll();
 		return ResJsonUtil.success(list, "查询岗位列表成功");
 	}
+	@GetMapping(value = "/findpo1")
+	public ResJson<PostType> findPo1(@RequestParam(value="poid") Integer id) throws MyException {
+		PostType list = postTypeRepository.findOne(id);
+		return ResJsonUtil.success(list, "查询岗位列表成功");
+	}
 
 	@GetMapping(value = "/findso")
 	public ResJson<Sources> findSo() throws MyException {
 		List<Sources> list = sourcesRepository.findAll();
+		return ResJsonUtil.success(list, "查询人员来源列表成功");
+	}
+	@GetMapping(value = "/findso1")
+	public ResJson<Sources> findSo1(@RequestParam(value="sid") Integer id) throws MyException {
+		Sources list = sourcesRepository.findOne(id);
 		return ResJsonUtil.success(list, "查询人员来源列表成功");
 	}
 

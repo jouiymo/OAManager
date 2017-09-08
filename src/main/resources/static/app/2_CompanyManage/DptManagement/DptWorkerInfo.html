@@ -12,9 +12,13 @@
 		<link rel="stylesheet" href="../../../static/common/css/common.css" />
 	</head>
 	<body ng-app="" >
-		<div ng-include="'../../PublicModules/left.html'"></div>	
+		<div ng-include="'../../PublicModules/left.html'"></div>
+		<h4 style="text-align: left;width: 800px;height: 40px;">
+		<a href="">公司管理 </a><span class="arrow">➤</span><a href="">部门管理</a><span class="arrow">➤</span><a href="">查看员工</a>
+		</h4>
 		<section>
-			<table class="table table-bordered">
+		
+			<table class="table table-striped">
 				<thead>
 					<th>员工号</th>
 					<th>姓名</th>
@@ -30,7 +34,7 @@
 						<td>助手</td>
 						<td>仙阁</td>
 						<td>123456</td>
-						<td>查看</td>
+						<td><button class="btn btn-default">人员详细</button></td>
 					</tr>
 					<tr>
 						<td>001</td>
@@ -38,10 +42,13 @@
 						<td>助手</td>
 						<td>仙阁</td>
 						<td>123456</td>
-						<td>查看</td>
+						<td><button class="btn btn-default">人员详细</button></td>
 					</tr>
 				</tbody>
 			</table>
+			<span><a href="">首页</a></span>&nbsp;&nbsp;&nbsp;<span><select id="peges" name="peges">
+				<option value="1">1</option>
+			</select></span>&nbsp;&nbsp;&nbsp;<span><a href="">尾页</a></span>
 		</section>
 		
 		<script type="text/javascript" src="../../../model/jquery-1.12.4.min.js"></script>
@@ -61,7 +68,7 @@
 				$(".asdtow4").slideToggle("fast")
 				.siblings(".asdtow4").slideUp("fast")
 				}else{
-					location.href = "dpt.html";
+					location.href = "/app/3_Enter/TalentPool.html";
 				}
 			}
 		</script>

@@ -14,17 +14,17 @@
 
 	</head>
 
-	<body ng-app="" >
+	<body ng-app="">
 		<div ng-include="'../PublicModules/left1.html'"></div>
 
-		<h4>
-		<a href="">首页</a><a href="">人才库管理</a>><a href="">人才库新增</a>
+		<h4 class="top_tag">
+		<a href="">人才库管理</a><span class="arrow">➤</span><a href="">人才库新增</a>
 	</h4>
 		<section>
-			<h4 style="margin-left: 50px;">基本信息</h4>
-			
+			<!--<h4 style="margin-left: 50px;">基本信息</h4>-->
+
 			<div class="row dispaly">
-				<div class="form-group form-inline" >
+				<div class="form-group form-inline">
 					<label for="name" style="margin-left: 28px;">姓名：</label> <input style="width: 167px;" type="text" class="form-control" id="fname" name="name" />
 					<label for="gender" style="margin: 0px 0px 0px 55px;">性别：</label>
 					<select class="form-control" id="gender" name="gender">
@@ -43,15 +43,15 @@
 				</div>
 
 				<div class="form-group form-inline">
-					
+
 				</div>
 				<div class="form-group form-inline">
-					
+
 					<label for="political">政治面貌：</label>
 					<select class="form-control" id="political" name="political">
 						<option value="">请选择</option>
 					</select>
-					<label for="attendDay" style="margin: 0px 0px 0px 65px;">参加工作日期：</label> <input style="width: 134px;" type="date" class="form-control" id="attendDay" name="attendDay" />
+					<label for="attendDay" style="margin: 0px 0px 0px 78px;">参加工作日期：</label> <input style="width: 134px;" type="date" class="form-control" id="attendDay" name="attendDay" />
 					<label for="nation" style="margin: 0px 0px 0px 50px;">民族：</label>
 					<select class="form-control" id="nation" name="nation">
 						<option value="0">请选择</option>
@@ -62,15 +62,15 @@
 					<label for="origins" style="margin: 0px 0px 0px 57px;">籍贯：</label>
 					<input style="width: 100px;" type="text" class="form-control" id="origins" name="origin" />
 					<label for="phone" style="margin: 0px 0px 0px 55px;">联系电话：</label> <input style="width: 164.54px;" type="number" class="form-control" id="phone" name="phone" />
-					
+
 				</div>
 				<div class="form-group form-inline">
 					<label for="email">电子邮件：</label> <input style="width: 167px;" type="email" class="form-control" id="email" name="email" />
 					<label for="height" style="margin: 0px 0px 0px 57px;">身高：</label> <input style="width: 100px;" type="text" class="form-control" id="height" name="height" />
-					<label for="bltype" style="margin: 0px 0px 0px 80px;">血型：</label>
+					<label for="bltype" style="margin: 0px 0px 0px 84px;">血型：</label>
 					<select class="form-control" id="bltype" name="bltype">
 						<option value="">请选择</option>
-					</select>					
+					</select>
 				</div>
 				<div class="form-group form-inline">
 					<label for="Marital">婚姻状况：</label>
@@ -78,25 +78,25 @@
 						<option value="">请选择</option>
 					</select>
 					<label for="birthplace" style="margin: 0px 0px 0px 120px;">出生地：</label> <input style="width: 120px;" type="text" class="form-control" id="birthplace" name="birthplace" />
-					<label for="University" style="margin: 0px 0px 0px 30px;">毕业院校：</label> <input style="width: 164.54px;" type="text" class="form-control" id="University" name="University" />
+					<label for="University" style="margin: 0px 0px 0px 37px;">毕业院校：</label> <input style="width: 164.54px;" type="text" class="form-control" id="University" name="University" />
 				</div>
 				<div class="form-group form-inline">
-					<label for="registeredpla" style="margin: 0px 0px 0px 0px;">户口地址：</label> <input style="width: 430px;" type="text" class="form-control" id="registeredpla" name="registeredpla" />					
+					<label for="registeredpla" style="margin: 0px 0px 0px 0px;">户口地址：</label> <input style="width: 430px;" type="text" class="form-control" id="registeredpla" name="registeredpla" />
 				</div>
 				<div class="form-group form-inline">
 					<label for="Major">所属专业：</label> <input style="width: 167px;" type="text" class="form-control" id="Major" name="Major" />
-					<label for="education" style="margin: 0px 0px 0px 30px;">最高学历：</label>
+					<label for="education" style="margin: 0px 0px 0px 28px;">最高学历：</label>
 					<select class="form-control" id="education" name="education">
 						<option value="">请选择</option>
 					</select>
-					<label for="degree" style="margin: 0px 0px 0px 32px;">最高学位：</label>
+					<label for="degree" style="margin: 0px 0px 0px 70px;">最高学位：</label>
 					<select class="form-group form-control" id="degree" name="degree">
 						<option value="">请选择</option>
-					</select>			
+					</select>
 				</div>
-			<div  >
-				<button style="margin:0px 0px 0px 366px;"  type="button" onclick="check()" class="btn btn-default">保存</button>
-			</div>
+				<div>
+					<button style="margin:24px 0px 0px 300px;width:90px " type="button " onclick="check() " class="btn btn-warning form-control ">保存</button>
+				</div>
 			</div>
 		</section>
 
@@ -105,22 +105,22 @@
 		<script type="text/javascript" src="../../model/Util.js"></script>
 		<script src="../../static/3_TalentPool/js/AddTalenPool.js" type="text/javascript"></script>
 		<script type="text/javascript">
-			
 			function fmtDate(obj) {
 				var date = new Date(obj);
 				var y = 1900 + date.getYear();
 				var m = "0" + (date.getMonth() + 1);
 				var d = "0" + date.getDate();
-				return y + "-" + m.substring(m.length - 2, m.length) + "-"
-						+ d.substring(d.length - 2, d.length);
+				return y + "-" + m.substring(m.length - 2, m.length) + "-" +
+					d.substring(d.length - 2, d.length);
 			}
+
 			function check() {
 				var id = localStorage.getItem("key");
 				$.ajax({
 					type: "post",
 					url: "http://localhost:8099/" + "alterTalent",
 					data: {
-						"id":id,
+						"id": id,
 						"name": fname.value,
 						"gender": gender.value,
 						"birth": birth.value,
@@ -162,23 +162,23 @@
 			$(function() {
 				var id = localStorage.getItem("key");
 				$.ajax({
-					type : "get",
-					url : "http://localhost:8099/" + "findTalent",
-					data : {
-						"id" : id
+					type: "get",
+					url: "http://localhost:8099/" + "findTalent",
+					data: {
+						"id": id
 					},
-					dataType : "json",
-					"complete" : function(XHR, TS) {
-						if ("success" != TS) {
+					dataType: "json",
+					"complete": function(XHR, TS) {
+						if("success" != TS) {
 							return alert("服务器么有正确响应");
 						}
 						var dates = JSON.parse(XHR.responseText)
-						if (dates.code == -1) {
+						if(dates.code == -1) {
 							alert(dates.msg);
 						} else {
 							var arr = dates.data.content;
 
-							for (var i = 0; i < arr.length; i++) {
+							for(var i = 0; i < arr.length; i++) {
 								fname.value = arr[i].name;
 								gender.value = arr[i].gender;
 								birth.value = fmtDate(arr[i].birth);
@@ -205,24 +205,24 @@
 					}
 				});
 			});
-			
+
 			function topg(lis) {
-			if(lis == 1) {
-				$(".asdtow1").slideToggle("fast")
-					.siblings(".asdtow1").slideUp("fast")
-			} else if(lis == 2) {
-				$(".asdtow2").slideToggle("fast")
-					.siblings(".asdtow2").slideUp("fast")
-			} else if(lis == 3) {
-				$(".asdtow3").slideToggle("fast")
-					.siblings(".asdtow3").slideUp("fast")
-			} else if(lis == 4) {
-				$(".asdtow4").slideToggle("fast")
-					.siblings(".asdtow4").slideUp("fast")
-			} else {
-				location.href = "dpt.html";
+				if(lis == 1) {
+					$(".asdtow1").slideToggle("fast")
+						.siblings(".asdtow1").slideUp("fast")
+				} else if(lis == 2) {
+					$(".asdtow2").slideToggle("fast")
+						.siblings(".asdtow2").slideUp("fast")
+				} else if(lis == 3) {
+					$(".asdtow3").slideToggle("fast")
+						.siblings(".asdtow3").slideUp("fast")
+				} else if(lis == 4) {
+					$(".asdtow4").slideToggle("fast")
+						.siblings(".asdtow4").slideUp("fast")
+				} else {
+					location.href = "/app/3_Enter/TalentPool.html";
+				}
 			}
-		}
 		</script>
 
 	</body>

@@ -12,33 +12,33 @@
 		<script type="text/javascript" src="../../../model/angular.min.js"></script>
 	</head>
 	<body ng-app="" >
-		<div ng-include="'../../PublicModules/top.html'"></div>
-		<div ng-include="'../../PublicModules/left.html'"></div>
-		
-		<h4><a>首页</a>><a>用户管理</a></h4>
+		<div ng-include="'../../PublicModules/left.html'"></div>	
+		<h4><a>系统管理</a><span class="arrow">➤</span><a>用户管理</a></h4>
 		<section>
-			<form class="form-inline">
-				<div class="form-group">
+			<div class="form-inline form-group">
+				<div class="form-group" style="margin: 0px 200px 0px 60px;">
 					<label for="Username">姓名</label>
 					<input type="date" class="form-control" id="Username" name="Username">
 				</div>
 				<div class="form-group">
 					<label for="number">工号</label>
 					<input type="date" class="form-control" id="number" name="number">
-				</div>
-				<div class="form-group">
+				</div>			
+			</div>
+			<div class="form-inline form-group">			
+				<div class="form-group" style="margin: 0px 150px 0px 0px;">
 					<label for="logTimeStart">注册开始时间</label>
-					<input type="text" class="form-control" id="logTimeStart" name="logTimeStart">
+					<input type="date" class="form-control" id="logTimeStart" name="logTimeStart">
 				</div>
-				<div class="form-group">
+				<div class="form-group" style="margin-right: 200px;">
 					<label for="logTimeEnd">注册结束时间</label>
-					<input type="text" class="form-control" id="logTimeEnd" name="logTimeEnd">
+					<input type="date" class="form-control" id="logTimeEnd" name="logTimeEnd">
 				</div>
 				<button type="submit" class="btn btn-default">查询</button>
-				
-			</form>
-			<div>
 				<a href="AddUser.html"><button type="submit" class="btn btn-default">新增</button></a>
+			</div>
+			<div>
+				
 			</div>
 			<table class="table table-striped">
 				<thead>
@@ -101,7 +101,7 @@
 				$(".asdtow4").slideToggle("fast")
 				.siblings(".asdtow4").slideUp("fast")
 				}else{
-					location.href = "dpt.html";
+					location.href = "/app/3_Enter/TalentPool.html";
 				}
 			}
 		</script>

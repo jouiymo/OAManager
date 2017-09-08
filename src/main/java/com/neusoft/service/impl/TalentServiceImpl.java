@@ -42,7 +42,8 @@ public class TalentServiceImpl implements TalentService {
 	}
 
 	@Override
-	public List<TalentInfo> findTalentInfoByIdNo(String IdNo) throws MyException {
+	public TalentInfo findTalentInfoByIdNo(String IdNo) throws MyException {
+		
 		return talentInfoRepository.findByCardnumber(IdNo);
 	}
 

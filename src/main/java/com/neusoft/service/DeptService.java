@@ -25,7 +25,7 @@ public interface DeptService {
 	public Dept del(Dept dept) throws MyException;
 
 	// 通过部门编号查询部门列表
-	public List<Dept> findDeptByDeptId(Integer id) throws MyException;
+	public Dept findDeptByDeptId(Integer id) throws MyException;
 
 	// 通过部门名称查询部门列表
 	public List<Dept> findDeptByDeptName(String name) throws MyException;

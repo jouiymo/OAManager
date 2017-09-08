@@ -12,6 +12,6 @@ public interface TalentInfoRepository extends BaseJpaRepository<TalentInfo, Inte
 
 	List<TalentInfo> findByGender(Integer gender);
 
-	List<TalentInfo> findByCardnumber(String idNo);
+	TalentInfo findByCardnumber(String idNo);
 
 }

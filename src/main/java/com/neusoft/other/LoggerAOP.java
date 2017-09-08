@@ -29,9 +29,9 @@ import com.neusoft.util.ResJsonUtil;
  * @author sky
  *
  */
-@Aspect
-@Component
-@Order(2)
+//@Aspect
+//@Component
+//@Order(2)
 public class LoggerAOP {
 
 	private final static Logger logger = LoggerFactory.getLogger(LoggerAOP.class);
@@ -42,15 +42,16 @@ public class LoggerAOP {
 
 	// 记录http请求相关信息
 	@Around("logPc()")
-	public void httpLog(ProceedingJoinPoint pjp) throws Throwable {
-
+	public Object httpLog(ProceedingJoinPoint pjp) throws Throwable {
+		Object retVal = null;
+		
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
 				.getRequest();
 		HttpSession session = request.getSession();
 
 		// 用户没有登录，前台接收此错误请直接跳转到登录界面
 		if (session == null) {
-			return;
+			return retVal;
 		}
 		// 获取请求IP
 		String ip = request.getHeader("x-forwarded-for");
@@ -79,7 +80,7 @@ public class LoggerAOP {
 		// 访问开始时间
 		Long starTime = System.currentTimeMillis();
 		// 运行被切方法
-		pjp.proceed();
+		retVal = pjp.proceed();
 		// 访问结束时间
 		Long endTime = System.currentTimeMillis();
 		// 耗时
@@ -87,7 +88,7 @@ public class LoggerAOP {
 
 		logger.info("username={},empId={},empname={},starTime={},endTime={},time={},url={},medthod={},class_medthod={}",
 				username, empId, empname, starTime, endTime, time, url, medthod, class_medthod);
-
+		return retVal;
 	}
 
 }

@@ -1,4 +1,10 @@
 section{
-	margin-left: 500px;
-	width: 450px;
+	float: right;
+	width: 1200px;
+	height: 649px;
+	margin-left: 240px;
+	position: absolute;
+}
+table{
+	width: 959px;
 }

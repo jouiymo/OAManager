@@ -9,6 +9,10 @@ public interface EmpInfoRepository extends BaseJpaRepository<EmployeeInfo, Integ
 
 	List<EmployeeInfo> findByNameContainingAndState(String userName,Integer state);
 
+	List<EmployeeInfo> findByDeptName(String name);
+
+	List<EmployeeInfo> findByPostName(String name);
+
 
 
 	

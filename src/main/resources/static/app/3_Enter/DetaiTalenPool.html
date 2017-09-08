@@ -14,14 +14,14 @@
 
 	</head>
 
-	<body ng-app="" >
+	<body ng-app="">
 		<div ng-include="'../PublicModules/left1.html'"></div>
 
-		<h4>
-		<a href="">首页</a><a href="">人才库管理</a>><a href="">人才详细信息</a>
-	</h4>
+		<h4 class="top_tag">
+		<a href="">人才库管理</a><span class="arrow">➤</span><a href="">人才详细信息</a>
+	    </h4>
 		<section>
-			<h4 style="margin-left: 50px;">基本信息</h4>
+			<!--<h4 style="margin-left: 50px;">基本信息</h4>-->
 
 			<div class="row dispaly">
 				<div class="form-group form-inline">
@@ -44,20 +44,23 @@
 					<label for="political">政治面貌：</label>
 					<select class="form-control" disabled="disabled" id="political" name="political">
 						<option value="">请选择</option>
-					</select> <label for="attendDay" style="margin: 0px 0px 0px 65px;">参加工作日期：</label>
-					<input readonly="readonly" style="width: 134px;" type="date" class="form-control" id="attendDay" name="attendDay" /> <label for="nation" style="margin: 0px 0px 0px 50px;">民族：</label>
+					</select> <label for="attendDay" style="margin: 0px 0px 0px 78px">参加工作日期：</label>
+					<input readonly="readonly" style="width: 134px;" type="date" class="form-control" id="attendDay" name="attendDay" /> <label for="nation" style="margin: 0px 0px 0px 50px; ">民族：</label>
 					<select class="form-control" disabled="disabled" id="nation" name="nation">
 						<option value="0">请选择</option>
 					</select>
 				</div>
 				<div class="form-group form-inline">
-					<label for="graduation">毕业日期：</label> <input readonly="readonly" style="width: 167px;" type="date" class="form-control" id="graduation" name="graduation" /> 
-					<label for="origins" style="margin: 0px 0px 0px 57px;">籍贯：</label> <input style="width: 100px;" readonly="readonly" type="text" class="form-control" id="origins" name="origins" />				
+					<label for="graduation">毕业日期：</label> <input readonly="readonly" style="width: 167px;" type="date" class="form-control" id="graduation" name="graduation" />
+					<label for="origins" style="margin: 0px 0px 0px 57px;">籍贯：</label> <input style="width: 100px;" readonly="readonly" type="text" class="form-control" id="origins" name="origins" />
 					<label for="phone" style="margin: 0px 0px 0px 55px;">联系电话：</label> <input style="width: 164.54px;" readonly="readonly" type="number" class="form-control" id="phone" name="phone" />
 
 				</div>
 				<div class="form-group form-inline">
-					<label for="email">电子邮件：</label> <input style="width: 167px;" readonly="readonly" type="email" class="form-control" id="email" name="email" /> <label for="height" style="margin: 0px 0px 0px 57px;">身高：</label> <input readonly="readonly" style="width: 100px;" type="text" class="form-control" id="height" name="height" /> <label for="bltype" style="margin: 0px 0px 0px 80px;">血型：</label>
+					<label for="email">电子邮件：</label> <input style="width: 167px;" readonly="readonly" type="email" class="form-control" id="email" name="email" /> 
+					<label for="height" style="margin: 0px 0px 0px 57px;">身高：</label> 
+					<input readonly="readonly" style="width: 100px;" type="text" class="form-control" id="height" name="height" /> 
+					<label for="bltype" style="margin: 0px 0px 0px 84px;">血型：</label>
 					<select class="form-control" disabled="disabled" id="bltype" name="bltype">
 						<option value="">请选择</option>
 					</select>
@@ -67,7 +70,7 @@
 					<select class="form-control" disabled="disabled" id="Marital" name="Marital">
 						<option value="">请选择</option>
 					</select> <label for="birthplace" style="margin: 0px 0px 0px 120px;">出生地：</label>
-					<input style="width: 120px;" readonly="readonly" type="text" class="form-control" id="birthplace" name="birthplace" /> <label for="University" style="margin: 0px 0px 0px 30px;">毕业院校：</label> <input style="width: 164.54px;" readonly="readonly" type="text" class="form-control" id="University" name="University" />
+					<input style="width: 120px;" readonly="readonly" type="text" class="form-control" id="birthplace" name="birthplace" /> <label for="University" style="margin: 0px 0px 0px 36px;">毕业院校：</label> <input style="width: 164.54px;" readonly="readonly" type="text" class="form-control" id="University" name="University" />
 				</div>
 				<div class="form-group form-inline">
 					<label for="registeredpla" style="margin: 0px 0px 0px 0px;">户口地址：</label>
@@ -77,13 +80,13 @@
 					<label for="Major">所属专业：</label> <input style="width: 167px;" readonly="readonly" type="text" class="form-control" id="Major" name="Major" /> <label for="education" style="margin: 0px 0px 0px 30px;">最高学历：</label>
 					<select class="form-control" disabled="disabled" id="education" name="education">
 						<option value="">请选择</option>
-					</select> <label for="degree" style="margin: 0px 0px 0px 32px;">最高学位：</label>
+					</select> <label for="degree" style="margin: 0px 0px 0px 64px;">最高学位：</label>
 					<select class="form-group form-control" disabled="disabled" id="degree" name="degree">
 						<option value="">请选择</option>
 					</select>
 				</div>
 				<div>
-					<button style="margin: 0px 0px 0px 366px;" type="button" onclick="back()" class="btn btn-default">返回</button>
+					<button style="margin: 24px 0px 0px 300px;width: 90px;" type="button" onclick="back()" class="btn btn-warning form-control ">返回</button>
 				</div>
 			</div>
 		</section>
@@ -109,7 +112,7 @@
 					data: {
 						"id": id
 					},
-					 
+
 					dataType: "json",
 					"complete": function(XHR, TS) {
 						if("success" != TS) {
@@ -153,23 +156,24 @@
 				localStorage.removeItem('key');
 				location.href = "TalentPool.html";
 			}
-		function topg(lis) {
-			if(lis == 1) {
-				$(".asdtow1").slideToggle("fast")
-					.siblings(".asdtow1").slideUp("fast")
-			} else if(lis == 2) {
-				$(".asdtow2").slideToggle("fast")
-					.siblings(".asdtow2").slideUp("fast")
-			} else if(lis == 3) {
-				$(".asdtow3").slideToggle("fast")
-					.siblings(".asdtow3").slideUp("fast")
-			} else if(lis == 4) {
-				$(".asdtow4").slideToggle("fast")
-					.siblings(".asdtow4").slideUp("fast")
-			} else {
-				location.href = "dpt.html";
+
+			function topg(lis) {
+				if(lis == 1) {
+					$(".asdtow1").slideToggle("fast")
+						.siblings(".asdtow1").slideUp("fast")
+				} else if(lis == 2) {
+					$(".asdtow2").slideToggle("fast")
+						.siblings(".asdtow2").slideUp("fast")
+				} else if(lis == 3) {
+					$(".asdtow3").slideToggle("fast")
+						.siblings(".asdtow3").slideUp("fast")
+				} else if(lis == 4) {
+					$(".asdtow4").slideToggle("fast")
+						.siblings(".asdtow4").slideUp("fast")
+				} else {
+					location.href = "/app/3_Enter/TalentPool.html";
+				}
 			}
-		}
 		</script>
 
 	</body>

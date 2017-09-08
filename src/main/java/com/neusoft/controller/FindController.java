@@ -83,7 +83,7 @@ public class FindController {
 	// 通过构建不完整的人才库信息查询人才库列表
 	@GetMapping(value = "/findTalent")
 	public ResJson<TalentInfo> findTalent(@ModelAttribute TalentInfo talentInfo,
-			@RequestParam(value = "page", defaultValue = "1") Integer page,
+			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "size", defaultValue = "15") Integer size) throws MyException {
 
 		Pageable pageable = new PageRequest(page, size);
@@ -95,7 +95,7 @@ public class FindController {
 	// 通过构建不完整的用户查询用户列表
 	@GetMapping(value = "/findUser")
 	public ResJson<User> findUser(@ModelAttribute User user,
-			@RequestParam(value = "page", defaultValue = "1") Integer page,
+			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "size", defaultValue = "15") Integer size) throws MyException {
 
 		Pageable pageable = new PageRequest(page, size);
@@ -116,7 +116,7 @@ public class FindController {
 	// 通过构建不完整的部门查询部门列表
 	@GetMapping(value = "/findDept")
 	public ResJson<Dept> findDept(@ModelAttribute Dept dept,
-			@RequestParam(value = "page", defaultValue = "1") Integer page,
+			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "size", defaultValue = "15") Integer size) throws MyException {
 
 		Pageable pageable = new PageRequest(page, size);
@@ -128,7 +128,7 @@ public class FindController {
 	// 通过构建不完整的岗位查询岗位列表
 	@GetMapping(value = "/findPost")
 	public ResJson<Post> findPost(@ModelAttribute Post post,
-			@RequestParam(value = "page", defaultValue = "1") Integer page,
+			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "size", defaultValue = "15") Integer size) throws MyException {
 
 		Pageable pageable = new PageRequest(page, size);
@@ -233,7 +233,7 @@ public class FindController {
 	// 员工Id查询员工基本信息
 	@GetMapping(value = "/findEmpInfoByEmpId")
 	public ResJson<EmployeeInfo> findEmpInfoByEmpId(Integer empId,
-			@RequestParam(value = "page", defaultValue = "1") Integer page,
+			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "size", defaultValue = "15") Integer size) throws MyException {
 
 		Pageable pageable = new PageRequest(page, size);

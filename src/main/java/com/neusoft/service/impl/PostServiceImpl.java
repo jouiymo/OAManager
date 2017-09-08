@@ -13,8 +13,10 @@ import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Service;
 
 import com.neusoft.domain.Dept;
+import com.neusoft.domain.EmployeeInfo;
 import com.neusoft.domain.Post;
 import com.neusoft.exception.MyException;
+import com.neusoft.repository.EmpInfoRepository;
 import com.neusoft.repository.PostRepository;
 import com.neusoft.service.PostService;
 
@@ -22,7 +24,9 @@ import com.neusoft.service.PostService;
 public class PostServiceImpl implements PostService {
 	@Autowired
 	private PostRepository postRepository;
-
+	@Autowired
+	EmpInfoRepository empInfoRepository;
+	
 	@Override
 	@Transactional
 	public Post add(Post post) throws MyException {
@@ -48,6 +52,11 @@ public class PostServiceImpl implements PostService {
 	@Override
 	@Transactional
 	public Post del(Post post) throws MyException {
+		post = postRepository.findOne(post.getId());
+		List<EmployeeInfo> list= empInfoRepository.findByPostName(post.getName());
+		if(list.size()>0){
+			throw new MyException(52, "删除岗位失败");
+		}
 		post.setState(-1);
 		try {
 			return postRepository.save(post);
@@ -58,9 +67,9 @@ public class PostServiceImpl implements PostService {
 	//----------------------------------------------------------------------------
 	//需要实现分页与按部分的Id来查询列表,需要考虑是否显示已经被删除的部分
 	@Override
-	public List<Post> findPostByPostId(Integer id) {
+	public Post findPostByPostId(Integer id) {
 		
-		return null;
+		return postRepository.findOne(id);
 	}
 
 	@Override

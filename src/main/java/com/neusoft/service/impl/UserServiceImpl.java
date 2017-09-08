@@ -73,18 +73,18 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User del(User user) throws MyException {
-		user.setState(-1);
+	
 		try {
-			return userRepository.save(user);
+			userRepository.delete(user);
 		} catch (Exception e) {
 			throw new MyException(53, "删除用户失败");
 		}
-		
+		return null;
 		
 	}
 
 	@Override
-	public List<User> findUserByEmpId(Integer empId) throws MyException {
+	public User findUserByEmpId(Integer empId) throws MyException {
 		try {
 			return userRepository.findByEidAndState(empId,1);
 		} catch (Exception e) {

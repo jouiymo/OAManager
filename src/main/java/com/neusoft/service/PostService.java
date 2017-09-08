@@ -25,7 +25,7 @@ public interface PostService {
 	public Post del(Post post) throws MyException;
 
 	// 通过岗位编号查询岗位列表
-	public List<Post> findPostByPostId(Integer id) throws MyException;
+	public Post findPostByPostId(Integer id) throws MyException;
 
 	// 通过岗位名称查询岗位列表
 	public List<Post> findPostByPostName(String postName) throws MyException;

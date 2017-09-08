@@ -160,7 +160,7 @@ public class EmpServiceImpl implements EmpService {
 	@Override
 	public List<Exam> findExamBySimpleExam(Exam exam, Integer size, Integer page) throws MyException {
 		EntityManager em = eFactory.createEntityManager();
-		String sql = "select e.name en,e.id ei,d.name dn from Employee_Info e left join dept d on e.dept_name=d.name  ";
+		String sql = "select e.name en,e.id ei,d.name dn from EmployeeInfo e left join dept d on e.deptname=d.name  ";
 		sql += " where e.state=1 ";
 		if (null != exam.getUserName() && exam.getUserName().length()!=0 ) {
 			sql += " and e.name='" + exam.getUserName() + "'";
@@ -202,7 +202,7 @@ public class EmpServiceImpl implements EmpService {
 		 * Select
 		 * e.probationstart,e.probationend,e.name,e.id,q.quitday,q.type,ds.
 		 * switchday,ds.type,pi.result, ps.type,p.name,p.id,d.name,d.id from
-		 * Employee_Info e,quit q,Dept_Switch ds,Probation_Information
+		 * EmployeeInfo e,quit q,DeptSwitch ds,ProbationInformation
 		 * pi,PostSwitch ps,Post p,dept d
 		 */
 
@@ -212,7 +212,7 @@ public class EmpServiceImpl implements EmpService {
 		 * +
 		 * "ps.type pt,p.name pn,p.id pid,d.name dn,d.id di,ps.switchday from "
 		 * +
-		 * " Employee_Info e,quit q,Dept_Switch ds,Probation_Information pi,Post_Switch ps,Post p,dept d "
+		 * " EmployeeInfo e,quit q,DeptSwitch ds,ProbationInformation pi,PostSwitch ps,Post p,dept d "
 		 * ; try { flag = CheckUtil.checkObjFieldIsNull(exam); } catch
 		 * (IllegalAccessException e) { e.printStackTrace(); } if (true != flag)
 		 * { sql += "where e.deptid=d.id"; if (null != exam.getFinalDay()) { sql
@@ -250,7 +250,7 @@ public class EmpServiceImpl implements EmpService {
 		 * +
 		 * "ps.type pt9,p.name pn10,p.id pid11,d.name dn12,d.id di13 ,ps.switchday14 from "
 		 * +
-		 * " Employee_Info e,quit q,Dept_Switch ds,Probation_Information pi,Post_Switch ps,Post p,dept d "
+		 * " EmployeeInfo e,quit q,DeptSwitch ds,ProbationInformation pi,PostSwitch ps,Post p,dept d "
 		 * ; for (Object obj : list) { Object[] objs = (Object[])obj; Exam ex =
 		 * new Exam((Date)objs[0], (Date)objs[1], exam.getFinDay(),
 		 * exam.getBegDay(), (Date)objs[4],exam.getDfinDay(),
@@ -271,7 +271,7 @@ public class EmpServiceImpl implements EmpService {
 	public List<Exam> findExamByDeptTransExam(Exam exam, Integer size, Integer page) throws MyException {
 		EntityManager em = eFactory.createEntityManager();
 
-		String sql = "select e.name en,e.id ei,d.name,d.id,ds.type,ds.switchday from Dept_Switch ds left join Employee_Info e on ds.eid=e.id left join dept d on ds.deptid=d.id ";
+		String sql = "select e.name en,e.id ei,d.name,d.id,ds.type,ds.switchday from DeptSwitch ds left join EmployeeInfo e on ds.eid=e.id left join dept d on ds.deptid=d.id ";
 		// 此处有缺陷，调动信息应只持有员工Id，其他信息应通过员工查询到。否则查询会变得更复杂易错
 		sql += " where e.state = 1 ";
 		if (null != exam.getDfinDay() && null != exam.getDbegDay()) {
@@ -313,7 +313,7 @@ public class EmpServiceImpl implements EmpService {
 	public List<Exam> findExamByPostTransExam(Exam exam, Integer size, Integer page) throws MyException {
 		EntityManager em = eFactory.createEntityManager();
 
-		String sql = "select e.name en,e.id ei,p.name,p.id,ps.type,ps.switchday from post_Switch ps left join Employee_Info e on ps.eid=e.id left join post p on ps.postid=p.id ";
+		String sql = "select e.name en,e.id ei,p.name,p.id,ps.type,ps.switchday from postSwitch ps left join EmployeeInfo e on ps.eid=e.id left join post p on ps.postid=p.id ";
 		sql += " where  e.state = 1 ";
 		if (null != exam.getPfinDay() && null != exam.getPbegDay()) {
 			sql += " and p.switchday between '" + exam.getPfinDay() + "' and '" + exam.getPbegDay() + "'";
@@ -355,7 +355,7 @@ public class EmpServiceImpl implements EmpService {
 	public List<Exam> findExamByQuitExam(Exam exam, Integer size, Integer page) throws MyException {
 		EntityManager em = eFactory.createEntityManager();
 		// 如果对应的部门名称重复，那么1条quit数据查出两个结果
-		String sql = "select e.name en,e.id ei,p.name pn,d.name dn,q.type,q.quitday from quit q left join Employee_Info e on q.eid=e.id left join dept d on e.dept_name=d.name left join post p on e.post_name=p.name ";
+		String sql = "select e.name en,e.id ei,p.name pn,d.name dn,q.type,q.quitday from quit q left join EmployeeInfo e on q.eid=e.id left join dept d on e.deptname=d.name left join post p on e.postname=p.name ";
 		sql += " where e.state = -1 ";
 		if (null != exam.getFinDay() && null != exam.getBegDay()) {
 			sql += " and q.quitday between '" + exam.getFinDay() + "' and " + exam.getBegDay() + "'";
@@ -401,7 +401,7 @@ public class EmpServiceImpl implements EmpService {
 	@Override
 	public List<Exam> findExamByTransExam(Exam exam, Integer size, Integer page) throws MyException {
 		EntityManager em = eFactory.createEntityManager();
-		String sql = "select e.name en,e.id ei,d.name dn,d.id di,pi.process from Probation_Information pi left join Employee_Info e on pi.eid=e.id left join dept d on e.dept_name=d.name  ";
+		String sql = "select e.name en,e.id ei,d.name dn,d.id di,pi.process from ProbationInformation pi left join EmployeeInfo e on pi.eid=e.id left join dept d on e.deptname=d.name  ";
 		sql += " where  e.state = 1 ";
 		if (null != exam.getPifinDay() && null != exam.getPibegDay()) {
 			sql += " and pi.process between '" + exam.getPifinDay() + "' and '" + exam.getPibegDay() + "'";
@@ -444,7 +444,7 @@ public class EmpServiceImpl implements EmpService {
 	public List<Exam> findExamByProbaExam(Exam exam, Integer size, Integer page) throws MyException {
 
 		EntityManager em = eFactory.createEntityManager();
-		String sql = "select e.name en,e.id ei,d.name dn,p.name pn,pi.result,e.probationstart,e.probationend from Probation_Information pi left join Employee_Info e on pi.eid=e.id left join dept d on e.dept_name=d.name left join post p on e.post_name=p.name  ";
+		String sql = "select e.name en,e.id ei,d.name dn,p.name pn,pi.result,e.probationstart,e.probationend from ProbationInformation pi left join EmployeeInfo e on pi.eid=e.id left join dept d on e.deptname=d.name left join post p on e.postname=p.name  ";
 		sql += " where  e.state = 1 ";
 		if (null != exam.getFinalDay() && null != exam.getBeginDay()) {
 			sql += " and e.probationstart >= '" + exam.getBeginDay() + "' and e.probationend<= '" + exam.getFinalDay()

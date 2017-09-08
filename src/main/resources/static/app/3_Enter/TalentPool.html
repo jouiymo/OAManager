@@ -14,18 +14,21 @@
 
 	</head>
 
-	<body ng-app="" >
+	<body ng-app="">
 		<div ng-include="'../PublicModules/left1.html'"></div>
+		<h4 class="top_tag">
+		<a href="">人才库管理</a><span class="arrow">➤</span>
+		<a href="">人才库登记</a>
+		</h4>
+		<section	>
 
-		<section>
-			<h4><a>首页</a>><a>人才库管理</a>><a>人才库登记</a></h4>
 			<div class="form-group form-inline">
 				<div class="form-group">
 					<label for="name">姓名</label>
 					<input type="text" class="form-control" id="fname" name="name" />
 				</div>
 				<div class="form-group">
-					<label for="cardnumber">身份证号</label>
+					<label for="cardnumber" style="margin-left: 100px;">身份证号</label>
 					<input type="number" class="form-control" id="cardnumber" name="cardnumber" />
 				</div>
 				<button type="button" onclick="chenke()" class="btn btn-default">查询</button>
@@ -51,7 +54,7 @@
 				<span><a href="">首页</a></span><span><a href="">上一页</a></span>
 				<span>1</span><span><a href="">下一页</a></span>
 			</div>-->
-			<div>
+			<div class="paging">
 				<span><a href="">首页</a></span>&nbsp;&nbsp;&nbsp;<span><select id="peges" name="peges">
 					<option value="1">1</option>
 				</select></span>&nbsp;&nbsp;&nbsp;<span><a href="">尾页</a></span>
@@ -62,8 +65,6 @@
 		<script type="text/javascript" src="../../model/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="../../model/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
-			
-
 			function chenke() {
 				var pType = $("#querylist");
 				pType.html("");
@@ -108,30 +109,30 @@
 				});
 			};
 			//详细信息
-			function chaxx (id) {
+			function chaxx(id) {
 				localStorage.removeItem('key');
 				localStorage.setItem("key", id);
-				location.href = "DetaiTalenPool.html";	
+				location.href = "DetaiTalenPool.html";
 			}
 			//人才库入职
-			function entry (id) {
+			function entry(id) {
 				localStorage.removeItem('key');
 				localStorage.setItem("key", id);
-				location.href = "RcNewTalent.html";	
+				location.href = "RcNewTalent.html";
 			}
 			//修改
-			function updat (id) {
+			function updat(id) {
 				localStorage.removeItem('key');
 				localStorage.setItem("key", id);
-				location.href = "UpdateEnterInfo.html";	
+				location.href = "UpdateEnterInfo.html";
 			}
 			//删除
-			function delect (id) {
+			function delect(id) {
 				$.ajax({
 					type: "get",
 					url: "http://localhost:8099/" + "findTalent",
 					data: {
-						"id": id			
+						"id": id
 					},
 					dataType: "json",
 					"complete": function(XHR, TS) {
@@ -147,24 +148,24 @@
 					}
 				});
 			}
-			
+
 			function topg(lis) {
-			if(lis == 1) {
-				$(".asdtow1").slideToggle("fast")
-					.siblings(".asdtow1").slideUp("fast")
-			} else if(lis == 2) {
-				$(".asdtow2").slideToggle("fast")
-					.siblings(".asdtow2").slideUp("fast")
-			} else if(lis == 3) {
-				$(".asdtow3").slideToggle("fast")
-					.siblings(".asdtow3").slideUp("fast")
-			} else if(lis == 4) {
-				$(".asdtow4").slideToggle("fast")
-					.siblings(".asdtow4").slideUp("fast")
-			} else {
-				location.href = "dpt.html";
+				if(lis == 1) {
+					$(".asdtow1").slideToggle("fast")
+						.siblings(".asdtow1").slideUp("fast")
+				} else if(lis == 2) {
+					$(".asdtow2").slideToggle("fast")
+						.siblings(".asdtow2").slideUp("fast")
+				} else if(lis == 3) {
+					$(".asdtow3").slideToggle("fast")
+						.siblings(".asdtow3").slideUp("fast")
+				} else if(lis == 4) {
+					$(".asdtow4").slideToggle("fast")
+						.siblings(".asdtow4").slideUp("fast")
+				} else {
+					location.href = "/app/3_Enter/TalentPool.html";
+				}
 			}
-		}
 		</script>
 	</body>
 

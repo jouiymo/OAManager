@@ -11,6 +11,6 @@ public interface UserRepository extends BaseJpaRepository<User, Integer> {
 
 	List<User> findByEnameContainingAndState(String empName, int state);
 
-	List<User> findByEidAndState(Integer empId, int state);
+	User findByEidAndState(Integer empId, int state);
 
 }
